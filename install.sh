@@ -7,4 +7,4 @@ ln -s .vimrc ~
 
 # Fish
 mkdir -p ~/.config/fish/functions/
-ln -n fish_prompt.fish ~/.config/fish/functions
+ln -s fish_prompt.fish ~/.config/fish/functions
