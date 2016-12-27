@@ -56,6 +56,9 @@ syntax on
 set autoindent
 set cindent
 set number
+
+" Prevent beep
+set vb t_vb=
  
 set tabstop=4
 set shiftwidth=4
