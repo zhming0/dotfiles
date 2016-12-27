@@ -10,3 +10,6 @@ ln -s {BASEDIR}/.vimrc ~/.vimrc
 # Fish
 mkdir -p ~/.config/fish/functions/
 ln -s {BASEDIR}/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
+
+# Tmux
+ln -s {BASEDIR}/.tmux.conf ~/.tmux.conf
