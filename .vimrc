@@ -17,7 +17,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 set laststatus=2
 
-Plugin 'vim-scripts/VimClojure'
+Plugin 'guns/vim-clojure-static'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ksauzz/thrift.vim'
@@ -27,7 +27,7 @@ Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'Shougo/neocomplcache.vim'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'othree/html5.vim'
 Plugin 'elzr/vim-json'
 Plugin 'vim-scripts/Cpp11-Syntax-Support'
@@ -104,13 +104,15 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " Highlight for *.md files
 au BufRead,BufNewFile *.md set filetype=markdown
 
-" Neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
+" NeoComplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1"
+let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.out 
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules|dist|bower_components)$',
+    \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules|dist|bower_components|target)$',
     \ 'file': '\v\.(exe|so|dll)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
