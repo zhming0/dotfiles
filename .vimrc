@@ -97,6 +97,7 @@ nnoremap <C-l> <C-w>l
 
 " Backspace behaviour in vim 7.4
 set backspace=indent,eol,start 
+set noswapfile
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -122,3 +123,9 @@ let g:jsx_ext_required = 0
 
 " vim-fireplace
 autocmd User FireplacePreConnect call fireplace#register_port_file(expand('~/.lein/repl-port'), '/')
+
+" Map double space to save
+noremap <Space> :w<CR>
+" Map jk in insert mode to exist to normal
+inoremap jk <esc>
+set cursorline
