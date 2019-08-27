@@ -31,9 +31,8 @@ brew install \
 
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzip qlimagesize webpquicklook suspicious-package quicklookase qlvideo
 
-if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
-then
-	echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
-fi;
-chsh -s $(which fish)
+bash ./fish/setup.sh
+
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
