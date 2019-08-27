@@ -27,7 +27,8 @@ brew install \
   terraform \
   telnet \
   ripgrep \
-  fish
+  fish \
+  yarn
 
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
