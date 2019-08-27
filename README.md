@@ -1,3 +1,8 @@
-## .files
+## dotfiles
 
-My dotfiles.
+### To use
+
+```
+./install.sh
+./symlinks.sh
+```
