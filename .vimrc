@@ -6,6 +6,11 @@ if $SHELL =~ 'bin/fish'
     set shell=/bin/sh
 endif
 
+" For python3 warning
+if has('python3')
+  silent! python3 1
+endif
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -38,6 +43,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'dag/vim-fish'
 Plugin 'tpope/vim-fireplace'
+Plugin 'martinda/Jenkinsfile-vim-syntax'
 
 " Colorscheme
 Plugin 'pyte'
@@ -60,9 +66,9 @@ set number
 " Prevent beep
 set vb t_vb=
  
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype css setlocal ts=2 sts=2 sw=2
@@ -72,6 +78,8 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 sts=2
 autocmd FileType scala setlocal sw=2 ts=2 sts=2
 autocmd FileType jade setlocal sw=2 ts=2 sts=2
 autocmd FileType python setlocal sw=2 ts=2 sts=2
+autocmd FileType php setlocal sw=2 ts=2 sts=2
+autocmd FileType yaml setlocal sw=2 ts=2 sts=2
 autocmd FileType make setlocal noexpandtab sw=8 ts=8 sts=8
 
 " Quick save
@@ -88,6 +96,7 @@ colorscheme seoul256
 " For CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_follow_symlinks = 1
 
 " For nagigatiion between windows 
 nnoremap <C-h> <C-w>h
@@ -113,7 +122,7 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.o,*.out 
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules|dist|bower_components|target)$',
+    \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules|dist|bower_components|target|build)$',
     \ 'file': '\v\.(exe|so|dll)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
@@ -129,3 +138,16 @@ noremap <Space> :w<CR>
 " Map jk in insert mode to exist to normal
 inoremap jk <esc>
 set cursorline
+
+" Gutentags
+let g:gutentags_file_list_command = {
+  \ 'markers': {
+    \ '.git': 'git ls-files',
+    \ '.hg': 'hg files',
+  \ },
+\ }
+
+nnoremap <leader>r :!%:p<Enter>
+nnoremap - $
+set hlsearch
+nnoremap <CR> :noh<CR><CR>
