@@ -28,7 +28,8 @@ brew install \
   telnet \
   ripgrep \
   fish \
-  yarn
+  yarn \
+  libpq
 
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
