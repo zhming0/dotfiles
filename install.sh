@@ -29,7 +29,8 @@ brew install \
   ripgrep \
   fish \
   yarn \
-  libpq
+  libpq \
+  kubernetes-cli
 
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
@@ -38,3 +39,7 @@ bash ./fish/setup.sh
 # Install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
+# Invall Google Cloud SDK
+curl https://sdk.cloud.google.com | bash
+
+exec -l $SHELL
