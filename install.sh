@@ -19,6 +19,7 @@ else
 fi
 
 brew install \
+  vim \
   git \
   tmux \
   jq \
@@ -30,7 +31,8 @@ brew install \
   fish \
   yarn \
   libpq \
-  kubernetes-cli
+  kubernetes-cli \
+  watchman
 
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
