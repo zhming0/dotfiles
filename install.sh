@@ -33,11 +33,17 @@ brew install \
   libpq \
   kubernetes-cli \
   watchman \
-  httpie
+  httpie \
+  fzf \
+  fd
 
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
+# Install fzf's key binding
+$(brew --prefix)/opt/fzf/install
+
 bash ./fish/setup.sh
+bash ./nvim/setup.sh
 
 # Install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash

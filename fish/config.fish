@@ -11,3 +11,11 @@ fundle init
 if test -e ~/.config/fish/local.fish
   source ~/.config/fish/local.fish
 end
+
+alias vim nvim
+set -xg EDITOR nvim
+
+# Let FZF to use FD instaed of FIND by default
+# so gitignore is respected
+set -xg FZF_DEFAULT_COMMAND 'fd --type f'
+set -xg FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
