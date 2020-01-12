@@ -15,8 +15,9 @@ Plug 'mhinz/vim-signify'
 
 Plug 'vim-airline/vim-airline'
 
-Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
