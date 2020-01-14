@@ -95,6 +95,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
+" use :Fold to fold a region
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 
 "===================================================
