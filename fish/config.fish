@@ -1,6 +1,9 @@
 # PG's CLI tools
 # https://stackoverflow.com/a/49689589
-set -xg PATH /usr/local/Cellar/libpq/11.5/bin $PATH
+set LIBPQ_PATH (fd -t d --full-path . '/usr/local/Cellar/libpq' | grep bin)
+set -xg PATH $LIBPQ_PATH $PATH
+
+if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 
 # Fundle configuration
 fundle plugin 'edc/bass'

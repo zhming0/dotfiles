@@ -19,6 +19,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+
 call plug#end()
 
 " Enable line number
@@ -92,6 +95,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
+" use :Fold to fold a region
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 
 "===================================================
