@@ -19,6 +19,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+
 call plug#end()
 
 " Enable line number

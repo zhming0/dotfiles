@@ -12,7 +12,8 @@ fi
 
 if [[ $(brew --version) ]] ; then
     echo "Attempting to update Homebrew"
-    # brew update
+    brew update
+    brew upgrade
 else
     echo "Attempting to install Homebrew"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
