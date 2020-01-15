@@ -21,6 +21,7 @@ Plug 'pangloss/vim-javascript'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
