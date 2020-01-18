@@ -23,6 +23,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 " Enable line number
@@ -74,6 +76,9 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
+" use cr to select the completion item
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -100,8 +105,14 @@ nmap <leader>rn <Plug>(coc-rename)
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 
+" End VIM CoC
 "===================================================
 
 " Vim Signify (git diff indicator)
 nnoremap <leader>hd :SignifyHunkDiff<cr>
 nnoremap <leader>hu :SignifyHunkUndo<cr>
+
+" This allow external process's change to fg/bg color to have a visible
+" differerence on VIM
+highlight Normal guifg=#e6e1de ctermfg=none gui=none
+" highlight LineNr guifg=yellow ctermfg=none gui=none

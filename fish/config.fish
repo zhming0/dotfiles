@@ -22,3 +22,8 @@ set -xg EDITOR nvim
 # so gitignore is respected
 set -xg FZF_DEFAULT_COMMAND 'fd --hidden --type f'
 set -xg FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+
+# Colors
+set fish_color_command brwhite --bold
+set fish_color_cwd green
+set fish_color_match brmagenta
