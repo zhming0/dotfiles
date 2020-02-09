@@ -16,3 +16,5 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 ln -sfv $BASEDIR/init.vim ~/.config/nvim/init.vim
 
+ln -sfv $BASEDIR/coc-settings.json ~/.config/nvim/coc-settings.json
+

@@ -3,6 +3,9 @@
 set LIBPQ_PATH (fd -t d --full-path . '/usr/local/Cellar/libpq' | grep bin)
 set -xg PATH $LIBPQ_PATH $PATH
 
+# Rust tools
+set -xg PATH $HOME/.cargo/bin $PATH
+
 if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
 
 # Fundle configuration

@@ -10,6 +10,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tslint-plugin', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'mhinz/vim-signify'
 
@@ -29,6 +30,7 @@ call plug#end()
 
 " Enable line number
 set number
+set clipboard^=unnamed
 
 " FZF VIM integration
 " CtrlP similar key
@@ -59,8 +61,10 @@ fun! <SID>StripTrailingWhitespaces()
   %s/\s\+$//e
   call cursor(l, c)
 endfun
-
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" Quick save \ + s
+noremap <Leader>s :update<CR>
 
 "=====================================================
 " VIM CoC (lang client)
