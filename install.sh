@@ -36,7 +36,8 @@ brew install \
   watchman \
   httpie \
   fzf \
-  fd
+  fd \
+  ctop
 
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
