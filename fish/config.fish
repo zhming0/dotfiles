@@ -30,3 +30,7 @@ set -xg FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set fish_color_command brwhite --bold
 set fish_color_cwd green
 set fish_color_match brmagenta
+
+# Golang
+set -xg GOPATH $HOME/.go
+set -xg PATH $GOPATH/bin $PATH

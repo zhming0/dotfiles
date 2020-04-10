@@ -33,6 +33,7 @@ brew install \
   yarn \
   libpq \
   kubernetes-cli \
+  kops \
   watchman \
   httpie \
   fzf \

@@ -120,3 +120,9 @@ nnoremap <leader>hu :SignifyHunkUndo<cr>
 " differerence on VIM
 highlight Normal guifg=#e6e1de ctermfg=none gui=none
 " highlight LineNr guifg=yellow ctermfg=none gui=none
+
+" :Rg with preview window
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
