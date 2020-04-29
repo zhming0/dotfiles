@@ -1,24 +1,29 @@
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'junegunn/seoul256.vim'
+" Colorschemes
+Plug 'haishanh/night-owl.vim'
 
 " This requires fzf to be installed by Homebrew already
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
+" All CoC stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tslint-plugin', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
 
+" Git related
 Plug 'mhinz/vim-signify'
+Plug 'tveskag/nvim-blame-line'
 
+" Status bar
 Plug 'vim-airline/vim-airline'
 
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'pangloss/vim-javascript'
+" Typescript
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -32,12 +37,21 @@ call plug#end()
 set number
 set clipboard^=unnamed
 
+" Enable true color
+if exists('+termguicolors')
+  " I don't know if this line helps
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  " I don't know if this line helps
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 " FZF VIM integration
 " CtrlP similar key
 nnoremap <silent> <c-p> :FZF<CR>
 
 " Choose my favorate color scheme
-colorscheme seoul256
+colorscheme night-owl
 
 " For nagigatiion between windows
 nnoremap <C-h> <C-w>h
@@ -126,3 +140,19 @@ command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
+
+" ===========================================
+" Customization for vim-jsx-typescript
+" dark red
+hi tsxTagName guifg=#E06C75
+
+" orange
+hi tsxCloseString guifg=#F99575
+hi tsxCloseTag guifg=#F99575
+hi tsxCloseTagName guifg=#F99575
+hi tsxAttributeBraces guifg=#F99575
+hi tsxEqual guifg=#F99575
+
+" yellow
+hi tsxAttrib guifg=#F8BD7F cterm=italic
+"============================================
