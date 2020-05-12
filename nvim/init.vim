@@ -2,6 +2,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
 " Colorschemes
 Plug 'haishanh/night-owl.vim'
+Plug 'lifepillar/vim-solarized8'
 
 " This requires fzf to be installed by Homebrew already
 Plug '/usr/local/opt/fzf'
@@ -29,7 +30,11 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 
+" Tmux Integration
 Plug 'christoomey/vim-tmux-navigator'
+
+" Syntaxs
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
