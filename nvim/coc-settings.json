@@ -8,5 +8,6 @@
       "disableWorkspaceFolders": true,
       "filetypes": ["go"]
     }
-  }
+  },
+  "python.jediEnabled": false
 }
