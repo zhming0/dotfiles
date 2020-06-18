@@ -65,6 +65,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Make ctrl-c behave exactly the same with Esc
+" Helpful in visualmode
+vnoremap <C-c> <Esc>
+inoremap <C-c> <Esc>
+
 " Prefer space as tab -> use 2 spaces as tab
 set tabstop=2
 set shiftwidth=2
