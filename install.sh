@@ -38,7 +38,8 @@ brew install \
   httpie \
   fzf \
   fd \
-  ctop
+  ctop \
+  clojure/tools/clojure
 
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 

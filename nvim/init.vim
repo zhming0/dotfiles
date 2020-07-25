@@ -31,6 +31,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 
+" Clojure
+Plug 'Olical/conjure', {'tag': 'v4.1.0'}
+Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
+
 " Tmux Integration
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -167,3 +171,11 @@ hi tsxEqual guifg=#F99575
 " yellow
 hi tsxAttrib guifg=#F8BD7F cterm=italic
 "============================================
+
+" Conjure + Clojure LSP
+" Prefer Clojure-LSP's K and gd
+let g:conjure#mapping#doc_word = v:false
+let g:conjure#mapping#def_word = v:false
+" disable auto-pair for clojure
+autocmd BufNewFile,BufRead *.clj,*.cljc let g:AutoPairsShortcutToggle = ''
+
