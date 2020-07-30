@@ -47,6 +47,10 @@ call plug#end()
 set number
 set clipboard^=unnamed
 
+" Enable project specific .vimrc
+set exrc
+set secure
+
 " Enable true color
 if exists('+termguicolors')
   " I don't know if this line helps
@@ -153,7 +157,7 @@ highlight Normal guifg=#e6e1de ctermfg=none gui=none
 " :Rg with preview window
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   'rg --hidden --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
 " ===========================================
@@ -172,10 +176,7 @@ hi tsxEqual guifg=#F99575
 hi tsxAttrib guifg=#F8BD7F cterm=italic
 "============================================
 
-" Conjure + Clojure LSP
-" Prefer Clojure-LSP's K and gd
-let g:conjure#mapping#doc_word = v:false
-let g:conjure#mapping#def_word = v:false
-" disable auto-pair for clojure
+" Conjure
+" disable auto-pair for clojure in favor of parinfer
 autocmd BufNewFile,BufRead *.clj,*.cljc let g:AutoPairsShortcutToggle = ''
 
