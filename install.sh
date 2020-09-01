@@ -39,7 +39,8 @@ brew install \
   fzf \
   fd \
   ctop \
-  clojure/tools/clojure
+  clojure/tools/clojure \
+  borkdude/brew/clj-kondo
 
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
