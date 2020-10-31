@@ -40,7 +40,10 @@ Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 Plug 'christoomey/vim-tmux-navigator'
 
 " Syntaxs
+" Rust keeps getting new syntax the builtin syntax can't keep up
 Plug 'rust-lang/rust.vim'
+" TODO: consider maybe use lsp to replace it
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
@@ -141,6 +144,10 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " use :Fold to fold a region
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Some extra plugins
+" coc-conjure can make omnicomplete provided by conjure work with CoC
+let g:coc_global_extensions = ['coc-conjure']
 
 
 " End VIM CoC
