@@ -33,7 +33,7 @@ Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 
 " Clojure
-Plug 'Olical/conjure', {'tag': 'v4.9.0'}
+Plug 'Olical/conjure', {'tag': 'v4.13.0'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Tmux Integration
@@ -67,6 +67,7 @@ endif
 " FZF VIM integration
 " CtrlP similar key
 nnoremap <silent> <c-p> :FZF<CR>
+nnoremap <silent> <Leader>f :Rg<CR>
 
 " Choose my favorate color scheme
 colorscheme night-owl

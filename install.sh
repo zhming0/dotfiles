@@ -29,6 +29,7 @@ brew install \
   terraform \
   telnet \
   ripgrep \
+  bat \
   fish \
   yarn \
   libpq \
