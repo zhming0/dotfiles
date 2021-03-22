@@ -22,8 +22,8 @@ alias vim nvim
 set -xg EDITOR nvim
 
 # Let FZF to use FD instaed of FIND by default
-# so gitignore is respected
-set -xg FZF_DEFAULT_COMMAND 'fd --hidden --type f'
+# so gitignore is respected, symlink followed, .git ignored
+set -xg FZF_DEFAULT_COMMAND 'fd --hidden --type f --follow --exclude .git'
 set -xg FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 
 # Colors
@@ -34,3 +34,6 @@ set fish_color_match brmagenta
 # Golang
 set -xg GOPATH $HOME/.go
 set -xg PATH $GOPATH/bin $PATH
+
+# Ripgrep
+set -xg RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgrep.conf

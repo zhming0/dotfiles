@@ -19,6 +19,9 @@ ln -sfv $BASEDIR/fish/config.fish ~/.config/fish/config.fish
 # Tmux
 ln -sfv $BASEDIR/tmux/tmux.conf ~/.tmux.conf
 
+# Ripgrep
+mkdir -p ~/.config/ripgrep
+ln -sfv $BASEDIR/fish/ripgrep.conf ~/.config/ripgrep/ripgrep.conf
 
 # Git
 ln -sfv $BASEDIR/git/gitignore ~/.gitignore

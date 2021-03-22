@@ -9,6 +9,12 @@
       "filetypes": ["go"]
     }
   },
+
+  "yaml.validate": false,
+  "yaml.schemas": {
+    "kubernetes": "/*.yaml"
+  },
+
   "python.jediEnabled": false,
 
   "diagnostic-languageserver.linters": {
