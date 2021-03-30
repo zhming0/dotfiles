@@ -40,6 +40,7 @@ brew install \
   fzf \
   fd \
   ctop \
+  mkcert \
   clojure/tools/clojure \
   borkdude/brew/clj-kondo
 
