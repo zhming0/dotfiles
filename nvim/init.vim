@@ -35,7 +35,7 @@ Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 
 " Clojure
-Plug 'Olical/conjure', {'tag': 'v4.15.0'}
+Plug 'Olical/conjure', {'tag': 'v4.17.0'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Tmux Integration
@@ -204,4 +204,5 @@ hi tsxAttrib guifg=#F8BD7F cterm=italic
 " Conjure
 " disable auto-pair for clojure in favor of parinfer
 autocmd BufNewFile,BufRead *.clj,*.cljc let g:AutoPairsShortcutToggle = ''
-
+let g:conjure#log#hud#height = 0.66
+let g:conjure#log#wrap = 'true'
