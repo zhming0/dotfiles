@@ -13,7 +13,6 @@ ln -sfv $BASEDIR/vim/vimrc ~/.vimrc
 # Fish
 mkdir -p ~/.config/fish/functions/
 ln -sfv $BASEDIR/fish/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
-ln -sfv $BASEDIR/fish/nvm.fish ~/.config/fish/functions/nvm.fish
 ln -sfv $BASEDIR/fish/config.fish ~/.config/fish/config.fish
 
 # Tmux

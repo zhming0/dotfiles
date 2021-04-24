@@ -6,13 +6,6 @@ set -xg PATH $LIBPQ_PATH $PATH
 # Rust tools
 set -xg PATH $HOME/.cargo/bin $PATH
 
-if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
-
-# Fundle configuration
-fundle plugin 'edc/bass'
-
-fundle init
-
 # Load local non-git managed configuration
 if test -e ~/.config/fish/local.fish
   source ~/.config/fish/local.fish
@@ -37,3 +30,5 @@ set -xg PATH $GOPATH/bin $PATH
 
 # Ripgrep
 set -xg RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgrep.conf
+
+source /usr/local/opt/asdf/asdf.fish
