@@ -46,6 +46,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'rust-lang/rust.vim'
 " TODO: consider maybe use lsp to replace it
 Plug 'hashivim/vim-terraform'
+Plug 'dag/vim-fish'
 
 call plug#end()
 
@@ -206,3 +207,19 @@ hi tsxAttrib guifg=#F8BD7F cterm=italic
 autocmd BufNewFile,BufRead *.clj,*.cljc let g:AutoPairsShortcutToggle = ''
 let g:conjure#log#hud#height = 0.66
 let g:conjure#log#wrap = 'true'
+
+" Netrw
+" Make it view directory as a tree
+let g:netrw_liststyle = 3
+
+" Clipboard stuff
+" use register + as buffer for clipboard
+set clipboard+=unnamedplus
+" Use <leader> + regular yank/put keys to copy/paste from clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
