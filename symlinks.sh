@@ -12,8 +12,8 @@ ln -sfv $BASEDIR/vim/vimrc ~/.vimrc
 
 # Fish
 mkdir -p ~/.config/fish/functions/
-ln -sfv $BASEDIR/fish/fish_prompt.fish ~/.config/fish/functions/fish_prompt.fish
 ln -sfv $BASEDIR/fish/config.fish ~/.config/fish/config.fish
+ln -sfv $BASEDIR/fish/fish_plugins ~/.config/fish/fish_plugins
 
 # Tmux
 ln -sfv $BASEDIR/tmux/tmux.conf ~/.tmux.conf

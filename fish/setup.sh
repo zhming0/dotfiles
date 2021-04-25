@@ -10,4 +10,4 @@ fi;
 chsh -s $(which fish)
 
 # Install fisher
-curl -sfL https://git.io/fundle-install | fish
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher

@@ -3,6 +3,7 @@ call plug#begin(stdpath('data') . '/plugged')
 " Colorschemes
 Plug 'haishanh/night-owl.vim'
 Plug 'lifepillar/vim-solarized8'
+Plug 'folke/tokyonight.nvim'
 
 " This requires fzf to be installed by Homebrew already
 Plug '/usr/local/opt/fzf'
@@ -211,6 +212,7 @@ let g:conjure#log#wrap = 'true'
 " Netrw
 " Make it view directory as a tree
 let g:netrw_liststyle = 3
+let g:netrw_preview = 1
 
 " Clipboard stuff
 " use register + as buffer for clipboard
