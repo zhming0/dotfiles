@@ -23,6 +23,7 @@ Plug 'iamcco/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'}
 " Git related
 Plug 'mhinz/vim-signify'
 Plug 'tveskag/nvim-blame-line'
+Plug 'tpope/vim-fugitive'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
