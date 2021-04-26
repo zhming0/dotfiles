@@ -48,6 +48,15 @@ brew install \
 
 brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
+asdf plugin add nodejs
+asdf plugin add java
+
+asdf install nodejs lts
+asdf global nodejs lts
+
+asdf install java adoptopenjdk-openj9-11.0.11+9.openj9-0.26.0
+asdf global java adoptopenjdk-openj9-11.0.11+9.openj9-0.26.0
+
 # Install fzf's key binding
 $(brew --prefix)/opt/fzf/install
 
