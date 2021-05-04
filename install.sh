@@ -16,7 +16,7 @@ if [[ $(brew --version) ]] ; then
     brew upgrade
 else
     echo "Attempting to install Homebrew"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 brew install \
@@ -44,18 +44,21 @@ brew install \
   mkcert \
   clojure/tools/clojure \
   borkdude/brew/clj-kondo \
+  gnupg \
   asdf
 
-brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
+# brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
-asdf plugin add nodejs
-asdf plugin add java
+asdf plugin add nodejs || true
+asdf plugin add java || true
 
-asdf install nodejs lts
-asdf global nodejs lts
+# 16.0.0 support both intel and arm Mac
+asdf install nodejs 16.0.0
+asdf global nodejs 16.0.0
 
-asdf install java adoptopenjdk-openj9-11.0.11+9.openj9-0.26.0
-asdf global java adoptopenjdk-openj9-11.0.11+9.openj9-0.26.0
+# Liberica has ARM support and their lite jvm fits my use case more
+asdf install java liberica-lite-11.0.11+9
+asdf global java liberica-lite-11.0.11+9
 
 # Install fzf's key binding
 $(brew --prefix)/opt/fzf/install

@@ -3,9 +3,10 @@
 set -e
 
 # Trying to set fish as default
-if ! grep -Fxq "/usr/local/bin/fish" /etc/shells
+if ! grep -Fxq "$(which fish)" /etc/shells
 then
-	echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+  echo "Modifiying /etc/shells to include $(which fish)"
+  echo "$(which fish)" | sudo tee -a /etc/shells
 fi;
 chsh -s $(which fish)
 

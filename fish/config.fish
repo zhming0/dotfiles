@@ -1,7 +1,9 @@
 # PG's CLI tools
 # https://stackoverflow.com/a/49689589
-set LIBPQ_PATH (fd -t d --full-path . '/usr/local/Cellar/libpq' | grep bin)
+set LIBPQ_PATH (fd -t d --full-path . (brew --prefix)"/Cellar/libpq" | grep bin)
 set -xg PATH $LIBPQ_PATH $PATH
+
+eval (/opt/homebrew/bin/brew shellenv)
 
 # Rust tools
 set -xg PATH $HOME/.cargo/bin $PATH
@@ -31,4 +33,4 @@ set -xg PATH $GOPATH/bin $PATH
 # Ripgrep
 set -xg RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgrep.conf
 
-source /usr/local/opt/asdf/asdf.fish
+source (brew --prefix)/opt/asdf/asdf.fish
