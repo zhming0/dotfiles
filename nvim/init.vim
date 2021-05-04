@@ -35,7 +35,7 @@ Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 
 " Clojure
-Plug 'Olical/conjure', {'tag': 'v4.17.0'}
+Plug 'Olical/conjure', {'tag': 'v4.18.0'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Tmux Integration
@@ -111,7 +111,7 @@ endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " Quick save \ + s
-noremap <Leader>s :update<CR>
+noremap <Leader><Leader> :update<CR>
 
 "=====================================================
 " VIM CoC (lang client)
