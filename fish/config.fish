@@ -1,9 +1,11 @@
+# Ensure Brew and binaries that it's managing in the $PATH
+eval (/opt/homebrew/bin/brew shellenv)
+
 # PG's CLI tools
 # https://stackoverflow.com/a/49689589
 set LIBPQ_PATH (fd -t d --full-path . (brew --prefix)"/Cellar/libpq" | grep bin)
 set -xg PATH $LIBPQ_PATH $PATH
 
-eval (/opt/homebrew/bin/brew shellenv)
 
 # Rust tools
 set -xg PATH $HOME/.cargo/bin $PATH
