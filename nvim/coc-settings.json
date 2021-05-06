@@ -7,6 +7,12 @@
       "rootPatterns": ["go.mod"],
       "disableWorkspaceFolders": true,
       "filetypes": ["go"]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
     }
   },
 
@@ -43,5 +49,8 @@
 
     }
   },
-  "diagnostic-languageserver.filetypes": {"clojure":"clj_kondo_lint"}
+  "diagnostic-languageserver.filetypes": {
+    "clojure":"clj_kondo_lint",
+    "sh": "shellcheck"
+  }
 }

@@ -47,6 +47,10 @@ brew install \
   gnupg \
   asdf
 
+# FIXME: I am supposed to install shellcheck using above command but at the time of speaking
+# it was not available for M1 Mac natively. So I just download from their release page and put
+# it under /usr/local/bin
+
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
 asdf plugin add nodejs || true
@@ -55,6 +59,8 @@ asdf plugin add java || true
 # 16.0.0 support both intel and arm Mac
 asdf install nodejs 16.0.0
 asdf global nodejs 16.0.0
+
+npm i -g bash-language-server
 
 # Liberica has ARM support and their lite jvm fits my use case more
 asdf install java liberica-lite-11.0.11+9
