@@ -175,11 +175,6 @@ let g:coc_global_extensions = ['coc-conjure']
 nnoremap <leader>hd :SignifyHunkDiff<cr>
 nnoremap <leader>hu :SignifyHunkUndo<cr>
 
-" This allow external process's change to fg/bg color to have a visible
-" differerence on VIM
-highlight Normal guifg=#e6e1de ctermfg=none gui=none
-" highlight LineNr guifg=yellow ctermfg=none gui=none
-
 " :Rg with preview window
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
@@ -207,6 +202,10 @@ hi tsxAttrib guifg=#F8BD7F cterm=italic
 autocmd BufNewFile,BufRead *.clj,*.cljc let g:AutoPairsShortcutToggle = ''
 let g:conjure#log#hud#height = 0.66
 let g:conjure#log#wrap = 'true'
+
+" At the time of writing it, the colorscheme that I am using does not set
+" color for NormalFloat group
+highlight NormalFloat ctermbg=black guibg=black
 
 " Netrw
 " Make it view directory as a tree
