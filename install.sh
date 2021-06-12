@@ -45,11 +45,8 @@ brew install \
   clojure/tools/clojure \
   borkdude/brew/clj-kondo \
   gnupg \
-  asdf
-
-# FIXME: I am supposed to install shellcheck using above command but at the time of speaking
-# it was not available for M1 Mac natively. So I just download from their release page and put
-# it under /usr/local/bin
+  asdf \
+  shellcheck
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
