@@ -9,3 +9,5 @@ asdf plugin add go || true
 
 asdf install golang 1.16.5
 asdf global golang 1.16.5
+
+go install golang.org/x/tools/gopls@v0.7.0

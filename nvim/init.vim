@@ -102,6 +102,9 @@ set expandtab
 " filetype hack to allow tsserver to parse tsx and jsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
+" Use Tab for golang
+autocmd BufNewFile,BufRead *.go setlocal noet ts=2 sw=2 sts=2 noexpandtab
+
 " Enable auto remove trailing white spaces
 fun! <SID>StripTrailingWhitespaces()
   let l = line(".")
