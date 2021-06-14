@@ -70,5 +70,6 @@ bash ./fish/setup.sh
 bash ./nvim/setup.sh
 ./rust/setup.sh
 ./tmux/setup.sh
+./go/setup.sh
 
 exec -l $SHELL
