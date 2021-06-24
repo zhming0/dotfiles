@@ -46,7 +46,9 @@ brew install \
   borkdude/brew/clj-kondo \
   gnupg \
   asdf \
-  shellcheck
+  shellcheck \
+  maven \
+  helm
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 

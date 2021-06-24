@@ -6,7 +6,10 @@
       "command": "gopls",
       "rootPatterns": ["go.mod"],
       "disableWorkspaceFolders": true,
-      "filetypes": ["go"]
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
     },
     "bash": {
       "command": "bash-language-server",

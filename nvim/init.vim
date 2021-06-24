@@ -104,6 +104,8 @@ autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
 " Use Tab for golang
 autocmd BufNewFile,BufRead *.go setlocal noet ts=2 sw=2 sts=2 noexpandtab
+" Remove useless import upon save
+autocmd BufWritePre *.go silent! call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Enable auto remove trailing white spaces
 fun! <SID>StripTrailingWhitespaces()
