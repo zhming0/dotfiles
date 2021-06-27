@@ -8,7 +8,12 @@ then
   echo "Modifiying /etc/shells to include $(which fish)"
   echo "$(which fish)" | sudo tee -a /etc/shells
 fi;
-chsh -s $(which fish)
+
+if ! [ "$SHELL" = "$(which fish)" ]
+then
+  echo "Modifying default shell to fish"
+  chsh -s "$(which fish)"
+fi;
 
 # Install fisher
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
