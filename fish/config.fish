@@ -1,5 +1,6 @@
 # Ensure Brew and binaries that it's managing in the $PATH
-eval (/opt/homebrew/bin/brew shellenv)
+set brew_path (which brew)
+eval ($brew_path shellenv)
 
 # PG's CLI tools
 # https://stackoverflow.com/a/49689589

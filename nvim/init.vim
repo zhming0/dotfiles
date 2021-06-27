@@ -6,7 +6,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'folke/tokyonight.nvim'
 
 " This requires fzf to be installed by Homebrew already
-Plug '/opt/homebrew/opt/fzf'
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
 " All CoC stuff
