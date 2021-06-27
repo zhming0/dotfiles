@@ -15,6 +15,9 @@ if test -e ~/.config/fish/local.fish
   source ~/.config/fish/local.fish
 end
 
+# Auto load non-git managed local functions
+set --prepend fish_function_path "~/.config/fish/local_functions"
+
 alias vim nvim
 set -xg EDITOR nvim
 

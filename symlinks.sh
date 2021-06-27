@@ -12,8 +12,10 @@ ln -sfv $BASEDIR/vim/vimrc ~/.vimrc
 
 # Fish
 mkdir -p ~/.config/fish/functions/
+mkdir -p ~/.config/fish/local_functions/ # Functions that won't be managed by this repo
 ln -sfv $BASEDIR/fish/config.fish ~/.config/fish/config.fish
 ln -sfv $BASEDIR/fish/fish_plugins ~/.config/fish/fish_plugins
+ln -sfv $BASEDIR/fish/functions/* ~/.config/fish/functions
 
 # Tmux
 ln -sfv $BASEDIR/tmux/tmux.conf ~/.tmux.conf
