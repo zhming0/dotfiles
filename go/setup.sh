@@ -5,7 +5,7 @@ set -e
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 
-asdf plugin add go || true
+asdf plugin add golang || true
 
 asdf install golang 1.16.5
 asdf global golang 1.16.5
