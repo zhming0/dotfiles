@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-set -e
+set -o errexit
+set -o pipefail
+set -o nounset
+
+__dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Trying to set fish as default
 if ! grep -Fxq "$(which fish)" /etc/shells
@@ -15,6 +19,4 @@ then
   chsh -s "$(which fish)"
 fi;
 
-# Install fisher
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-fisher install IlanCosman/tide
+"$__dir"/install_fisher.fish
