@@ -21,6 +21,7 @@ fi
 
 brew install \
   vim \
+  neovim \
   git \
   tmux \
   jq \
