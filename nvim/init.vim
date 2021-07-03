@@ -28,12 +28,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'iamcco/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'}
 
 " Git related
-Plug 'mhinz/vim-signify'
-Plug 'tveskag/nvim-blame-line'
-Plug 'tpope/vim-fugitive'
+Plug 'nvim-lua/plenary.nvim' " Dependencies of gitsigns
+Plug 'lewis6991/gitsigns.nvim'
 
 " Status bar
-Plug 'vim-airline/vim-airline'
+Plug 'famiu/feline.nvim' " builtin integration with gitsigns, nvim-lsp
 
 " Typescript
 " Plug 'leafgarland/typescript-vim'
@@ -244,4 +243,16 @@ require'nvim-treesitter.configs'.setup {
     disable = { },  -- list of language that will be disabled
   },
 }
+EOF
+
+
+" ============================================
+" Gitsign setup configuration
+" Feline setup configuration
+lua <<EOF
+require('gitsigns').setup {
+  current_line_blame = true,
+  current_line_blame_delay = 500
+}
+require('feline').setup()
 EOF
