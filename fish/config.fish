@@ -1,5 +1,9 @@
 # Ensure Brew and binaries that it's managing in the $PATH
-set brew_path (which brew)
+if test (arch) = "arm64"
+  set brew_path "/opt/homebrew/bin/brew"
+else
+  set brew_path (which brew)
+end
 eval ($brew_path shellenv)
 
 # PG's CLI tools

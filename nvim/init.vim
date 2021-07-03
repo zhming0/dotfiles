@@ -1,13 +1,21 @@
 call plug#begin(stdpath('data') . '/plugged')
 
+" Treesitter!
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
 " Colorschemes
-Plug 'haishanh/night-owl.vim'
-Plug 'lifepillar/vim-solarized8'
-Plug 'folke/tokyonight.nvim'
+" Plug 'haishanh/night-owl.vim' " My favorite but no treesitter support
+Plug 'folke/tokyonight.nvim' " Support treesitter!! All colorschemes below this support ts
+Plug 'sainnhe/edge'
+Plug 'shaunsingh/moonlight.nvim'
 
 " This requires fzf to be installed by Homebrew already
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+
+" NVIM Tree
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 
 " All CoC stuff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -28,8 +36,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 
 " Typescript
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -80,7 +88,12 @@ nnoremap <silent> <Leader>f :Rg<CR>
 nnoremap <silent> <Leader>/ :BLines<CR>
 
 " Choose my favorate color scheme
-colorscheme night-owl
+let g:tokyonight_style = "night"
+let g:tokyonight_italic_functions = 1
+let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+let g:edge_style = "neon"
+let g:airline_theme = "edge"
+colorscheme tokyonight
 
 " For nagigatiion between windows
 nnoremap <C-h> <C-w>h
@@ -187,21 +200,6 @@ command! -bang -nargs=* Rg
   \   'rg --hidden --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
-" ===========================================
-" Customization for vim-jsx-typescript
-" dark red
-hi tsxTagName guifg=#E06C75
-
-" orange
-hi tsxCloseString guifg=#F99575
-hi tsxCloseTag guifg=#F99575
-hi tsxCloseTagName guifg=#F99575
-hi tsxAttributeBraces guifg=#F99575
-hi tsxEqual guifg=#F99575
-
-" yellow
-hi tsxAttrib guifg=#F8BD7F cterm=italic
-"============================================
 
 " Conjure
 " disable auto-pair for clojure in favor of parinfer
@@ -229,3 +227,21 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
+
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+
+" ============================================
+" Treesitter configuration
+" check https://github.com/nvim-treesitter/nvim-treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = {  }, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { },  -- list of language that will be disabled
+  },
+}
+EOF
