@@ -36,6 +36,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Iconed Buffer bar (replace tab bar)
+Plug 'romgrk/barbar.nvim'
+
+" Indentation Guide
+" Plug 'lukas-reineke/indent-blankline.nvim'
+
 " Typescript
 " Plug 'leafgarland/typescript-vim'
 " Plug 'peitalin/vim-jsx-typescript'
@@ -71,19 +77,35 @@ set updatetime=300
 set exrc
 set secure
 
+" Enable mouse support
+set mouse=a
+
 " Enable true color
 if exists('+termguicolors')
-  " I don't know if this line helps
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  " I don't know if this line helps
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
+" Highlight current line in the active window
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+
+" Use different | so Identation Guild looks better :)
+" let g:indent_blankline_char = "│"
+let g:indent_blankline_char = " "
+let g:indent_blankline_char_highlight_list = ['Ignore', 'StatusLine']
+let g:indent_blankline_space_char_highlight_list = ['Ignore', 'StatusLine']
+let g:indent_blankline_enabled = v:false " nice plugin but don't need it now :(
+
+
 " FZF VIM integration
 " CtrlP similar key
-nnoremap <silent> <c-p> :FZF<CR>
-" search entire codebase
+nnoremap <silent> <c-p> :Files<CR>
+" search buffers by file name
+nnoremap <Leader>b :Buffers<CR>
+" search entire codebase by content
 nnoremap <silent> <Leader>f :Rg<CR>
 " search current file
 nnoremap <silent> <Leader>/ :BLines<CR>
