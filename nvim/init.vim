@@ -6,7 +6,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 " Colorschemes
 " Plug 'haishanh/night-owl.vim' " My favorite but no treesitter support
 Plug 'folke/tokyonight.nvim' " Support treesitter!! All colorschemes below this support ts
-Plug 'sainnhe/edge'
+"Plug 'sainnhe/edge'
 Plug 'shaunsingh/moonlight.nvim'
 
 " This requires fzf to be installed by Homebrew already
@@ -34,6 +34,7 @@ Plug 'tpope/vim-fugitive'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Typescript
 " Plug 'leafgarland/typescript-vim'
@@ -91,8 +92,9 @@ nnoremap <silent> <Leader>/ :BLines<CR>
 let g:tokyonight_style = "night"
 let g:tokyonight_italic_functions = 1
 let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
-let g:edge_style = "neon"
-let g:airline_theme = "edge"
+"let g:edge_style = "neon"
+let g:airline_theme = "deus"
+let g:airline_powerline_fonts = 1
 colorscheme tokyonight
 
 " For nagigatiion between windows
