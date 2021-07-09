@@ -42,6 +42,9 @@ Plug 'romgrk/barbar.nvim'
 " Indentation Guide
 " Plug 'lukas-reineke/indent-blankline.nvim'
 
+" Smooth scroll!!
+Plug 'karb94/neoscroll.nvim'
+
 " Typescript
 " Plug 'leafgarland/typescript-vim'
 " Plug 'peitalin/vim-jsx-typescript'
@@ -269,3 +272,6 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+" Neoscroll setup
+lua require('neoscroll').setup()
