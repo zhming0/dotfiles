@@ -72,6 +72,9 @@ call plug#end()
 " Enable line number
 set number
 
+" Use the line number columns to display signs
+set signcolumn=number
+
 " Coc recommand setting this shorter
 " I presume it will make CursorHold better
 set updatetime=300
