@@ -26,6 +26,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
   Plug 'iamcco/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'}
+  " This plugin not only parse .prettierrc but also editorconfig!
+  Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 
 " Git related
 Plug 'mhinz/vim-signify'
@@ -211,6 +213,9 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " use :Fold to fold a region
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use :Prettier to invoke prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Some extra plugins
 " coc-conjure can make omnicomplete provided by conjure work with CoC
