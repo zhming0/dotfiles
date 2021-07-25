@@ -49,7 +49,8 @@ brew install \
   asdf \
   shellcheck \
   maven \
-  helm
+  helm \
+  clojure-lsp/brew/clojure-lsp-native
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
