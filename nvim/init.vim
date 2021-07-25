@@ -25,8 +25,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'neoclide/coc-tslint-plugin', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'iamcco/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'}
-  " This plugin not only parse .prettierrc but also editorconfig!
+  Plug 'iamcco/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'} " Turn diagnostic tool into LSP plugins
   Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 
 " Git related
@@ -304,3 +303,10 @@ EOF
 
 " Neoscroll setup
 lua require('neoscroll').setup()
+
+" In the very end, try to load a local.vim configuration if this file exist
+" besides the init.vim
+let _local_config_path=stdpath('config')."/local.vim"
+if filereadable(_local_config_path)
+  exec 'source ' . _local_config_path
+endif
