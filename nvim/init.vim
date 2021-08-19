@@ -27,6 +27,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
   Plug 'iamcco/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'} " Turn diagnostic tool into LSP plugins
   Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
 
 " Git related
 Plug 'mhinz/vim-signify'
@@ -286,6 +287,15 @@ nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 let g:nvim_tree_quit_on_open = 1 " Close the tree when open a file
+" Disable git logo because it's slow in very big repo
+" https://github.com/kyazdani42/nvim-tree.lua/issues/172
+" https://github.com/kyazdani42/nvim-tree.lua/issues/549
+let g:nvim_tree_show_icons = {
+    \ 'git': 0,
+    \ 'folders': 1,
+    \ 'files': 1,
+    \ 'folder_arrows': 1,
+    \ }
 
 " ============================================
 " Treesitter configuration
