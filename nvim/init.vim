@@ -110,8 +110,8 @@ let g:indent_blankline_enabled = v:false " nice plugin but don't need it now :(
 
 
 " FZF VIM integration
-" CtrlP similar key
-nnoremap <c-p> <cmd>Telescope find_files<cr>
+" CtrlP similar key (this is using fd underneath)
+nnoremap <c-p> <cmd>Telescope find_files hidden=true<cr>
 nnoremap <leader>f <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>/ <cmd>Telescope current_buffer_fuzzy_find<cr>

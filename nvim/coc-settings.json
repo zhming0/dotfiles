@@ -1,3 +1,4 @@
+// vim: ft=jsonc
 {
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.preferences.importModuleSpecifier": "relative",
