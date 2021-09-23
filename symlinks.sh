@@ -24,5 +24,9 @@ ln -sfv $BASEDIR/tmux/tmux.conf ~/.tmux.conf
 mkdir -p ~/.config/ripgrep
 ln -sfv $BASEDIR/fish/ripgrep.conf ~/.config/ripgrep/ripgrep.conf
 
+# Fd
+mkdir -p ~/.config/fd
+ln -sfv $BASEDIR/fish/fdignore ~/.config/fd/ignore
+
 # Git
 ln -sfv $BASEDIR/git/gitignore ~/.gitignore
