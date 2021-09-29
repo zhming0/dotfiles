@@ -313,3 +313,23 @@ let _local_config_path=stdpath('config')."/local.vim"
 if filereadable(_local_config_path)
   exec 'source ' . _local_config_path
 endif
+
+" To check default config
+" :help telescope.setup()
+lua <<EOF
+require('telescope').setup{
+  defaults = {
+    -- Otherwise by default it would ignore all dotfiles
+    vimgrep_arguments = {
+      "rg",
+      "--hidden",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case"
+    }
+  },
+}
+EOF
