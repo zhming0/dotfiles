@@ -9,10 +9,6 @@ Plug 'folke/tokyonight.nvim' " Support treesitter!! All colorschemes below this 
 "Plug 'sainnhe/edge'
 Plug 'shaunsingh/moonlight.nvim'
 
-" This requires fzf to be installed by Homebrew already
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-
 " NVIM Tree
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
@@ -69,6 +65,11 @@ Plug 'rust-lang/rust.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'dag/vim-fish'
 
+" Depended by telescope
+Plug 'nvim-lua/plenary.nvim'
+" Very cool fuzzy finder for everything
+Plug 'nvim-telescope/telescope.nvim'
+
 call plug#end()
 
 " Enable line number
@@ -109,14 +110,11 @@ let g:indent_blankline_enabled = v:false " nice plugin but don't need it now :(
 
 
 " FZF VIM integration
-" CtrlP similar key
-nnoremap <silent> <c-p> :Files<CR>
-" search buffers by file name
-nnoremap <Leader>b :Buffers<CR>
-" search entire codebase by content
-nnoremap <silent> <Leader>f :Rg<CR>
-" search current file
-nnoremap <silent> <Leader>/ :BLines<CR>
+" CtrlP similar key (this is using fd underneath)
+nnoremap <c-p> <cmd>Telescope find_files hidden=true<cr>
+nnoremap <leader>f <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>/ <cmd>Telescope current_buffer_fuzzy_find<cr>
 
 " Choose my favorate color scheme
 let g:tokyonight_style = "night"
@@ -249,13 +247,6 @@ let g:coc_global_extensions = ['coc-conjure']
 nnoremap <leader>hd :SignifyHunkDiff<cr>
 nnoremap <leader>hu :SignifyHunkUndo<cr>
 
-" :Rg with preview window
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --hidden --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
-
-
 " Conjure
 " disable auto-pair for clojure in favor of parinfer
 autocmd BufNewFile,BufRead *.clj,*.cljc let g:AutoPairsShortcutToggle = ''
@@ -320,3 +311,23 @@ let _local_config_path=stdpath('config')."/local.vim"
 if filereadable(_local_config_path)
   exec 'source ' . _local_config_path
 endif
+
+" To check default config
+" :help telescope.setup()
+lua <<EOF
+require('telescope').setup{
+  defaults = {
+    -- Otherwise by default it would ignore all dotfiles
+    vimgrep_arguments = {
+      "rg",
+      "--hidden",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case"
+    }
+  },
+}
+EOF
