@@ -52,7 +52,7 @@ Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 
 " Clojure
-Plug 'Olical/conjure', {'tag': 'v4.22.0'}
+Plug 'Olical/conjure', {'tag': 'v4.24.0'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Tmux Integration
@@ -252,6 +252,8 @@ nnoremap <leader>hu :SignifyHunkUndo<cr>
 autocmd BufNewFile,BufRead *.clj,*.cljc let g:AutoPairsShortcutToggle = ''
 let g:conjure#log#hud#height = 0.66
 let g:conjure#log#wrap = 'true'
+" Disable Conjure's K shortcut in favor of LSP's support
+let g:conjure#mapping#doc_word = v:false
 
 " At the time of writing it, the colorscheme that I am using does not set
 " color for NormalFloat group
@@ -304,6 +306,8 @@ EOF
 
 " Neoscroll setup
 lua require('neoscroll').setup()
+" Nvim Tree setup
+lua require'nvim-tree'.setup()
 
 " In the very end, try to load a local.vim configuration if this file exist
 " besides the init.vim
