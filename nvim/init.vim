@@ -52,7 +52,7 @@ Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 
 " Clojure
-Plug 'Olical/conjure', {'tag': 'v4.24.0'}
+Plug 'Olical/conjure', {'tag': 'v4.27.0'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Tmux Integration
