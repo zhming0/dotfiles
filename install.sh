@@ -22,6 +22,9 @@ fi
 brew install \
   neovim \
   git \
+  cmake \
+  lima \
+  bison \
   tmux \
   jq \
   ansible \

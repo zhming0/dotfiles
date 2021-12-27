@@ -235,9 +235,10 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " use :Prettier to invoke prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" Some extra plugins
+" Some extra plugins - these are managed by coc entirely
 " coc-conjure can make omnicomplete provided by conjure work with CoC
-let g:coc_global_extensions = ['coc-conjure']
+" Clangd is LSP for C Lang
+let g:coc_global_extensions = ['coc-conjure', 'coc-clangd']
 
 
 " End VIM CoC
