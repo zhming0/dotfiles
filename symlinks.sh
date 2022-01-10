@@ -1,14 +1,10 @@
 #!/bin/bash
-# Create some common symlinks
 
-BASEDIR="$(pwd)"
+set -o errexit
+set -o pipefail
+set -o nounset
 
-# Vim
-if [[ ! -d  ~/.vim/bundle/Vundle.vim ]]; then
-  mkdir -p ~/.vim/bundle
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
-ln -sfv $BASEDIR/vim/vimrc ~/.vimrc
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Fish
 mkdir -p ~/.config/fish/functions/

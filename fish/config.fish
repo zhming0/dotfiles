@@ -48,3 +48,10 @@ set -xg PATH $GOPATH/bin $PATH
 set -xg RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgrep.conf
 
 source (brew --prefix)/opt/asdf/asdf.fish
+
+# Bison
+# According to brew
+# bison is keg-only, which means it was not symlinked into /opt/homebrew,
+# because macOS already provides this software and installing another version in
+# parallel can cause all kinds of trouble.
+set -gx LDFLAGS "-L"(brew --prefix)"/opt/bison/lib"

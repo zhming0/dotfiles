@@ -7,7 +7,7 @@ if [[ $(xcode-select --version) ]]; then
   echo Xcode command tools already installed
 else
   echo "Installing Xcode commandline tools"
-  $(xcode-select --install)
+  xcode-select --install
 fi
 
 if [[ $(brew --version) ]] ; then
@@ -20,9 +20,11 @@ else
 fi
 
 brew install \
-  vim \
   neovim \
   git \
+  cmake \
+  lima \
+  bison \
   tmux \
   jq \
   ansible \
@@ -58,14 +60,13 @@ asdf plugin add nodejs || true
 asdf plugin add java || true
 
 # 16.0.0 support both intel and arm Mac
-asdf install nodejs 16.0.0
-asdf global nodejs 16.0.0
+asdf install nodejs 16.10.0
+asdf global nodejs 16.10.0
 
 npm i -g bash-language-server
 
-# Liberica has ARM support and their lite jvm fits my use case more
-asdf install java liberica-lite-11.0.11+9
-asdf global java liberica-lite-11.0.11+9
+asdf install java oracle-17
+asdf global java oracle-17
 
 # Install fzf's key binding
 $(brew --prefix)/opt/fzf/install
