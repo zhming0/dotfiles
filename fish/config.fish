@@ -47,7 +47,7 @@ set -xg PATH $GOPATH/bin $PATH
 # Ripgrep
 set -xg RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgrep.conf
 
-source (brew --prefix)/opt/asdf/asdf.fish
+source (brew --prefix asdf)/libexec/asdf.fish
 
 # Bison
 # According to brew

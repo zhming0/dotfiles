@@ -21,7 +21,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'neoclide/coc-tslint-plugin', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'}
   Plug 'iamcco/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'} " Turn diagnostic tool into LSP plugins
   Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
@@ -239,7 +238,7 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Some extra plugins - these are managed by coc entirely
 " coc-conjure can make omnicomplete provided by conjure work with CoC
 " Clangd is LSP for C Lang
-let g:coc_global_extensions = ['coc-conjure', 'coc-clangd']
+let g:coc_global_extensions = ['coc-conjure', 'coc-clangd', 'coc-java']
 
 
 " End VIM CoC
