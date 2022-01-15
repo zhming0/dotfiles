@@ -43,9 +43,8 @@ Plug 'romgrk/barbar.nvim'
 " Smooth scroll!!
 Plug 'karb94/neoscroll.nvim'
 
-" Typescript
-" Plug 'leafgarland/typescript-vim'
-" Plug 'peitalin/vim-jsx-typescript'
+" Jsonnet
+Plug 'google/vim-jsonnet'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -301,7 +300,7 @@ require'nvim-treesitter.configs'.setup {
   ignore_install = {  }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { },  -- list of language that will be disabled
+    disable = { "nim", "jsonnet" },  -- list of language that will be disabled
   },
 }
 EOF
