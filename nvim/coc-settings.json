@@ -27,6 +27,10 @@
       "trace.server": "verbose",
       "initializationOptions": {
       }
+    },
+    "nim": {
+      "command": "nimlsp",
+      "filetypes": ["nim"]
     }
   },
 

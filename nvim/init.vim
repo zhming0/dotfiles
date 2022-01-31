@@ -46,6 +46,9 @@ Plug 'karb94/neoscroll.nvim'
 " Jsonnet
 Plug 'google/vim-jsonnet'
 
+" Nim Syntax
+Plug 'alaviss/nim.nvim'
+
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
@@ -300,7 +303,7 @@ require'nvim-treesitter.configs'.setup {
   ignore_install = {  }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "nim", "jsonnet" },  -- list of language that will be disabled
+    disable = { "nim", "jsonnet", "markdown" },  -- list of language that will be disabled
   },
 }
 EOF

@@ -58,6 +58,7 @@ brew install \
 
 asdf plugin add nodejs || true
 asdf plugin add java || true
+asdf plugin add nim || true
 
 # 16.0.0 support both intel and arm Mac
 asdf install nodejs 16.10.0
@@ -67,6 +68,13 @@ npm i -g bash-language-server
 
 asdf install java oracle-17
 asdf global java oracle-17
+
+asdf install nim 1.6.2
+asdf nim install-deps
+asdf global nim 1.6.2
+# This is installed in ~/.asdf/installs/nim/<verson>/nimble
+# It does mean that if I change the default nim version I will have to install this again.
+nimble install nimlsp
 
 # Install fzf's key binding
 $(brew --prefix)/opt/fzf/install
