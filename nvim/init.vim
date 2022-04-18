@@ -1,5 +1,4 @@
 call plug#begin(stdpath('data') . '/plugged')
-
 " Treesitter!
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
@@ -279,7 +278,6 @@ vnoremap <leader>P "+P
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
-let g:nvim_tree_quit_on_open = 1 " Close the tree when open a file
 let g:nvim_tree_width = 40 " Default 30
 " Disable git logo because it's slow in very big repo
 " https://github.com/kyazdani42/nvim-tree.lua/issues/172
@@ -296,19 +294,30 @@ let g:nvim_tree_show_icons = {
 " check https://github.com/nvim-treesitter/nvim-treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = {  }, -- List of parsers to ignore installing
+  ensure_installed = "all",
+  ignore_install = { "norg", "phpdoc" }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "nim", "jsonnet" },  -- list of language that will be disabled
+    disable = { "nim", "jsonnet", "markdown" },  -- list of language that will be disabled
   },
+  indent = {
+    enable = true
+  }
 }
 EOF
 
 " Neoscroll setup
 lua require('neoscroll').setup()
 " Nvim Tree setup
-lua require'nvim-tree'.setup()
+lua <<EOF
+require'nvim-tree'.setup {
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    }
+  }
+}
+EOF
 
 " In the very end, try to load a local.vim configuration if this file exist
 " besides the init.vim
