@@ -68,6 +68,9 @@ Plug 'nvim-lua/plenary.nvim'
 " Very cool fuzzy finder for everything
 Plug 'nvim-telescope/telescope.nvim'
 
+" Very cool motion tool!
+Plug 'ggandor/leap.nvim'
+
 call plug#end()
 
 " Enable line number
@@ -278,16 +281,6 @@ vnoremap <leader>P "+P
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
-let g:nvim_tree_width = 40 " Default 30
-" Disable git logo because it's slow in very big repo
-" https://github.com/kyazdani42/nvim-tree.lua/issues/172
-" https://github.com/kyazdani42/nvim-tree.lua/issues/549
-let g:nvim_tree_show_icons = {
-    \ 'git': 0,
-    \ 'folders': 1,
-    \ 'files': 1,
-    \ 'folder_arrows': 1,
-    \ }
 
 " ============================================
 " Treesitter configuration
@@ -302,6 +295,20 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true
+  },
+  view = {
+    width = 40 -- Default 30
+  },
+  renderer = {
+    show = {
+      -- Disable git logo because it's slow in very big repo
+      -- https://github.com/kyazdani42/nvim-tree.lua/issues/172
+      -- https://github.com/kyazdani42/nvim-tree.lua/issues/549
+      file = true,
+      folder = true,
+      folder_arrows = true,
+      git = false
+    }
   }
 }
 EOF
@@ -345,3 +352,6 @@ require('telescope').setup{
   },
 }
 EOF
+
+" Leap Setup
+lua require('leap').set_default_keymaps()
