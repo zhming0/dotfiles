@@ -52,6 +52,7 @@ brew install \
   shellcheck \
   maven \
   helm \
+  bash-language-server \
   clojure-lsp/brew/clojure-lsp-native
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
@@ -62,8 +63,6 @@ asdf plugin add java || true
 # 16.0.0 support both intel and arm Mac
 asdf install nodejs 16.10.0
 asdf global nodejs 16.10.0
-
-npm i -g bash-language-server
 
 asdf install java oracle-17
 asdf global java oracle-17
