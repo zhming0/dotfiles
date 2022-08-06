@@ -53,7 +53,8 @@ brew install \
   maven \
   helm \
   bash-language-server \
-  clojure-lsp/brew/clojure-lsp-native
+  clojure-lsp/brew/clojure-lsp-native \
+  terminal-notifier
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
