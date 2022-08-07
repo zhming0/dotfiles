@@ -29,7 +29,6 @@ brew install \
   jq \
   ansible \
   awscli \
-  terraform \
   telnet \
   ripgrep \
   coreutils \
@@ -54,12 +53,14 @@ brew install \
   helm \
   bash-language-server \
   clojure-lsp/brew/clojure-lsp-native \
-  terminal-notifier
+  terminal-notifier \
+  sops
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
 asdf plugin add nodejs || true
 asdf plugin add java || true
+asdf plugin add terraform || true
 
 # 16.0.0 support both intel and arm Mac
 asdf install nodejs 16.10.0
@@ -67,6 +68,9 @@ asdf global nodejs 16.10.0
 
 asdf install java oracle-17
 asdf global java oracle-17
+
+asdf install terraform latest
+asdf global terraform latest
 
 # Install fzf's key binding
 $(brew --prefix)/opt/fzf/install
