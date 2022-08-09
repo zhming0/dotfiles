@@ -26,6 +26,13 @@
       "additionalSchemes": ["jar", "zipfile"],
       "trace.server": "verbose",
       "initializationOptions": {
+      },
+      "terraform": {
+        "command": "terraform-ls",
+        "args": ["serve"],
+        "filetypes": ["terraform", "tf"],
+        "initializationOptions": {},
+        "settings": {}
       }
     }
   },

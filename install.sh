@@ -54,7 +54,8 @@ brew install \
   bash-language-server \
   clojure-lsp/brew/clojure-lsp-native \
   terminal-notifier \
-  sops
+  sops \
+  hashicorp/tap/terraform-ls
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
