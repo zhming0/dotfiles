@@ -55,7 +55,8 @@ brew install \
   clojure-lsp/brew/clojure-lsp-native \
   terminal-notifier \
   sops \
-  hashicorp/tap/terraform-ls
+  hashicorp/tap/terraform-ls \
+  derailed/k9s/k9s
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
