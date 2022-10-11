@@ -124,7 +124,7 @@ let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
 "let g:edge_style = "neon"
 let g:airline_theme = "deus"
 let g:airline_powerline_fonts = 1
-colorscheme tokyonight
+colorscheme tokyonight-night
 
 " For nagigatiion between windows
 nnoremap <C-h> <C-w>h

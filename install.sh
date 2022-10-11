@@ -56,7 +56,8 @@ brew install \
   terminal-notifier \
   sops \
   hashicorp/tap/terraform-ls \
-  derailed/k9s/k9s
+  derailed/k9s/k9s \
+  supabase/tap/supabase
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
