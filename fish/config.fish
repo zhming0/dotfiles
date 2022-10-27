@@ -26,7 +26,7 @@ set --prepend fish_function_path "~/.config/fish/local_functions"
 alias vim nvim
 set -xg EDITOR nvim
 
-# Let FZF to use FD instaed of FIND by default
+# Let FZF to use FD instead of FIND by default
 # so gitignore is respected, symlink followed, .git ignored
 set -xg FZF_DEFAULT_COMMAND 'fd --hidden --type f --follow --exclude .git'
 set -xg FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"

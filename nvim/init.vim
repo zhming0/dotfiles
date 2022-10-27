@@ -80,7 +80,7 @@ set number
 " Use the line number columns to display signs
 set signcolumn=number
 
-" Coc recommand setting this shorter
+" Coc recommend setting this shorter
 " I presume it will make CursorHold better
 set updatetime=300
 
@@ -103,7 +103,7 @@ augroup CursorLine
   au WinLeave * setlocal nocursorline
 augroup END
 
-" Use different | so Identation Guild looks better :)
+" Use different | so Indentation Guild looks better :)
 " let g:indent_blankline_char = "│"
 let g:indent_blankline_char = " "
 let g:indent_blankline_char_highlight_list = ['Ignore', 'StatusLine']
@@ -239,10 +239,18 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " use :Prettier to invoke prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+" Replace vim's default spellcheck with coc-typos
+" Move to next misspelled word after the cursor, 'wrapscan' applies.
+nmap ]s <Plug>(coc-typos-next)
+" Move to previous misspelled word after the cursor, 'wrapscan' applies.
+nmap [s <Plug>(coc-typos-prev)
+" Fix typo at cursor position
+nmap z= <Plug>(coc-typos-fix)
+
 " Some extra plugins - these are managed by coc entirely
 " coc-conjure can make omnicomplete provided by conjure work with CoC
 " Clangd is LSP for C Lang
-let g:coc_global_extensions = ['coc-conjure', 'coc-clangd', 'coc-java', 'coc-rls']
+let g:coc_global_extensions = ['coc-conjure', 'coc-clangd', 'coc-java', 'coc-rls', 'coc-typos']
 
 
 " End VIM CoC

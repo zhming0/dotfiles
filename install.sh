@@ -90,4 +90,6 @@ bash ./nvim/setup.sh
 helm plugin install https://github.com/databus23/helm-diff
 helm plugin install https://github.com/jkroepke/helm-secrets --version v4.1.1
 
+./bin/gh-cargo-install.sh --git crate-ci/typos --target x86_64-apple-darwin --tag v1.12.12
+
 exec -l $SHELL
