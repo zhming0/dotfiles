@@ -57,7 +57,9 @@ brew install \
   sops \
   hashicorp/tap/terraform-ls \
   derailed/k9s/k9s \
-  supabase/tap/supabase
+  bash \
+  helmfile \
+  age
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
@@ -83,5 +85,9 @@ bash ./nvim/setup.sh
 ./rust/setup.sh
 ./tmux/setup.sh
 ./go/setup.sh
+
+# Some helm related setup
+helm plugin install https://github.com/databus23/helm-diff
+helm plugin install https://github.com/jkroepke/helm-secrets --version v4.1.1
 
 exec -l $SHELL

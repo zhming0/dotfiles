@@ -13,7 +13,8 @@ Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
 " All CoC stuff
-Plug 'neoclide/coc.nvim', {'tag': 'v0.0.82'}
+" Note coc.nvim isn't the most stable software, so I try to ping to commit.
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': '648db91d258bbb70b6c02f8759a644692893dc41'}
   Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
@@ -50,7 +51,7 @@ Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 
 " Clojure
-Plug 'Olical/conjure', {'tag': 'v4.27.0'}
+Plug 'Olical/conjure', {'tag': 'v4.40.0'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
 " Tmux Integration
