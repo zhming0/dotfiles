@@ -53,6 +53,8 @@ Plug 'jiangmiao/auto-pairs'
 " Clojure
 Plug 'Olical/conjure', {'tag': 'v4.40.0'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
+" Allow ANSI text in Conjure's log buffer
+Plug 'm00qek/baleia.nvim', { 'tag': 'v1.2.0' }
 
 " Tmux Integration
 Plug 'christoomey/vim-tmux-navigator'
@@ -72,6 +74,9 @@ Plug 'nvim-telescope/telescope.nvim'
 " Very cool motion tool!
 Plug 'ggandor/leap.nvim'
 
+" Safe exrc
+Plug 'klen/nvim-config-local'
+
 call plug#end()
 
 " Enable line number
@@ -85,8 +90,8 @@ set signcolumn=number
 set updatetime=300
 
 " Enable project specific .vimrc
-set exrc
-set secure
+" set exrc
+" set secure
 
 " Enable mouse support
 set mouse=a
@@ -119,13 +124,12 @@ nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>/ <cmd>Telescope current_buffer_fuzzy_find<cr>
 
 " Choose my favorate color scheme
-let g:tokyonight_style = "night"
 let g:tokyonight_italic_functions = 1
 let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
 "let g:edge_style = "neon"
 let g:airline_theme = "deus"
 let g:airline_powerline_fonts = 1
-colorscheme tokyonight-night
+colorscheme tokyonight-moon
 
 " For nagigatiion between windows
 nnoremap <C-h> <C-w>h
@@ -366,3 +370,10 @@ EOF
 
 " Leap Setup
 lua require('leap').set_default_keymaps()
+
+" For klen/nvim-config-local
+lua require('config-local').setup()
+
+" Allow seeing color in conjure log buffer
+let s:baleia = luaeval("require('baleia').setup { line_starts_at = 3 }")
+autocmd BufWinEnter conjure-log-* call s:baleia.automatically(bufnr('%'))

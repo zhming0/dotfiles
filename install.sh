@@ -59,7 +59,9 @@ brew install \
   derailed/k9s/k9s \
   bash \
   helmfile \
-  age
+  age \
+  babashka/brew/neil \
+  fairwindsops/tap/nova
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
