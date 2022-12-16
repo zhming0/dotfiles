@@ -14,7 +14,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 " All CoC stuff
 " Note coc.nvim isn't the most stable software, so I try to ping to commit.
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': '648db91d258bbb70b6c02f8759a644692893dc41'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': '66d910665d7fef9e441293bab0fa08f77d6c004e'}
   Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}

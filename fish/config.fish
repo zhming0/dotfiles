@@ -55,3 +55,6 @@ source (brew --prefix asdf)/libexec/asdf.fish
 # because macOS already provides this software and installing another version in
 # parallel can cause all kinds of trouble.
 set -gx LDFLAGS "-L"(brew --prefix)"/opt/bison/lib"
+
+alias p=pnpm
+alias px=pnpx

@@ -61,7 +61,8 @@ brew install \
   helmfile \
   age \
   babashka/brew/neil \
-  fairwindsops/tap/nova
+  fairwindsops/tap/nova \
+  pnpm
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
