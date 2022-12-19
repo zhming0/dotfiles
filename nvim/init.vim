@@ -169,7 +169,7 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 noremap <Leader><Leader> :update<CR>
 
 "=====================================================
-" Barbar shortcuts
+" Barbar
 
 nnoremap <silent>    <leader>[ :BufferPrevious<CR>
 nnoremap <silent>    <leader>] :BufferNext<CR>
@@ -183,6 +183,9 @@ nnoremap <silent>    <leader>6 :BufferGoto 6<CR>
 nnoremap <silent>    <leader>7 :BufferGoto 7<CR>
 nnoremap <silent>    <leader>8 :BufferGoto 8<CR>
 nnoremap <silent>    <leader>9 :BufferLast<CR>
+
+let bufferline = get(g:, 'bufferline', {})
+let bufferline.icon_pinned = '' " The default icon isn't supported by Hack Nerd Font
 
 "=====================================================
 " VIM CoC (lang client)
