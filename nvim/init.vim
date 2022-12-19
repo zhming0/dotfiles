@@ -9,8 +9,8 @@ Plug 'folke/tokyonight.nvim' " Support treesitter!! All colorschemes below this 
 Plug 'shaunsingh/moonlight.nvim'
 
 " NVIM Tree
-Plug 'kyazdani42/nvim-web-devicons' " for file icons
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons' " for file icons
+Plug 'nvim-tree/nvim-tree.lua'
 
 " All CoC stuff
 " Note coc.nvim isn't the most stable software, so I try to ping to commit.
