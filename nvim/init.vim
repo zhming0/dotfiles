@@ -122,6 +122,7 @@ nnoremap <c-p> <cmd>Telescope find_files hidden=true follow=true<cr>
 nnoremap <leader>f <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>/ <cmd>Telescope current_buffer_fuzzy_find<cr>
+nnoremap <leader>t <cmd>Telescope treesitter<cr>
 
 " Choose my favorate color scheme
 let g:tokyonight_italic_functions = 1
