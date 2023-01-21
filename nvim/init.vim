@@ -14,7 +14,7 @@ Plug 'nvim-tree/nvim-tree.lua'
 
 " All CoC stuff
 " Note coc.nvim isn't the most stable software, so I try to ping to commit.
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': '66d910665d7fef9e441293bab0fa08f77d6c004e'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': 'b11a93ba809e601180bff4b8d6c6f4d5b3fd093c'}
   Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
@@ -66,7 +66,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'hashivim/vim-terraform'
 Plug 'dag/vim-fish'
 
-" Depended by telescope
+" Depended by telescope, and spectre
 Plug 'nvim-lua/plenary.nvim'
 " Very cool fuzzy finder for everything
 Plug 'nvim-telescope/telescope.nvim'
@@ -76,6 +76,9 @@ Plug 'ggandor/leap.nvim'
 
 " Safe exrc
 Plug 'klen/nvim-config-local'
+
+" Fancy project based search and replace
+Plug 'windwp/nvim-spectre'
 
 call plug#end()
 
