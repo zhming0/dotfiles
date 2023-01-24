@@ -14,7 +14,7 @@ Plug 'nvim-tree/nvim-tree.lua'
 
 " All CoC stuff
 " Note coc.nvim isn't the most stable software, so I try to ping to commit.
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': '66d910665d7fef9e441293bab0fa08f77d6c004e'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': '95b43f67147391cf2c69e550bd001b742781d226'}
   Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
@@ -51,7 +51,7 @@ Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 
 " Clojure
-Plug 'Olical/conjure', {'tag': 'v4.40.0'}
+Plug 'Olical/conjure', {'tag': 'v4.42.0'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 " Allow ANSI text in Conjure's log buffer
 Plug 'm00qek/baleia.nvim', { 'tag': 'v1.2.0' }
