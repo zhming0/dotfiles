@@ -80,9 +80,6 @@ asdf global java oracle-17
 asdf install terraform latest
 asdf global terraform latest
 
-# Install fzf's key binding
-$(brew --prefix)/opt/fzf/install
-
 bash ./fish/setup.sh
 bash ./nvim/setup.sh
 ./rust/setup.sh

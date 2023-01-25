@@ -28,8 +28,13 @@ set -xg EDITOR nvim
 
 # Let FZF to use FD instead of FIND by default
 # so gitignore is respected, symlink followed, .git ignored
-set -xg FZF_DEFAULT_COMMAND 'fd --hidden --type f --follow --exclude .git'
-set -xg FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+# fish.fzf comes with sane default so these are no longer needed.
+#set -xg FZF_DEFAULT_COMMAND 'fd --hidden --type f --follow --exclude .git'
+#set -xg FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+
+# Rebind fish.fzf's default keymapping
+# run: fzf_configure_bindings --help to learn more
+fzf_configure_bindings --directory=\cf
 
 # Colors
 set fish_color_command brwhite --bold
