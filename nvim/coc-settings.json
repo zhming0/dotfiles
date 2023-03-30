@@ -1,13 +1,18 @@
 // vim: ft=jsonc
+// Check https://github.com/neoclide/coc.nvim/blob/master/doc/coc-config.txt
+// And https://github.com/neoclide/coc.nvim/blob/master/doc/coc.txt
 {
-  "semanticTokens.enable": true,
+  "[java]": {
+    "semanticTokens.enable": true,
+  },
+  "codeLens.enable": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.preferences.importModuleSpecifier": "relative",
+  "coc.preferences.enableMessageDialog": true,
   "languageserver": {
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod"],
-      "disableWorkspaceFolders": true,
       "filetypes": ["go"],
       "initializationOptions": {
         "usePlaceholders": true
@@ -42,8 +47,6 @@
   "yaml.schemas": {
     "kubernetes": "/*.yaml"
   },
-
-  "python.jediEnabled": false,
 
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
