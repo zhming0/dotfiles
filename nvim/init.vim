@@ -215,7 +215,8 @@ inoremap <silent><expr> <TAB>
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " use cr to select the completion item
-inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -227,21 +228,21 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>ac <Plug>(coc-codeaction)
 
 " Allow C-f and C-b to work on pop up if there is one on the screen
-nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
 " Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call ShowDocumentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
+    call feedkeys('K', 'in')
   endif
 endfunction
 
@@ -269,6 +270,20 @@ nmap z= <Plug>(coc-typos-fix)
 " coc-conjure can make omnicomplete provided by conjure work with CoC
 " Clangd is LSP for C Lang
 let g:coc_global_extensions = ['coc-conjure', 'coc-clangd', 'coc-java', 'coc-rls', 'coc-typos']
+
+" Formatting selected code
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Honestly I don't know what this is, but the original comment:
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Run the Code Lens action on the current line
+nmap <leader>cl  <Plug>(coc-codelens-action)
 
 
 " End VIM CoC
@@ -324,20 +339,6 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true
-  },
-  view = {
-    width = 40 -- Default 30
-  },
-  renderer = {
-    show = {
-      -- Disable git logo because it's slow in very big repo
-      -- https://github.com/kyazdani42/nvim-tree.lua/issues/172
-      -- https://github.com/kyazdani42/nvim-tree.lua/issues/549
-      file = true,
-      folder = true,
-      folder_arrows = true,
-      git = false
-    }
   }
 }
 EOF
@@ -351,6 +352,9 @@ require'nvim-tree'.setup {
     open_file = {
       quit_on_open = true,
     }
+  },
+  view = {
+    width = 40 -- Default 30
   }
 }
 EOF
