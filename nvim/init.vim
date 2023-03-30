@@ -14,7 +14,7 @@ Plug 'nvim-tree/nvim-tree.lua'
 
 " All CoC stuff
 " Note coc.nvim isn't the most stable software, so I try to ping to commit.
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': '95b43f67147391cf2c69e550bd001b742781d226'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': 'bbaa1d5d1ff3cbd9d26bb37cfda1a990494c4043'}
   Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
@@ -35,7 +35,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Iconed Buffer bar (replace tab bar)
-Plug 'romgrk/barbar.nvim'
+" Pinned a version to avoid this bug: https://github.com/romgrk/barbar.nvim/issues/398
+Plug 'romgrk/barbar.nvim', { 'commit': 'a2334fb2c4c4abf3fa2ecc75300ff843ede8313d' }
 
 " Indentation Guide
 " Plug 'lukas-reineke/indent-blankline.nvim'
@@ -51,7 +52,7 @@ Plug 'tpope/vim-repeat'
 Plug 'jiangmiao/auto-pairs'
 
 " Clojure
-Plug 'Olical/conjure', {'tag': 'v4.42.0'}
+Plug 'Olical/conjure', {'tag': 'v4.43.0'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 " Allow ANSI text in Conjure's log buffer
 Plug 'm00qek/baleia.nvim', { 'tag': 'v1.2.0' }
@@ -188,8 +189,14 @@ nnoremap <silent>    <leader>7 :BufferGoto 7<CR>
 nnoremap <silent>    <leader>8 :BufferGoto 8<CR>
 nnoremap <silent>    <leader>9 :BufferLast<CR>
 
-let bufferline = get(g:, 'bufferline', {})
-let bufferline.icon_pinned = '' " The default icon isn't supported by Hack Nerd Font
+lua <<EOF
+require('bufferline').setup{
+  icons = {
+    -- The default icon isn't supported by Hack Nerd Font
+    pinned = { button = '' }
+  }
+}
+EOF
 
 "=====================================================
 " VIM CoC (lang client)
