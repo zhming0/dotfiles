@@ -273,7 +273,6 @@ let g:coc_global_extensions = ['coc-conjure', 'coc-clangd', 'coc-java', 'coc-rls
 
 " Formatting selected code
 xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!

@@ -9,6 +9,8 @@
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.preferences.importModuleSpecifier": "relative",
   "coc.preferences.enableMessageDialog": true,
+  "list.floatPreview": true,
+  "list.maxPreviewHeight": 24,
   "languageserver": {
     "golang": {
       "command": "gopls",
