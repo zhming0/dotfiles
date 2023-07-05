@@ -62,7 +62,8 @@ brew install \
   age \
   babashka/brew/neil \
   fairwindsops/tap/nova \
-  pnpm
+  pnpm \
+  ariga/tap/atlas
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
