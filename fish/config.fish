@@ -24,6 +24,9 @@ end
 set --prepend fish_function_path "~/.config/fish/local_functions"
 
 alias vim nvim
+alias vimdiff 'nvim -d'
+git config --global diff.tool nvimdiff
+git config --global difftool.prompt false
 set -xg EDITOR nvim
 
 # Let FZF to use FD instead of FIND by default
