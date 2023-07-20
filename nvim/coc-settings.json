@@ -52,5 +52,11 @@
 
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
-  }
+  },
+
+  // By default, the ls will try to download lombok and use that.
+  // But it doesn't work in nvim env somehow.
+  // So if I want lombok support, I need:
+  // "java.jdt.ls.vmargs": "-javaagent:/xxx/xxx/lombok.jar"
+  "java.jdt.ls.lombokSupport.enabled": false,
 }

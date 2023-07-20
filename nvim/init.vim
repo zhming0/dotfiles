@@ -27,16 +27,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': 'bbaa1d5d1ff3cbd9d26bb
 
 " Git related
 Plug 'mhinz/vim-signify'
-Plug 'tveskag/nvim-blame-line'
-Plug 'tpope/vim-fugitive'
+Plug 'f-person/git-blame.nvim'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Iconed Buffer bar (replace tab bar)
-" Pinned a version to avoid this bug: https://github.com/romgrk/barbar.nvim/issues/398
-Plug 'romgrk/barbar.nvim', { 'commit': 'a2334fb2c4c4abf3fa2ecc75300ff843ede8313d' }
+Plug 'romgrk/barbar.nvim'
 
 " Indentation Guide
 " Plug 'lukas-reineke/indent-blankline.nvim'
@@ -55,16 +53,15 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Olical/conjure', {'tag': 'v4.43.0'}
 Plug 'eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 " Allow ANSI text in Conjure's log buffer
-Plug 'm00qek/baleia.nvim', { 'tag': 'v1.2.0' }
+Plug 'm00qek/baleia.nvim', { 'tag': 'v1.3.0' }
 
 " Tmux Integration
-Plug 'christoomey/vim-tmux-navigator'
+" Commented it out because I don't feel this useful
+" Plug 'christoomey/vim-tmux-navigator'
 
 " Syntaxs
 " Rust keeps getting new syntax the builtin syntax can't keep up
 Plug 'rust-lang/rust.vim'
-" TODO: consider maybe use lsp to replace it
-Plug 'hashivim/vim-terraform'
 Plug 'dag/vim-fish'
 
 " Depended by telescope, and spectre
@@ -92,10 +89,6 @@ set signcolumn=number
 " Coc recommend setting this shorter
 " I presume it will make CursorHold better
 set updatetime=300
-
-" Enable project specific .vimrc
-" set exrc
-" set secure
 
 " Enable mouse support
 set mouse=a
@@ -394,3 +387,7 @@ lua require('config-local').setup()
 " Allow seeing color in conjure log buffer
 let s:baleia = luaeval("require('baleia').setup { line_starts_at = 3 }")
 autocmd BufWinEnter conjure-log-* call s:baleia.automatically(bufnr('%'))
+
+" Disable gitblame for nvimtree window
+let g:gitblame_ignored_filetypes = [ 'NvimTree' ]
+let g:gitblame_delay = 100
