@@ -30,8 +30,7 @@ Plug 'mhinz/vim-signify'
 Plug 'f-person/git-blame.nvim'
 
 " Status bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
 
 " Iconed Buffer bar (replace tab bar)
 Plug 'romgrk/barbar.nvim'
@@ -124,10 +123,11 @@ nnoremap <leader>t <cmd>Telescope treesitter<cr>
 " Choose my favorate color scheme
 let g:tokyonight_italic_functions = 1
 let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
-"let g:edge_style = "neon"
-let g:airline_theme = "deus"
-let g:airline_powerline_fonts = 1
 colorscheme tokyonight-moon
+
+lua << END
+require('lualine').setup()
+END
 
 " For nagigatiion between windows
 nnoremap <C-h> <C-w>h
