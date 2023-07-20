@@ -93,4 +93,7 @@ helm plugin install https://github.com/jkroepke/helm-secrets --version v4.1.1
 
 ./bin/gh-cargo-install.sh --git crate-ci/typos --target x86_64-apple-darwin --tag v1.12.12
 
+git config --global diff.tool nvimdiff
+git config --global difftool.prompt false
+
 exec -l $SHELL
