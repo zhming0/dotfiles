@@ -126,7 +126,11 @@ let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
 colorscheme tokyonight-moon
 
 lua << END
-require('lualine').setup()
+require('lualine').setup {
+  sections = {
+    lualine_c = {'filename', 'g:coc_status', 'b:coc_current_function'},
+  }
+}
 END
 
 " For nagigatiion between windows
