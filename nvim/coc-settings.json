@@ -45,9 +45,10 @@
     }
   },
 
-  "yaml.validate": false,
+  "yaml.validate": true,
   "yaml.schemas": {
-    "kubernetes": "/*.yaml"
+    // If you want k8s schemas, use those schema files directly.
+    // https://github.com/yannh/kubernetes-json-schema/tree/master
   },
 
   "diagnostic-languageserver.filetypes": {
