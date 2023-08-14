@@ -63,7 +63,8 @@ brew install \
   babashka/brew/neil \
   fairwindsops/tap/nova \
   pnpm \
-  ariga/tap/atlas
+  ariga/tap/atlas \
+  mike-engel/jwt-cli/jwt-cli
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
