@@ -64,7 +64,8 @@ brew install \
   fairwindsops/tap/nova \
   pnpm \
   ariga/tap/atlas \
-  mike-engel/jwt-cli/jwt-cli
+  mike-engel/jwt-cli/jwt-cli \
+  chatblade
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
@@ -91,10 +92,12 @@ bash ./nvim/setup.sh
 # Some helm related setup
 helm plugin install https://github.com/databus23/helm-diff
 helm plugin install https://github.com/jkroepke/helm-secrets --version v4.1.1
+helm plugin install https://github.com/helm/helm-mapkubeapis
 
 ./bin/gh-cargo-install.sh --git crate-ci/typos --target x86_64-apple-darwin --tag v1.12.12
 
 git config --global diff.tool nvimdiff
 git config --global difftool.prompt false
+git config --global rerere.enabled true
 
 exec -l $SHELL

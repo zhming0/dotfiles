@@ -49,6 +49,8 @@
   "yaml.schemas": {
     // If you want k8s schemas, use those schema files directly.
     // https://github.com/yannh/kubernetes-json-schema/tree/master
+    // Well, the above is untrue, because yaml-language-server has special treatment if we do like follow.
+    "kubernetes": ["*.k8s.yaml", "*.k8s.yml"]
   },
 
   "diagnostic-languageserver.filetypes": {

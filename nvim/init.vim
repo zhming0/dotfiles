@@ -292,7 +292,7 @@ nnoremap <leader>hu :SignifyHunkUndo<cr>
 " Conjure
 " disable auto-pair for clojure in favor of parinfer
 autocmd BufNewFile,BufRead *.clj,*.cljc let g:AutoPairsShortcutToggle = ''
-let g:conjure#log#hud#height = 0.66
+let g:conjure#log#hud#height = 1
 let g:conjure#log#wrap = 'true'
 " Disable Conjure's K shortcut in favor of LSP's support
 let g:conjure#mapping#doc_word = v:false
