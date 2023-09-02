@@ -15,6 +15,11 @@ Plug 'nvim-tree/nvim-tree.lua'
 " LSP
 Plug 'neovim/nvim-lspconfig'
 
+" Improved UI, replacing vim defaults
+Plug 'MunifTanjim/nui.nvim'
+Plug 'rcarriga/nvim-notify'
+Plug 'folke/noice.nvim'
+
 " Git related
 Plug 'mhinz/vim-signify'
 Plug 'f-person/git-blame.nvim'
@@ -219,7 +224,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     ---end, opts)
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<leader>f', function()
       vim.lsp.buf.format { async = true }
@@ -342,3 +347,24 @@ autocmd BufWinEnter conjure-log-* call s:baleia.automatically(bufnr('%'))
 " Disable gitblame for nvimtree window
 let g:gitblame_ignored_filetypes = [ 'NvimTree' ]
 let g:gitblame_delay = 100
+
+lua <<EOF
+require("noice").setup({
+  lsp = {
+    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+    override = {
+      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+      ["vim.lsp.util.stylize_markdown"] = true,
+      ["cmp.entry.get_documentation"] = true,
+    },
+  },
+  -- you can enable a preset for easier configuration
+  presets = {
+    bottom_search = true, -- use a classic bottom cmdline for search
+    command_palette = true, -- position the cmdline and popupmenu together
+    long_message_to_split = true, -- long messages will be sent to a split
+    inc_rename = false, -- enables an input dialog for inc-rename.nvim
+    lsp_doc_border = false, -- add a border to hover docs and signature help
+  },
+})
+EOF
