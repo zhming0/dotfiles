@@ -12,18 +12,8 @@ Plug 'shaunsingh/moonlight.nvim'
 Plug 'nvim-tree/nvim-web-devicons' " for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 
-" All CoC stuff
-" Note coc.nvim isn't the most stable software, so I try to ping to commit.
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'commit': 'bbaa1d5d1ff3cbd9d26bb37cfda1a990494c4043'}
-  Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-tslint-plugin', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'iamcco/coc-diagnostic', {'do': 'yarn install --frozen-lockfile'} " Turn diagnostic tool into LSP plugins
-  Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
+" LSP
+Plug 'neovim/nvim-lspconfig'
 
 " Git related
 Plug 'mhinz/vim-signify'
@@ -125,14 +115,6 @@ let g:tokyonight_italic_functions = 1
 let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
 colorscheme tokyonight-moon
 
-lua << END
-require('lualine').setup {
-  sections = {
-    lualine_c = {'filename', 'g:coc_status', 'b:coc_current_function'},
-  }
-}
-END
-
 " For nagigatiion between windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -196,93 +178,58 @@ require('bufferline').setup{
 EOF
 
 "=====================================================
-" VIM CoC (lang client)
+" Nvim LSP Config
 
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+lua <<EOF
 
-" Insert <tab> when previous text is space, refresh completion if not.
-inoremap <silent><expr> <TAB>
-\ coc#pum#visible() ? coc#pum#next(1):
-\ <SID>check_back_space() ? "\<Tab>" :
-\ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+-- language servers
+require'lspconfig'.clojure_lsp.setup{}
+local lspconfig = require('lspconfig')
+lspconfig.clojure_lsp.setup {}
+lspconfig.tsserver.setup {}
 
-" use cr to select the completion item
-inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+-- Global mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>ac <Plug>(coc-codeaction)
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<leader>k', vim.lsp.buf.signature_help, opts)
+    -- Not sure what these are
+    ---vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    ---vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    ---vim.keymap.set('n', '<space>wl', function()
+    ---  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    ---end, opts)
+    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<leader>f', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+  end,
+})
 
-" Allow C-f and C-b to work on pop up if there is one on the screen
-nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+EOF
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call ShowDocumentation()<CR>
-
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" use :Fold to fold a region
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" use :Prettier to invoke prettier
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-" Replace vim's default spellcheck with coc-typos
-" Move to next misspelled word after the cursor, 'wrapscan' applies.
-nmap ]s <Plug>(coc-typos-next)
-" Move to previous misspelled word after the cursor, 'wrapscan' applies.
-nmap [s <Plug>(coc-typos-prev)
-" Fix typo at cursor position
-nmap z= <Plug>(coc-typos-fix)
-
-" Some extra plugins - these are managed by coc entirely
-" coc-conjure can make omnicomplete provided by conjure work with CoC
-" Clangd is LSP for C Lang
-let g:coc_global_extensions = ['coc-conjure', 'coc-clangd', 'coc-java', 'coc-rls', 'coc-typos']
-
-" Formatting selected code
-xmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Honestly I don't know what this is, but the original comment:
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Run the Code Lens action on the current line
-nmap <leader>cl  <Plug>(coc-codelens-action)
-
-
-" End VIM CoC
+" End Nvim LSP config
 "===================================================
 
 " Vim Signify (git diff indicator)
