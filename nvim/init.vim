@@ -13,6 +13,8 @@ Plug 'nvim-tree/nvim-web-devicons' " for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 
 " LSP
+Plug 'williamboman/mason.nvim' " This one is like ASDF for language servers for neovim
+Plug 'williamboman/mason-lspconfig.nvim' " This one bridges the above with lspconfig
 Plug 'neovim/nvim-lspconfig'
 
 " Improved UI, replacing vim defaults
@@ -190,11 +192,34 @@ EOF
 
 lua <<EOF
 
+require("mason").setup()
+require("mason-lspconfig").setup{
+  ensure_installed = { "elixirls", "tsserver" },
+}
+
+-- This is automatic lsp server setup for all servers in mason
+require("mason-lspconfig").setup_handlers {
+  -- The first entry (without a key) will be the default handler
+  -- and will be called for each installed server that doesn't have
+  -- a dedicated handler.
+  function (server_name) -- default handler (optional)
+    require("lspconfig")[server_name].setup {}
+  end,
+
+  -- Next, you can provide a dedicated handler for specific servers.
+  -- For example, a handler override for the `rust_analyzer`:
+  -- ["rust_analyzer"] = function ()
+  --   require("rust-tools").setup {}
+  -- end
+}
+
 -- language servers
-require'lspconfig'.clojure_lsp.setup{}
 local lspconfig = require('lspconfig')
+-- LSP is managed by me manually.
 lspconfig.clojure_lsp.setup {}
-lspconfig.tsserver.setup {}
+-- These two lines are not needed as mason have handled them. remove me later
+-- lspconfig.tsserver.setup {}
+-- lspconfig.elixirls.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
