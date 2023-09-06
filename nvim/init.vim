@@ -194,7 +194,11 @@ lua <<EOF
 
 require("mason").setup()
 require("mason-lspconfig").setup{
-  ensure_installed = { "elixirls", "tsserver" },
+  ensure_installed = {
+    "elixirls", "tsserver",
+    -- These 4 are all managed by https://github.com/hrsh7th/vscode-langservers-extracted
+    "cssls" , "jsonls", "html", "eslint"
+  },
 }
 
 -- This is automatic lsp server setup for all servers in mason
@@ -254,7 +258,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<leader>f', function()
+    vim.keymap.set('n', '<leader>=', function()
       vim.lsp.buf.format { async = true }
     end, opts)
   end,
