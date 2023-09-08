@@ -148,9 +148,8 @@ autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
 " Use Tab for golang
 autocmd BufNewFile,BufRead *.go setlocal noet ts=2 sw=2 sts=2 noexpandtab
-" Remove useless import upon save
-autocmd BufWritePre *.go silent! call CocAction('runCommand', 'editor.action.organizeImport')
 
+" TODO: replace me in favor of https://neovim.io/doc/user/editorconfig.html
 " Enable auto remove trailing white spaces
 fun! <SID>StripTrailingWhitespaces()
   let l = line(".")
@@ -197,7 +196,7 @@ require("mason").setup()
 require("mason-lspconfig").setup{
   -- To find available names: https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
   ensure_installed = {
-    "elixirls", "tsserver",
+    "tsserver", "pyright",
     -- These 4 are all managed by https://github.com/hrsh7th/vscode-langservers-extracted
     "cssls" , "jsonls", "html", "eslint",
     "yamlls",
@@ -250,6 +249,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     -- Enable completion triggered by <c-x><c-o>
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Cursor hold highlight references
+    vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+      callback = function(ev)
+        vim.lsp.buf.document_highlight()
+      end
+    })
+    vim.api.nvim_create_autocmd({"CursorMoved"}, {
+      callback = function(ev)
+        vim.lsp.buf.clear_references()
+      end
+    })
 
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
