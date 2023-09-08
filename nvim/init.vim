@@ -16,6 +16,7 @@ Plug 'nvim-tree/nvim-tree.lua'
 Plug 'williamboman/mason.nvim' " This one is like ASDF for language servers for neovim
 Plug 'williamboman/mason-lspconfig.nvim' " This one bridges the above with lspconfig
 Plug 'neovim/nvim-lspconfig'
+Plug 'b0o/schemastore.nvim'
 
 " Improved UI, replacing vim defaults
 Plug 'MunifTanjim/nui.nvim'
@@ -194,12 +195,16 @@ lua <<EOF
 
 require("mason").setup()
 require("mason-lspconfig").setup{
+  -- To find available names: https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
   ensure_installed = {
     "elixirls", "tsserver",
     -- These 4 are all managed by https://github.com/hrsh7th/vscode-langservers-extracted
-    "cssls" , "jsonls", "html", "eslint"
+    "cssls" , "jsonls", "html", "eslint",
+    "yamlls",
   },
 }
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- This is automatic lsp server setup for all servers in mason
 require("mason-lspconfig").setup_handlers {
@@ -207,23 +212,29 @@ require("mason-lspconfig").setup_handlers {
   -- and will be called for each installed server that doesn't have
   -- a dedicated handler.
   function (server_name) -- default handler (optional)
-    require("lspconfig")[server_name].setup {}
+    require("lspconfig")[server_name].setup {
+      capabilities = capabilities,
+    }
   end,
 
   -- Next, you can provide a dedicated handler for specific servers.
-  -- For example, a handler override for the `rust_analyzer`:
-  -- ["rust_analyzer"] = function ()
-  --   require("rust-tools").setup {}
-  -- end
+  ["jsonls"] = function ()
+    require('lspconfig').jsonls.setup {
+      capabilities = capabilities,
+      settings = {
+        json = {
+          schemas = require('schemastore').json.schemas(),
+          validate = { enable = true },
+        },
+      },
+    }
+  end
 }
 
 -- language servers
 local lspconfig = require('lspconfig')
 -- LSP is managed by me manually.
 lspconfig.clojure_lsp.setup {}
--- These two lines are not needed as mason have handled them. remove me later
--- lspconfig.tsserver.setup {}
--- lspconfig.elixirls.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -381,6 +392,9 @@ let g:gitblame_ignored_filetypes = [ 'NvimTree' ]
 let g:gitblame_delay = 100
 
 lua <<EOF
+
+require('lualine').setup()
+
 require("noice").setup({
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -402,20 +416,6 @@ require("noice").setup({
 EOF
 
 lua <<EOF
--- Add additional capabilities supported by nvim-cmp
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-local lspconfig = require('lspconfig')
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
-    capabilities = capabilities,
-  }
-end
-
 -- luasnip setup
 local luasnip = require 'luasnip'
 
