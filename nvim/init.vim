@@ -199,7 +199,7 @@ require("mason-lspconfig").setup{
     "tsserver", "pyright",
     -- These 4 are all managed by https://github.com/hrsh7th/vscode-langservers-extracted
     "cssls" , "jsonls", "html", "eslint",
-    "yamlls",
+    "yamlls", "bashls"
   },
 }
 
@@ -261,6 +261,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.lsp.buf.clear_references()
       end
     })
+
+    -- Disable semantic highlight for Clojure LSP
+    -- I learnt it from https://gist.github.com/swarn/fb37d9eefe1bc616c2a7e476c0bc0316#controlling-when-highlights-are-applied
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client.name == "clojure_lsp" then
+      vim.api.nvim_create_autocmd({"LspTokenUpdate"}, {
+        buffer = ev.buf,
+        callback = function(ev)
+          for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+            vim.api.nvim_set_hl(0, group, {})
+          end
+        end
+      })
+    end
 
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
