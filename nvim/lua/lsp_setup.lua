@@ -17,6 +17,21 @@ require("mason-lspconfig").setup{
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+local function handle_document_highlight(buffer)
+  vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+    buffer = buffer,
+    callback = function(_)
+      vim.lsp.buf.document_highlight()
+    end
+  })
+  vim.api.nvim_create_autocmd({"CursorMoved"}, {
+    buffer = buffer,
+    callback = function(_)
+      vim.lsp.buf.clear_references()
+    end
+  })
+end
+
 -- This is automatic lsp server setup for all servers in mason
 require("mason-lspconfig").setup_handlers {
   -- The first entry (without a key) will be the default handler
@@ -45,7 +60,9 @@ require("mason-lspconfig").setup_handlers {
 -- language servers
 local lspconfig = require('lspconfig')
 -- LSP is managed by me manually.
-lspconfig.clojure_lsp.setup {}
+lspconfig.clojure_lsp.setup {
+  capabilities = capabilities,
+}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -62,25 +79,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Enable completion triggered by <c-x><c-o>
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-    -- Cursor hold highlight references
-    vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
-      callback = function(ev)
-        vim.lsp.buf.document_highlight()
-      end
-    })
-    vim.api.nvim_create_autocmd({"CursorMoved"}, {
-      callback = function(ev)
-        vim.lsp.buf.clear_references()
-      end
-    })
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+    if client.server_capabilities.documentHighlightProvider then
+      handle_document_highlight(ev.buf)
+    end
 
     -- Disable semantic highlight for Clojure LSP
     -- I learnt it from https://gist.github.com/swarn/fb37d9eefe1bc616c2a7e476c0bc0316#controlling-when-highlights-are-applied
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client.name == "clojure_lsp" then
       vim.api.nvim_create_autocmd({"LspTokenUpdate"}, {
         buffer = ev.buf,
-        callback = function(ev)
+        callback = function(_)
           for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
             vim.api.nvim_set_hl(0, group, {})
           end
