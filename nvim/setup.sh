@@ -10,10 +10,6 @@ brew install neovim
 # Prepare config folder
 mkdir -p ~/.config/nvim
 
-# Install vim-plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 # ln -sfv $BASEDIR/init.vim ~/.config/nvim/init.vim
 
 ln -sfv $BASEDIR/coc-settings.json ~/.config/nvim/coc-settings.json
