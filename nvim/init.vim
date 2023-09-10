@@ -18,6 +18,9 @@ Plug 'williamboman/mason-lspconfig.nvim' " This one bridges the above with lspco
 Plug 'neovim/nvim-lspconfig'
 Plug 'b0o/schemastore.nvim'
 
+" init.lua Lsp experience
+Plug 'folke/neodev.nvim'
+
 " Improved UI, replacing vim defaults
 Plug 'MunifTanjim/nui.nvim'
 Plug 'rcarriga/nvim-notify'
@@ -146,6 +149,7 @@ set expandtab
 " filetype hack to allow tsserver to parse tsx and jsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
+" TODO: replace me with editorconfig too
 " Use Tab for golang
 autocmd BufNewFile,BufRead *.go setlocal noet ts=2 sw=2 sts=2 noexpandtab
 
@@ -192,6 +196,9 @@ EOF
 
 lua <<EOF
 
+-- make lua ls work with init.lua
+require("neodev").setup({})
+
 require("mason").setup()
 require("mason-lspconfig").setup{
   -- To find available names: https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
@@ -199,7 +206,8 @@ require("mason-lspconfig").setup{
     "tsserver", "pyright",
     -- These 4 are all managed by https://github.com/hrsh7th/vscode-langservers-extracted
     "cssls" , "jsonls", "html", "eslint",
-    "yamlls", "bashls"
+    "yamlls", "bashls",
+    "lua_ls", -- Only need this for init.lua for now..
   },
 }
 
@@ -374,13 +382,6 @@ require'nvim-tree'.setup {
   }
 }
 EOF
-
-" In the very end, try to load a local.vim configuration if this file exist
-" besides the init.vim
-let _local_config_path=stdpath('config')."/local.vim"
-if filereadable(_local_config_path)
-  exec 'source ' . _local_config_path
-endif
 
 " To check default config
 " :help telescope.setup()
