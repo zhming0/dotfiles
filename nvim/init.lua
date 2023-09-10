@@ -26,6 +26,7 @@ Plug 'b0o/schemastore.nvim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'rcarriga/nvim-notify'
 Plug 'folke/noice.nvim'
+Plug 'kevinhwang91/nvim-bqf' -- Better looking quickfix list
 
 -- init.lua Lsp experience
 Plug 'folke/neodev.nvim'
@@ -140,3 +141,4 @@ require("noice").setup({
 })
 
 require('nvim_cmp_setup')
+require('bqf').setup()
