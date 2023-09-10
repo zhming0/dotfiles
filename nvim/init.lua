@@ -81,6 +81,7 @@ require("lazy").setup({
   -- Clojure
   {
     "Olical/conjure",
+    ft = {"clojure"},
     version = "*"
   },
   {
