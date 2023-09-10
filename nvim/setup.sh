@@ -19,4 +19,5 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ln -sfv $BASEDIR/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -sfv $BASEDIR/lua ~/.config/nvim/lua
 ln -sfv $BASEDIR/init.lua ~/.config/nvim/init.lua
+ln -sfv $BASEDIR/lazy-lock.json ~/.config/nvim/lazy-lock.json
 

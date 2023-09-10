@@ -1,83 +1,104 @@
 local vim = vim
-local Plug = vim.fn['plug#']
 
-vim.call('plug#begin', vim.fn.stdpath('data') .. '/plugged')
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
--- Treesitter!
-Plug('nvim-treesitter/nvim-treesitter', {["do"] = ':TSUpdate'}) -- We recommend updating the parsers on update
+require("lazy").setup({
+  -- Color schemes
+  {
+    "folke/tokyonight.nvim",
+    lazy = false, -- make sure we load this during startup as it is my main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      -- load the colorscheme here
+      vim.cmd([[colorscheme tokyonight]])
+    end,
+  },
+  "shaunsingh/moonlight.nvim",
 
--- Colorschemes
--- Plug 'haishanh/night-owl.vim' " My favorite but no treesitter support
-Plug 'folke/tokyonight.nvim' -- Support treesitter!! All colorschemes below this support ts
--- Plug 'sainnhe/edge'
-Plug 'shaunsingh/moonlight.nvim'
+  -- Treesitter!
+  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 
--- NVIM Tree
-Plug 'nvim-tree/nvim-web-devicons' -- for file icons
-Plug 'nvim-tree/nvim-tree.lua'
+  -- NVIM Tree
+  'nvim-tree/nvim-web-devicons', -- for file icons
+  'nvim-tree/nvim-tree.lua',
 
--- LSP
-Plug 'williamboman/mason.nvim' -- This one is like ASDF for language servers for neovim
-Plug 'williamboman/mason-lspconfig.nvim' -- This one bridges the above with lspconfig
-Plug 'neovim/nvim-lspconfig'
-Plug 'b0o/schemastore.nvim'
+  -- LSP
+  'williamboman/mason.nvim', -- This one is like ASDF for language servers for neovim
+  'williamboman/mason-lspconfig.nvim', -- This one bridges the above with lspconfig
+  'neovim/nvim-lspconfig',
+  'b0o/schemastore.nvim',
 
--- Improved UI, replacing vim defaults
-Plug 'MunifTanjim/nui.nvim'
-Plug 'rcarriga/nvim-notify'
-Plug 'folke/noice.nvim'
-Plug 'kevinhwang91/nvim-bqf' -- Better looking quickfix list
+  -- Improved UI, replacing vim defaults
+  'MunifTanjim/nui.nvim',
+  'rcarriga/nvim-notify',
+  'folke/noice.nvim',
+  'kevinhwang91/nvim-bqf', -- Better looking quickfix list
 
--- init.lua Lsp experience
-Plug 'folke/neodev.nvim'
+  -- init.lua Lsp experience
+  'folke/neodev.nvim',
 
--- Git related
-Plug 'mhinz/vim-signify'
-Plug 'f-person/git-blame.nvim'
+  -- Git related
+  'mhinz/vim-signify',
+  'f-person/git-blame.nvim',
 
--- Status bar
-Plug 'nvim-lualine/lualine.nvim'
+  -- Status bar
+  'nvim-lualine/lualine.nvim',
 
--- Iconed Buffer bar (replace tab bar)
-Plug 'romgrk/barbar.nvim'
+  -- Iconed Buffer bar (replace tab bar)
+  'romgrk/barbar.nvim',
 
--- Autocomplete (I don't know how these work)
-Plug 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-Plug 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-Plug 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-Plug 'L3MON4D3/LuaSnip' -- Snippets plugin
+  -- Autocomplete (I don't know how these work)
+  'hrsh7th/nvim-cmp', -- Autocompletion plugin
+  'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
+  'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
+  'L3MON4D3/LuaSnip', -- Snippets plugin
 
--- Smooth scroll!!
-Plug 'karb94/neoscroll.nvim'
+  -- Smooth scroll!!
+  'karb94/neoscroll.nvim',
 
--- Some old old old plugins, not sure if still needed
--- TODO review these
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'jiangmiao/auto-pairs'
+  -- Some old old old plugins, not sure if still needed
+  -- TODO review these
+  'tpope/vim-surround',
+  'tpope/vim-repeat',
+  'jiangmiao/auto-pairs',
 
--- Clojure
-Plug('Olical/conjure', {tag = 'v4.43.0'})
-Plug('eraserhd/parinfer-rust', {["do"] = "cargo build --release"})
--- Allow ANSI text in Conjure's log buffer
-Plug('m00qek/baleia.nvim', { tag = 'v1.3.0' })
+  -- Clojure
+  {
+    "Olical/conjure",
+    tag = "v4.43.0"
+  },
+  {
+    "eraserhd/parinfer-rust",
+    build = "cargo build --release"
+  },
+  {
+    "m00qek/baleia.nvim",
+    tag = "v1.3.0"
+  },
 
--- Depended by telescope, and spectre
-Plug 'nvim-lua/plenary.nvim'
--- Very cool fuzzy finder for everything
-Plug 'nvim-telescope/telescope.nvim'
+  -- Depended by telescope, and spectre
+  "nvim-lua/plenary.nvim",
+  -- Very cool fuzzy finder for everything
+  "nvim-telescope/telescope.nvim",
 
--- Very cool motion tool!
-Plug 'ggandor/leap.nvim'
-
--- Safe exrc
-Plug 'klen/nvim-config-local'
-
--- Fancy project based search and replace
--- But I don't really use it for now..
--- Plug 'windwp/nvim-spectre'
-
-vim.call('plug#end')
+  'ggandor/leap.nvim',
+  'klen/nvim-config-local'
+}, {
+  defaults = {
+    lazy = false
+  }
+})
 
 require('vim_self')
 require('telescope_setup')
