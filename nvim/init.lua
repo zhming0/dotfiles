@@ -67,9 +67,14 @@ require("lazy").setup({
   -- Smooth scroll!!
   {'karb94/neoscroll.nvim', config=true},
 
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = true
+  },
   -- Some old old old plugins, not sure if still needed
   -- TODO review these
-  'tpope/vim-surround',
   'tpope/vim-repeat',
   'jiangmiao/auto-pairs',
 
