@@ -30,8 +30,7 @@ require("lazy").setup({
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 
   -- NVIM Tree
-  'nvim-tree/nvim-web-devicons', -- for file icons
-  'nvim-tree/nvim-tree.lua',
+  require('nvim_tree_setup'),
 
   -- LSP
   'williamboman/mason.nvim', -- This one is like ASDF for language servers for neovim
@@ -56,7 +55,7 @@ require("lazy").setup({
   'nvim-lualine/lualine.nvim',
 
   -- Iconed Buffer bar (replace tab bar)
-  'romgrk/barbar.nvim',
+  require('barbar_setup'),
 
   -- Autocomplete (I don't know how these work)
   'hrsh7th/nvim-cmp', -- Autocompletion plugin
@@ -102,11 +101,9 @@ require("lazy").setup({
 
 require('vim_self')
 require('telescope_setup')
-require('barbar_setup')
 require('lsp_setup')
 require('signify_setup')
 require('clojure_related_setup')
-require('nvim_tree_setup')
 
 -- Tree sitter
 require'nvim-treesitter.configs'.setup {
