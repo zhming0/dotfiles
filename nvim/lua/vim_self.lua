@@ -34,11 +34,6 @@ vim.api.nvim_create_autocmd({"WinLeave"}, {
   end
 })
 
--- TODO Move me to a color scheme file?
-vim.g.tokyonight_italic_functions = 1
--- vim.g:tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" } -- What is this?
-vim.cmd.colorscheme("tokyonight-moon")
-
 -- For nagigatiion between windows
 u.nmap("<C-h>", "<C-w>h")
 u.nmap("<C-j>", "<C-w>j")

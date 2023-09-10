@@ -21,7 +21,8 @@ require("lazy").setup({
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
-      vim.cmd([[colorscheme tokyonight]])
+      vim.g.tokyonight_italic_functions = 1
+      vim.cmd.colorscheme("tokyonight-moon")
     end,
   },
   "shaunsingh/moonlight.nvim",
@@ -64,7 +65,7 @@ require("lazy").setup({
   'L3MON4D3/LuaSnip', -- Snippets plugin
 
   -- Smooth scroll!!
-  'karb94/neoscroll.nvim',
+  {'karb94/neoscroll.nvim', config=true},
 
   -- Some old old old plugins, not sure if still needed
   -- TODO review these
@@ -75,7 +76,7 @@ require("lazy").setup({
   -- Clojure
   {
     "Olical/conjure",
-    tag = "v4.43.0"
+    version = "*"
   },
   {
     "eraserhd/parinfer-rust",
@@ -86,13 +87,11 @@ require("lazy").setup({
     tag = "v1.3.0"
   },
 
-  -- Depended by telescope, and spectre
-  "nvim-lua/plenary.nvim",
   -- Very cool fuzzy finder for everything
-  "nvim-telescope/telescope.nvim",
+  require('telescope_setup'),
 
   'ggandor/leap.nvim',
-  'klen/nvim-config-local'
+  {'klen/nvim-config-local', config=true}
 }, {
   defaults = {
     lazy = false
@@ -100,7 +99,6 @@ require("lazy").setup({
 })
 
 require('vim_self')
-require('telescope_setup')
 require('lsp_setup')
 require('signify_setup')
 require('clojure_related_setup')
@@ -117,9 +115,8 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
-require('neoscroll').setup() -- For fancy scrolling
 require('leap').set_default_keymaps()
-require('config-local').setup() -- klen/nvim-config-local
+-- require('config-local').setup() -- klen/nvim-config-local
 require('lualine').setup({
   -- https://github.com/folke/noice.nvim/wiki/Configuration-Recipes#show-recording-messages
   sections = {
