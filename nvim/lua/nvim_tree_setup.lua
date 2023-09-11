@@ -3,7 +3,7 @@ local u = require('util')
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
-  lazy = false,
+  event = "VeryLazy", -- Not recommended by official, but I will try
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },

@@ -28,7 +28,7 @@ require("lazy").setup({
   "shaunsingh/moonlight.nvim",
 
   -- Treesitter!
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+  require('treesitter_setup'),
 
   -- NVIM Tree
   require('nvim_tree_setup'),
@@ -109,18 +109,6 @@ require('lsp_setup')
 require('signify_setup')
 require('clojure_related_setup')
 
--- Tree sitter
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all",
-  ignore_install = { "norg", "phpdoc" }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { "nim", "jsonnet", "markdown" },  -- list of language that will be disabled
-  },
-  indent = {
-    enable = true
-  }
-}
 require('leap').set_default_keymaps()
 -- require('config-local').setup() -- klen/nvim-config-local
 require('lualine').setup({
