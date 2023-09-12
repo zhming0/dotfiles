@@ -40,12 +40,6 @@ u.nmap("<C-j>", "<C-w>j")
 u.nmap("<C-k>", "<C-w>k")
 u.nmap("<C-l>", "<C-w>l")
 
--- TODO replace following with editorconfig
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
-vim.opt.expandtab = true
-
 -- Quick save!
 u.nmap("<leader><leader>", ":update<CR>")
 
