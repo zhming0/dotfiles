@@ -32,6 +32,28 @@ local function handle_document_highlight(buffer)
   })
 end
 
+-- I learnt it from https://gist.github.com/swarn/fb37d9eefe1bc616c2a7e476c0bc0316#controlling-when-highlights-are-applied
+local function disable_lsp_semantic_highlight(buf)
+  vim.api.nvim_create_autocmd({"LspTokenUpdate"}, {
+    buffer = buf,
+    callback = function(_)
+      for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+        vim.api.nvim_set_hl(0, group, {})
+      end
+    end
+  })
+end
+
+local function disable_lsp_for_conjure_log_buffer()
+  vim.api.nvim_create_autocmd("BufNewFile", {
+    group = vim.api.nvim_create_augroup("conjure_log_disable_lsp", { clear = true }),
+    pattern = { "conjure-log-*" },
+    callback = function() vim.diagnostic.disable(0) end,
+    desc = "Conjure Log disable LSP diagnostics",
+  })
+end
+
+
 -- This is automatic lsp server setup for all servers in mason
 require("mason-lspconfig").setup_handlers {
   -- The first entry (without a key) will be the default handler
@@ -82,17 +104,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
       handle_document_highlight(ev.buf)
     end
 
-    -- Disable semantic highlight for Clojure LSP
-    -- I learnt it from https://gist.github.com/swarn/fb37d9eefe1bc616c2a7e476c0bc0316#controlling-when-highlights-are-applied
     if client.name == "clojure_lsp" then
-      vim.api.nvim_create_autocmd({"LspTokenUpdate"}, {
-        buffer = ev.buf,
-        callback = function(_)
-          for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-            vim.api.nvim_set_hl(0, group, {})
-          end
-        end
-      })
+      disable_lsp_semantic_highlight(ev.buf)
     end
 
     -- Buffer local mappings.
@@ -118,3 +131,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
+
+disable_lsp_for_conjure_log_buffer()
