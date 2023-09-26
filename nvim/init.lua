@@ -90,7 +90,17 @@ require("lazy").setup({
   },
   {
     "m00qek/baleia.nvim",
-    tag = "v1.3.0"
+    tag = "v1.3.0",
+    event = "BufEnter conjure-log-*",
+    config = function ()
+      local baleia = require('baleia').setup()
+      vim.api.nvim_create_autocmd("BufEnter", {
+        pattern = {"conjure-log-*"},
+        callback = function (ev)
+          baleia.automatically(ev.buf)
+        end
+      })
+    end
   },
 
   -- Very cool fuzzy finder for everything

@@ -6,6 +6,9 @@ vim.g["conjure#log#log#wrap"] = "true"
 -- TODO need test
 vim.g["conjure#mapping#doc_word"] = false
 
+-- We have baleia to render color!
+vim.g["conjure#log#strip_ansi_escape_sequences_line_limit"] = 0
+
 -- disable auto-pair for clojure in favor of parinfer
 vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
   pattern = {"*.clj", "*.cljs"},
