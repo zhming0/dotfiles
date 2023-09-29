@@ -12,6 +12,7 @@ require("mason-lspconfig").setup{
     "cssls" , "jsonls", "html", "eslint",
     "yamlls", "bashls",
     "lua_ls", -- Only need this for init.lua for now..
+    "jdtls",
   },
 }
 
@@ -76,6 +77,11 @@ require("mason-lspconfig").setup_handlers {
         },
       },
     }
+  end,
+
+  ["jdtls"] = function ()
+    -- Skip because we use nvim-jdtls to manage jdtls
+    -- But we still use mason to install the jdt.ls for easiness
   end
 }
 

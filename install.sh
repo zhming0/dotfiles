@@ -77,8 +77,8 @@ asdf plugin add terraform || true
 asdf install nodejs 16.10.0
 asdf global nodejs 16.10.0
 
-asdf install java oracle-17
-asdf global java oracle-17
+asdf install java openjdk-21
+asdf global java openjdk-21
 
 asdf install terraform latest
 asdf global terraform latest

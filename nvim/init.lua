@@ -38,6 +38,7 @@ require("lazy").setup({
   'williamboman/mason-lspconfig.nvim', -- This one bridges the above with lspconfig
   'neovim/nvim-lspconfig',
   'b0o/schemastore.nvim',
+  require('nvim_jdtls_setup'),
 
   -- Improved UI, replacing vim defaults
   'MunifTanjim/nui.nvim',
