@@ -41,17 +41,25 @@ return {
   "mfussenegger/nvim-jdtls",
   ft = "java",
   config = function()
-    local root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1])
-    local project_name = vim.fn.fnamemodify(root_dir, ':p:h:t')
-    local config = {
-      cmd = {
-        vim.fn.stdpath("data").."/mason/bin/jdtls",
-        '-configuration', get_jdtls_config_dir(),
-        '-data', get_jdtls_workspace_dir(project_name),
-        get_jdtls_jvm_args()
-      },
-      root_dir = root_dir,
-    }
-    require('jdtls').start_or_attach(config)
+    vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+      pattern = {"*.java"},
+      callback = function ()
+        -- There is a possibility that if I open two java files from two different workspace, it will cause conflict.
+        -- So I think that I need to do is to get the root_dir detection to happen for each BufEnter
+        -- But I never truly tested it.
+        local root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1])
+        local project_name = vim.fn.fnamemodify(root_dir, ':p:h:t')
+        local config = {
+          cmd = {
+            vim.fn.stdpath("data").."/mason/bin/jdtls",
+            '-configuration', get_jdtls_config_dir(),
+            '-data', get_jdtls_workspace_dir(project_name),
+            get_jdtls_jvm_args()
+          },
+          root_dir = root_dir,
+        }
+        require('jdtls').start_or_attach(config)
+      end
+    })
   end
 }

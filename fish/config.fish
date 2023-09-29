@@ -64,3 +64,6 @@ set -gx LDFLAGS "-L"(brew --prefix)"/opt/bison/lib"
 
 alias p=pnpm
 alias px=pnpx
+
+# This envvar is used by my jdt.ls neovim setup
+set -xg JDTLS_JVM_ARGS "-javaagent:$HOME/.local/java/lombok/lombok.jar"
