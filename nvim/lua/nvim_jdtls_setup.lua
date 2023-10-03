@@ -57,6 +57,12 @@ return {
             get_jdtls_jvm_args()
           },
           root_dir = root_dir,
+
+          settings = {
+            java = {
+              home = path_join(env.HOME, ".asdf/installs/java/openjdk-21")
+            }
+          }
         }
         require('jdtls').start_or_attach(config)
       end
