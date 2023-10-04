@@ -64,6 +64,7 @@ return {
             }
           }
         }
+        vim.fn.setenv("JAVA_HOME", path_join(env.HOME, ".asdf/installs/java/openjdk-21"))
         require('jdtls').start_or_attach(config)
       end
     })
