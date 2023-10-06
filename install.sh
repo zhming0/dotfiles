@@ -88,6 +88,7 @@ bash ./nvim/setup.sh
 ./rust/setup.sh
 ./tmux/setup.sh
 ./go/setup.sh
+./ruby/setup.sh
 
 # Some helm related setup
 helm plugin install https://github.com/databus23/helm-diff

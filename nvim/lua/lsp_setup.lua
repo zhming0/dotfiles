@@ -13,6 +13,7 @@ require("mason-lspconfig").setup{
     "yamlls", "bashls",
     "lua_ls", -- Only need this for init.lua for now..
     "jdtls",
+    "ruby_ls",
   },
 }
 

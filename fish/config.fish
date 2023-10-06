@@ -67,3 +67,6 @@ alias px=pnpx
 
 # This envvar is used by my jdt.ls neovim setup
 set -xg JDTLS_JVM_ARGS "-javaagent:$HOME/.local/java/lombok/lombok.jar"
+
+# Checkout https://github.com/asdf-vm/asdf-ruby#default-gems
+set -xg ASDF_GEM_DEFAULT_PACKAGES_FILE "$HOME/.config/default-gems"
