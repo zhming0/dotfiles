@@ -43,7 +43,7 @@ require("lazy").setup({
   -- Improved UI, replacing vim defaults
   'MunifTanjim/nui.nvim',
   'rcarriga/nvim-notify',
-  'folke/noice.nvim',
+  {'folke/noice.nvim', version ="*"},
   'kevinhwang91/nvim-bqf', -- Better looking quickfix list
 
   -- init.lua Lsp experience
