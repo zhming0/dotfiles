@@ -40,5 +40,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'treesitter' }, -- https://github.com/ray-x/cmp-treesitter
+    { name = 'emoji' }, -- https://github.com/hrsh7th/cmp-emoji ✅
   },
 }

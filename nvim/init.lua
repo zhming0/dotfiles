@@ -64,6 +64,8 @@ require("lazy").setup({
   'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
   'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
   'L3MON4D3/LuaSnip', -- Snippets plugin
+  {'ray-x/cmp-treesitter', event = "VeryLazy"}, -- Sources for nvim-cmp
+  {'hrsh7th/cmp-emoji', event = "VeryLazy"}, -- Sources for nvim-cmp
 
   -- Smooth scroll!!
   {'karb94/neoscroll.nvim', config=true},
