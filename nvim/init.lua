@@ -70,6 +70,9 @@ require("lazy").setup({
   -- Smooth scroll!!
   {'karb94/neoscroll.nvim', config=true},
 
+  -- Fancy modern scroll bar
+  {'petertriho/nvim-scrollbar', config=true, event="VeryLazy"},
+
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
