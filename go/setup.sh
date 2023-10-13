@@ -10,4 +10,5 @@ asdf plugin add golang || true
 asdf install golang 1.20.2
 asdf global golang 1.20.2
 
-go install golang.org/x/tools/gopls@v0.11.0
+brew tap golangci/tap
+brew install golangci/tap/golangci-lint
