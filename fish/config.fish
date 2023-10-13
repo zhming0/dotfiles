@@ -39,14 +39,19 @@ set fish_color_match brmagenta
 set -xg GOPATH $HOME/.go
 set -xg PATH $GOPATH/bin $PATH
 
-# Java per https://github.com/halcyon/asdf-java#java_home
-. ~/.asdf/plugins/java/set-java-home.fish
-
 
 # Ripgrep
 set -xg RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgrep.conf
 
 source (brew --prefix asdf)/libexec/asdf.fish
+
+# Java per https://github.com/halcyon/asdf-java#java_home
+. ~/.asdf/plugins/java/set-java-home.fish
+
+# Golang
+. ~/.asdf/plugins/golang/set-env.fish
+
+set -xg ASDF_GOLANG_MOD_VERSION_ENABLED true
 
 # Bison
 # According to brew

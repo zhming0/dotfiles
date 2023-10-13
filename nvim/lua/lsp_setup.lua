@@ -14,6 +14,8 @@ require("mason-lspconfig").setup{
     "jdtls",
     "ruby_ls",
     "vale_ls",
+    "gopls",
+    "golangci_lint_ls",
   },
 }
 
