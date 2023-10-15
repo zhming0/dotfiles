@@ -1,5 +1,7 @@
 local vim = vim
 
+local rubyTweak = require("lsp_tweaks.ruby")
+
 -- make lua ls work with init.lua
 require("neodev").setup({})
 
@@ -83,7 +85,7 @@ require("mason-lspconfig").setup_handlers {
   ["jdtls"] = function ()
     -- Skip because we use nvim-jdtls to manage jdtls
     -- But we still use mason to install the jdt.ls for easiness
-  end
+  end,
 }
 
 -- language servers
@@ -113,6 +115,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     if client.name == "clojure_lsp" then
       disable_lsp_semantic_highlight(ev.buf)
+    end
+
+    if client.name == "ruby_ls" then
+      rubyTweak.setup_diagnostics(client, ev.buf)
     end
 
     -- Buffer local mappings.
