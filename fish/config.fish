@@ -35,11 +35,6 @@ set fish_color_command brwhite --bold
 set fish_color_cwd green
 set fish_color_match brmagenta
 
-# Golang
-set -xg GOPATH $HOME/.go
-set -xg PATH $GOPATH/bin $PATH
-
-
 # Ripgrep
 set -xg RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgrep.conf
 
