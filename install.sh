@@ -65,7 +65,8 @@ brew install \
   pnpm \
   ariga/tap/atlas \
   mike-engel/jwt-cli/jwt-cli \
-  chatblade
+  chatblade \
+  vale
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
@@ -89,6 +90,7 @@ bash ./nvim/setup.sh
 ./tmux/setup.sh
 ./go/setup.sh
 ./ruby/setup.sh
+./vale/setup.sh
 
 # Some helm related setup
 helm plugin install https://github.com/databus23/helm-diff
