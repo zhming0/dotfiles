@@ -10,6 +10,8 @@
   "conjure": { "branch": "master", "commit": "58c46d1f4999679659a5918284b574c266a7ac83" },
   "friendly-snippets": { "branch": "main", "commit": "43727c2ff84240e55d4069ec3e6158d74cb534b6" },
   "git-blame.nvim": { "branch": "master", "commit": "1792125237260dc2a03ba57d31c39179e6049f07" },
+  "go.nvim": { "branch": "master", "commit": "000a433b37dbaf43bc236b2f6abc925929a61370" },
+  "guihua.lua": { "branch": "master", "commit": "5ad8dba19ce9b9fd8965598984dfdc9c119f97e4" },
   "lazy.nvim": { "branch": "main", "commit": "9788a19ec0b4036028e78aec702634b4b89d3470" },
   "leap.nvim": { "branch": "main", "commit": "5efe985cf68fac3b6a6dfe7a75fbfaca8db2af9c" },
   "lualine.nvim": { "branch": "master", "commit": "2248ef254d0a1488a72041cfb45ca9caada6d994" },
