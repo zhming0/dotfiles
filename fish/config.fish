@@ -65,13 +65,16 @@ set -xg JDTLS_JVM_ARGS "-javaagent:$HOME/.local/java/lombok/lombok.jar"
 set -xg ASDF_GEM_DEFAULT_PACKAGES_FILE "$HOME/.config/default-gems"
 
 # Git Abbrs
+abbr --add gaa "git add -A"
 abbr --add gs "git status -u"
 abbr --add gp "git pull"
 abbr --add gco "git checkout"
 abbr --add gm "git commit"
+abbr --add gma "git commit -am"
 abbr --add gd "git difftool"
 
 # K8s abbrs
 abbr --add kctx "kubectl config use-context"
 abbr --add kns "kubectl config set-context --current --namespace"
 abbr --add k "kubectl"
+
