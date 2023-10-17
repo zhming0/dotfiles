@@ -151,3 +151,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 disable_lsp_for_conjure_log_buffer()
+
+vim.diagnostic.config({
+  -- Only show virtual text if the severity is error
+  virtual_text = {
+    severity = vim.diagnostic.severity.ERROR,
+    severity_sort = true,
+  }
+})
