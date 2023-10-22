@@ -11,6 +11,7 @@ return {
   config = function()
     -- luasnip setup
     local luasnip = require 'luasnip'
+    require("luasnip.loaders.from_vscode").lazy_load()
 
     -- nvim-cmp setup
     local cmp = require 'cmp'
@@ -19,6 +20,9 @@ return {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
+      },
+      experimental = {
+        ghost_text = true,
       },
       mapping = cmp.mapping.preset.insert({
         ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up

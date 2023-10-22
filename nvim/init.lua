@@ -50,6 +50,7 @@ require("lazy").setup({
   'folke/neodev.nvim',
 
   -- Git related
+  -- TODO: consider replacing with https://github.com/lewis6991/gitsigns.nvim because_it has wider adoption
   'mhinz/vim-signify',
   'f-person/git-blame.nvim',
 
@@ -60,6 +61,7 @@ require("lazy").setup({
   require('barbar_setup'),
 
   -- Autocomplete
+  { "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" }, lazy=true, },
   require('nvim_cmp_setup'),
 
   -- Smooth scroll!!
@@ -86,6 +88,8 @@ require("lazy").setup({
     version = "*"
   },
   {
+    -- TODO: consider replace with https://github.com/gpanders/nvim-parinfer
+    -- to avoid the cargo build process
     "eraserhd/parinfer-rust",
     build = "cargo build --release"
   },
