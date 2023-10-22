@@ -47,7 +47,7 @@ require("lazy").setup({
   'kevinhwang91/nvim-bqf', -- Better looking quickfix list
 
   -- init.lua Lsp experience
-  'folke/neodev.nvim',
+  { 'folke/neodev.nvim', ft = "lua", config = true },
 
   -- Git related
   -- TODO: consider replacing with https://github.com/lewis6991/gitsigns.nvim because_it has wider adoption

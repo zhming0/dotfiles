@@ -2,9 +2,6 @@ local vim = vim
 
 local rubyTweak = require("lsp_tweaks.ruby")
 
--- make lua ls work with init.lua
-require("neodev").setup({})
-
 require("mason").setup()
 require("mason-lspconfig").setup{
   -- To find available names: https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
