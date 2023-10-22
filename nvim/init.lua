@@ -59,13 +59,8 @@ require("lazy").setup({
   -- Iconed Buffer bar (replace tab bar)
   require('barbar_setup'),
 
-  -- Autocomplete (I don't know how these work)
-  'hrsh7th/nvim-cmp', -- Autocompletion plugin
-  'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
-  'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
-  'L3MON4D3/LuaSnip', -- Snippets plugin
-  {'ray-x/cmp-treesitter', event = "VeryLazy"}, -- Sources for nvim-cmp
-  {'hrsh7th/cmp-emoji', event = "VeryLazy"}, -- Sources for nvim-cmp
+  -- Autocomplete
+  require('nvim_cmp_setup'),
 
   -- Smooth scroll!!
   {'karb94/neoscroll.nvim', config=true},
