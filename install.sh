@@ -66,7 +66,8 @@ brew install \
   ariga/tap/atlas \
   mike-engel/jwt-cli/jwt-cli \
   chatblade \
-  vale
+  vale \
+  podman
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
