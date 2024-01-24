@@ -103,5 +103,6 @@ helm plugin install https://github.com/helm/helm-mapkubeapis
 git config --global diff.tool nvimdiff
 git config --global difftool.prompt false
 git config --global rerere.enabled true
+git config --global core.excludesFile '~/.gitignore'
 
 exec -l $SHELL
