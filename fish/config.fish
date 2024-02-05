@@ -36,8 +36,7 @@ set fish_color_cwd green
 set fish_color_match brmagenta
 
 # Golang
-set -xg GOPATH $HOME/.go
-set -xg PATH $GOPATH/bin $PATH
+source ~/.asdf/plugins/golang/set-env.fish
 
 # Java per https://github.com/halcyon/asdf-java#java_home
 . ~/.asdf/plugins/java/set-java-home.fish
