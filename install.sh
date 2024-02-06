@@ -66,7 +66,8 @@ brew install \
   ariga/tap/atlas \
   mike-engel/jwt-cli/jwt-cli \
   chatblade \
-  vale
+  vale \
+  podman
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
@@ -102,5 +103,6 @@ helm plugin install https://github.com/helm/helm-mapkubeapis
 git config --global diff.tool nvimdiff
 git config --global difftool.prompt false
 git config --global rerere.enabled true
+git config --global core.excludesFile '~/.gitignore'
 
 exec -l $SHELL

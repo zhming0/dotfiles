@@ -78,3 +78,5 @@ abbr --add kctx "kubectl config use-context"
 abbr --add kns "kubectl config set-context --current --namespace"
 abbr --add k "kubectl"
 
+
+export CONTAINERS_MACHINE_PROVIDER=applehv

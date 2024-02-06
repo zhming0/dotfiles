@@ -16,6 +16,7 @@ require("mason-lspconfig").setup{
     "vale_ls",
     "gopls",
     "golangci_lint_ls",
+    "dockerls",
   },
 }
 
