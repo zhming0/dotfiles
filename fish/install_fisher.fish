@@ -4,5 +4,13 @@ curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 
 fisher update
 
-# Check https://github.com/IlanCosman/tide/issues/304 to see if there is a better way.
-echo 2 1 2 2 1 1 1 2 1 3 3 2 2 y | tide configure >/dev/null
+tide configure --auto \
+  --style='One line' \
+  --prompt_colors='True color' \
+  --show_time='24-hour format' \
+  --lean_prompt_height='Two lines' \
+  --prompt_connection=Disconnected \
+  --prompt_spacing=Sparse \
+  --icons='Many icons' \
+  --transient=Yes
+
