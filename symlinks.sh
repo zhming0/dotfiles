@@ -26,3 +26,4 @@ ln -sfv $BASEDIR/fish/fdignore ~/.config/fd/ignore
 
 # Git
 ln -sfv $BASEDIR/git/gitignore ~/.gitignore
+ln -sfv $BASEDIR/git/gitconfig ~/.gitconfig

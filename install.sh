@@ -67,7 +67,8 @@ brew install \
   mike-engel/jwt-cli/jwt-cli \
   chatblade \
   vale \
-  podman
+  podman \
+  difftastic
 
 # brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize webpquicklook quicklookase qlvideo
 
@@ -99,10 +100,5 @@ helm plugin install https://github.com/jkroepke/helm-secrets --version v4.1.1
 helm plugin install https://github.com/helm/helm-mapkubeapis
 
 ./bin/gh-cargo-install.sh --git crate-ci/typos --target x86_64-apple-darwin --tag v1.12.12
-
-git config --global diff.tool nvimdiff
-git config --global difftool.prompt false
-git config --global rerere.enabled true
-git config --global core.excludesFile '~/.gitignore'
 
 exec -l $SHELL

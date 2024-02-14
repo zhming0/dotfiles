@@ -1,0 +1,18 @@
+# Set ft=gitconfig
+
+[diff]
+	tool = difftastic
+[difftool]
+	prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
+[rerere]
+	enabled = true
+[core]
+	excludesFile = ~/.gitignore
+
+[include]
+  path = ~/.config/.gitconfig-local
+
