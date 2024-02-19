@@ -13,7 +13,7 @@ mkdir -p ~/.config/nvim
 # ln -sfv $BASEDIR/init.vim ~/.config/nvim/init.vim
 
 ln -sfv "$BASEDIR/coc-settings.json" ~/.config/nvim/coc-settings.json
-rm ~/.config/nvim/lua # Otherwise the next line will create an extra lua folder
+rm ~/.config/nvim/lua || true # Otherwise the next line will create an extra lua folder
 ln -sfv "$BASEDIR/lua" ~/.config/nvim/lua
 ln -sfv "$BASEDIR/init.lua" ~/.config/nvim/init.lua
 ln -sfv "$BASEDIR/lazy-lock.json" ~/.config/nvim/lazy-lock.json
