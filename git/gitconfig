@@ -12,6 +12,8 @@
 	enabled = true
 [core]
 	excludesFile = ~/.gitignore
+[rebase]
+  autoStash = true
 
 [include]
   path = ~/.config/.gitconfig-local

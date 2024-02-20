@@ -17,7 +17,7 @@ if [[ $(brew --version) ]] ; then
 else
     echo "Attempting to install Homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    eval "$(/opt/homebrew/bin/brew shellenv)" # One-off setup, permanent setup is in fish config.
 fi
 
 brew install \
@@ -71,6 +71,9 @@ brew install \
   podman \
   difftastic
 
+# This is one-off, permanent setup is in fish config.
+source "$(brew --prefix asdf)/libexec/asdf.sh"
+
 asdf plugin add nodejs || true
 asdf plugin add java || true
 asdf plugin add terraform || true
@@ -89,7 +92,7 @@ asdf global terraform latest
 ./rust/setup.sh
 ./tmux/setup.sh
 ./go/setup.sh
-./ruby/setup.sh
+[[ "$DOTFILES_SETUP_RUBY" == "true" ]] && ./ruby/setup.sh || echo "Skipping ruby setup..."
 ./vale/setup.sh
 
 # Some helm related setup
