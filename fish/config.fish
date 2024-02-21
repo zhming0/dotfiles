@@ -40,13 +40,15 @@ set -xg RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgrep.conf
 
 source (brew --prefix asdf)/libexec/asdf.fish
 
+# Not sure why I needed to do this. But tmux mutated my $PATH
+# TODO: remove this to see of this is necessary
+set -gx --prepend PATH "$HOME/.asdf/shims"
+
 # Java per https://github.com/halcyon/asdf-java#java_home
 . ~/.asdf/plugins/java/set-java-home.fish
 
 # Golang
 . ~/.asdf/plugins/golang/set-env.fish
-
-set -xg ASDF_GOLANG_MOD_VERSION_ENABLED true
 
 # Bison
 # According to brew
