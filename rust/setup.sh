@@ -1,9 +1,15 @@
-#!/usr/bin/env fish
+#!/usr/bin/env bash
 
-curl https://sh.rustup.rs -sSf | sh
+set -e
 
-source $HOME/.cargo/env
+if ! command -v rustc &>/dev/null; then
+  curl https://sh.rustup.rs -sSf | sh
 
-# This will install RLS and its helpers
-# Although CoC-RLS can install it automatically, I'd like to manually install it for clarity
-rustup component add rls rust-analysis rust-src
+  source $HOME/.cargo/env
+
+  # This will install RLS and its helpers
+  # Although CoC-RLS can install it automatically, I'd like to manually install it for clarity
+  rustup component add rls rust-analysis rust-src
+else
+    echo "Rust is already installed."
+fi

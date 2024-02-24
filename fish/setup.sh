@@ -18,5 +18,3 @@ then
   echo "Modifying default shell to fish"
   chsh -s "$(which fish)"
 fi;
-
-"$__dir"/install_fisher.fish

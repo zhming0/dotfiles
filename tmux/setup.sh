@@ -2,7 +2,10 @@
 
 set -e
 
-BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-
+tpm_dir="$HOME/.tmux/plugins/tpm"
 # Install tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if ! [ -d "$tpm_dir" ]; then
+  git clone https://github.com/tmux-plugins/tpm "$tpm_dir"
+else
+  echo "Skipping cloning tpm..."
+fi

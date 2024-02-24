@@ -69,7 +69,8 @@ brew install \
   chatblade \
   vale \
   podman \
-  difftastic
+  difftastic \
+  stats
 
 # This is one-off, permanent setup is in fish config.
 source "$(brew --prefix asdf)/libexec/asdf.sh"
@@ -92,7 +93,7 @@ asdf global terraform latest
 ./rust/setup.sh
 ./tmux/setup.sh
 ./go/setup.sh
-[[ "$DOTFILES_SETUP_RUBY" == "true" ]] && ./ruby/setup.sh || echo "Skipping ruby setup..."
+./ruby/setup.sh
 ./vale/setup.sh
 
 # Some helm related setup

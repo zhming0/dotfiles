@@ -12,7 +12,7 @@ set LIBPQ_PATH (fd -t d --full-path . (brew --prefix)"/Cellar/libpq" | grep bin)
 set -xg PATH $LIBPQ_PATH $PATH
 
 # Rust tools
-set -xg PATH $HOME/.cargo/bin $PATH
+fish_add_path $HOME/.cargo/bin
 
 # Load local non-git managed configuration
 if test -e ~/.config/fish/local.fish
