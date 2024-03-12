@@ -83,6 +83,17 @@ require("mason-lspconfig").setup_handlers {
     }
   end,
 
+  ["gopls"] = function ()
+    require('lspconfig').gopls.setup {
+      capabilities = capabilities,
+      settings = {
+        gopls = {
+          buildFlags = {"-tags=test"}
+        },
+      },
+    }
+  end,
+
   ["jdtls"] = function ()
     -- Skip because we use nvim-jdtls to manage jdtls
     -- But we still use mason to install the jdt.ls for easiness
