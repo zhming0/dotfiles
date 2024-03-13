@@ -82,3 +82,6 @@ abbr --add k "kubectl"
 
 
 export CONTAINERS_MACHINE_PROVIDER=applehv
+
+# A directory for my custom scripts.
+fish_add_path $HOME/bin
