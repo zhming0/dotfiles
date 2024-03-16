@@ -87,12 +87,7 @@ require("lazy").setup({
     ft = {"clojure"},
     version = "*"
   },
-  {
-    -- TODO: consider replace with https://github.com/gpanders/nvim-parinfer
-    -- to avoid the cargo build process
-    "eraserhd/parinfer-rust",
-    build = "cargo build --release"
-  },
+  'gpanders/nvim-parinfer',
   {
     "m00qek/baleia.nvim",
     tag = "v1.3.0",
