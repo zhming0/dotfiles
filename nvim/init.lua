@@ -124,7 +124,10 @@ require("lazy").setup({
   require('telescope_setup'),
 
   'ggandor/leap.nvim',
-  {'klen/nvim-config-local', config=true}
+  {'klen/nvim-config-local', config=true},
+
+  -- Fancy indentation tool
+  require('nvim_ufo_setup')
 }, {
   defaults = {
     lazy = false
