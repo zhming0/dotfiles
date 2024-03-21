@@ -127,7 +127,15 @@ require("lazy").setup({
   {'klen/nvim-config-local', config=true},
 
   -- Fancy indentation tool
-  require('nvim_ufo_setup')
+  require('nvim_ufo_setup'),
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
+    config = true,
+    version = "*",
+  },
 }, {
   defaults = {
     lazy = false
