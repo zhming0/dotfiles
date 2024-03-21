@@ -24,7 +24,8 @@ return {
 
     u.nmap("<c-p>", "<cmd>Telescope find_files hidden=true follow=true<cr>")
     u.nmap("<leader>f", "<cmd>Telescope live_grep<cr>")
+    u.nmap("<leader>F", "<cmd>Telescope lsp_workspace_symbols<cr>")
     u.nmap("<leader>b", "<cmd>Telescope buffers<cr>")
-    u.nmap("<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
+    u.nmap("<leader>/", "<cmd>Telescope treesitter<cr>")
   end
 }
