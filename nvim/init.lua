@@ -162,6 +162,17 @@ require('lualine').setup({
         color = { fg = "#ff9e64" },
       }
     },
+    lualine_c = {
+      {
+        'filename',
+        path = 1 -- Show relative path
+      },
+      {
+        'filetype',
+        colored = true,   -- Displays filetype icon in color if set to true
+        icon_only = true, -- Display only an icon for filetype
+      },
+    },
   },
 })
 require('gitblame').setup({
