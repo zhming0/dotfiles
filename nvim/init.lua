@@ -160,17 +160,18 @@ require('lualine').setup({
           return not not (mode and string.find(mode, "recording"))
         end,
         color = { fg = "#ff9e64" },
-      }
+      },
+      'searchcount',
+      'selectioncount',
+      {
+        'filetype',
+        icon_only = true, -- Display only an icon for filetype
+      },
     },
     lualine_c = {
       {
         'filename',
         path = 1 -- Show relative path
-      },
-      {
-        'filetype',
-        colored = true,   -- Displays filetype icon in color if set to true
-        icon_only = true, -- Display only an icon for filetype
       },
     },
   },
