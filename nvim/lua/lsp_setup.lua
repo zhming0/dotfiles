@@ -142,7 +142,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     --  I could use the original quickfix based solution but telescope looks better :)
     -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', 'gr', "<cmd>Telescope lsp_references<cr>", opts)
+    vim.keymap.set('n', 'gr', function ()
+      require("telescope.builtin").lsp_references({
+        layout_strategy = "vertical",
+        layout_config = { preview_height = 0.8 },
+        include_current_line = true, -- somehow this means exclude, which is what I want
+      })
+    end, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', '<leader>k', vim.lsp.buf.signature_help, opts)
 
