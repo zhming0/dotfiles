@@ -22,6 +22,12 @@ require("mason-lspconfig").setup{
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+-- Used by neovim ufo
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
+
 local function handle_document_highlight(buffer)
   vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
     buffer = buffer,
