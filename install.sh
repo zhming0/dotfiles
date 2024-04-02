@@ -71,7 +71,8 @@ brew install \
   podman \
   difftastic \
   stats \
-  int128/kubelogin/kubelogin
+  int128/kubelogin/kubelogin \
+  atuin
 
 # This is one-off, permanent setup is in fish config.
 source "$(brew --prefix asdf)/libexec/asdf.sh"

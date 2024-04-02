@@ -85,3 +85,7 @@ export CONTAINERS_MACHINE_PROVIDER=applehv
 
 # A directory for my custom scripts.
 fish_add_path $HOME/bin
+
+# Checkout https://github.com/atuinsh/atuin
+# This is shell history + sqlite
+atuin init fish | source
