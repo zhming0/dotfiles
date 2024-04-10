@@ -136,6 +136,8 @@ require("lazy").setup({
     config = true,
     version = "*",
   },
+
+  require('codecompanion_setup'),
 }, {
   defaults = {
     lazy = false
@@ -199,5 +201,4 @@ require("noice").setup({
   },
 })
 
-require('nvim_cmp_setup')
 require('bqf').setup()
