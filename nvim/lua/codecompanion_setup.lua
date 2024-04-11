@@ -1,5 +1,40 @@
 local vim = vim
 
+local send_txt = function(context)
+  local text = require("codecompanion.helpers.code").get_code(context.start_line, context.end_line)
+
+  return "I have the following text or code:\n\n```" .. context.filetype .. "\n" .. text .. "\n```\n\n"
+end
+
+local generate_action_item = function(name, prompt)
+  return {
+    name = name,
+    strategy = "inline",
+    description = name,
+    opts = {
+      modes = { "v" },
+      placement = "after", -- cursor|before|after|replace|new
+    },
+    prompts = {
+      {
+        role = "system",
+        content = "You are an expert writer/coder and helpful assistant who can help writing and coding.",
+      },
+      {
+        role = "user",
+        contains_code = true,
+        content = function(context)
+          return send_txt(context)
+        end,
+      },
+      {
+        role = "user",
+        content = prompt .. " Only return the improved writing or code without any wraps.",
+      },
+    },
+  }
+end
+
 return {
   "olimorris/codecompanion.nvim",
   dependencies = {
@@ -17,7 +52,6 @@ return {
   },
   event = "VeryLazy",
   config = function ()
-
     require("codecompanion").setup({
       adapters = {
         openai = require("codecompanion.adapters").use("openai", {
@@ -30,6 +64,21 @@ return {
           inline = "openai"
         },
       },
+
+      actions = {
+        {
+          name = "Inline Generic",
+          strategy = "inline",
+          description = "Help writing and coding in general, Ming's custom actions.",
+          picker = {
+            items = {
+              generate_action_item("Improve writing", "Please improve writing for me while respecting the existing format and meaning."),
+              generate_action_item("Grammar", "Please fix grammar and spelling for me."),
+              generate_action_item("Complete", "Please complete this bit for me.")
+            },
+          },
+        },
+      }
     })
 
     vim.api.nvim_set_keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
