@@ -3,10 +3,8 @@ local vim = vim
 return   {
   'nvim-focus/focus.nvim',
   version = '*',
-  opts = {
-    ui = { number = true }
-  },
   config = function ()
+    require("focus").setup({})
 
     local ignore_filetypes = { 'NvimTree' }
     local ignore_buftypes = { 'nofile', 'prompt', 'popup' }
