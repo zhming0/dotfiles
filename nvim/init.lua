@@ -154,15 +154,7 @@ require("lazy").setup({
     }
   },
 
-  -- https://github.com/nvim-focus/focus.nvim
-  {
-    'nvim-focus/focus.nvim',
-    version = '*',
-    opts = {
-      ui = { number = true }
-    },
-    -- config = true
-  },
+  require('nvim_focus_setup'),
 }, {
   defaults = {
     lazy = false
