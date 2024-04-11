@@ -138,6 +138,31 @@ require("lazy").setup({
   },
 
   require('codecompanion_setup'),
+
+  -- This is really handly tool, use <leader>R allows me to send any command to a tmux panel (once selected).
+  {
+    'samharju/yeet.nvim',
+    dependencies = {
+      "stevearc/dressing.nvim" -- optional, provides sane UX
+    },
+    cmd = 'Yeet',
+    opts = {},
+    keys = {
+      {
+        "<leader>R", function() require("yeet").execute() end,
+      },
+    }
+  },
+
+  -- https://github.com/nvim-focus/focus.nvim
+  {
+    'nvim-focus/focus.nvim',
+    version = '*',
+    opts = {
+      ui = { number = true }
+    },
+    -- config = true
+  },
 }, {
   defaults = {
     lazy = false

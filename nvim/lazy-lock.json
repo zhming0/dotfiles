@@ -10,6 +10,7 @@
   "codecompanion.nvim": { "branch": "main", "commit": "2a6c3a48b4c90a5c61fb217860ba7c501ad4518c" },
   "conjure": { "branch": "master", "commit": "f50d4db821489f66ff93afe58155eef42c273a5d" },
   "dressing.nvim": { "branch": "master", "commit": "18e5beb3845f085b6a33c24112b37988f3f93c06" },
+  "focus.nvim": { "branch": "master", "commit": "4135f976afe5d6e1fe66dff121db9d06643f439f" },
   "friendly-snippets": { "branch": "main", "commit": "ea068f1becd91bcd4591fceb6420d4335e2e14d3" },
   "git-blame.nvim": { "branch": "master", "commit": "196602b570b1d754b7b8f9a9f75fa7bd88f12ef8" },
   "go.nvim": { "branch": "master", "commit": "096f65692034022c963b55f493961a8a1d861ba4" },
@@ -44,5 +45,6 @@
   "telescope.nvim": { "branch": "master", "commit": "d90956833d7c27e73c621a61f20b29fdb7122709" },
   "tokyonight.nvim": { "branch": "main", "commit": "610179f7f12db3d08540b6cc61434db2eaecbcff" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
-  "vim-signify": { "branch": "master", "commit": "7d538b77a5a8806e344b057f8846f6d0c035efa9" }
+  "vim-signify": { "branch": "master", "commit": "7d538b77a5a8806e344b057f8846f6d0c035efa9" },
+  "yeet.nvim": { "branch": "master", "commit": "61ea05a8d31b6371686c5fafaa29ced99e84bc65" }
 }
