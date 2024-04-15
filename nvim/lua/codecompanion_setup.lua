@@ -18,7 +18,7 @@ local generate_action_item = function(name, prompt)
     prompts = {
       {
         role = "system",
-        content = "You are an expert writer/coder and helpful assistant who can help writing and coding.",
+        content = "You are an expert writer/coder and helpful assistant who can help writing and coding. Your writing style is concise and impactful, without any unnecessary fluff.",
       },
       {
         role = "user",
