@@ -64,8 +64,14 @@ require("lazy").setup({
   { "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" }, lazy=true, },
   require('nvim_cmp_setup'),
 
-  -- Smooth scroll!!
-  {'karb94/neoscroll.nvim', config=true},
+  -- Smooth scroll and everything!!
+  {
+    'echasnovski/mini.nvim',
+    version = '*',
+    config=function ()
+      require('mini.animate').setup()
+    end
+  },
 
   -- Fancy modern scroll bar
   {'petertriho/nvim-scrollbar', config=true, event="VeryLazy"},
