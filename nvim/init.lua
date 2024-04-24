@@ -112,8 +112,7 @@ require("lazy").setup({
   -- Golang
   {
     "ray-x/go.nvim",
-    dependencies = {  -- optional packages
-      "ray-x/guihua.lua",
+    dependencies = {
       "neovim/nvim-lspconfig",
       "nvim-treesitter/nvim-treesitter",
     },
