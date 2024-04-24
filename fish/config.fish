@@ -89,3 +89,5 @@ fish_add_path $HOME/bin
 # Checkout https://github.com/atuinsh/atuin
 # This is shell history + sqlite
 atuin init fish | source
+
+set -U fish_greeting
