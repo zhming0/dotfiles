@@ -12,9 +12,9 @@ tab_width = 2
 indent_style = space
 indent_size = 2
 
+[*.java]
+indent_style = space
+indent_size = 4
 
-# The below are for my example
-# Matches multiple files with brace expansion notation
-# Set default charset
-# [*.{js,py}]
-# charset = utf-8
+[*.go]
+indent_style = tab

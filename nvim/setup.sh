@@ -10,7 +10,6 @@ brew install neovim
 # Prepare config folder
 mkdir -p ~/.config/nvim
 
-ln -sfv "$BASEDIR/coc-settings.json" ~/.config/nvim/coc-settings.json
 rm ~/.config/nvim/lua || true # Otherwise the next line will create an extra lua folder
 ln -sfv "$BASEDIR/lua" ~/.config/nvim/lua
 ln -sfv "$BASEDIR/init.lua" ~/.config/nvim/init.lua

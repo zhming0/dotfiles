@@ -6,7 +6,7 @@ set -o nounset
 
 LOMBOK_DIR="$HOME/.local/java/lombok"
 LOMBOK_PATH="$LOMBOK_DIR/lombok.jar"
-LOMBOK_DOWNLOAD_URL="https://projectlombok.org/downloads/lombok-1.18.30.jar"
+LOMBOK_DOWNLOAD_URL="https://projectlombok.org/downloads/lombok-1.18.32.jar"
 
 if [[ ! -f "$LOMBOK_PATH" ]]; then
   echo "Downloading lombok from $LOMBOK_DOWNLOAD_URL"
