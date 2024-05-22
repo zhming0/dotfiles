@@ -160,6 +160,12 @@ require("lazy").setup({
   },
 
   require('nvim_focus_setup'),
+
+  {
+    "folke/ts-comments.nvim",
+    opts = {},
+    event = "VeryLazy",
+  }
 }, {
   defaults = {
     lazy = false
