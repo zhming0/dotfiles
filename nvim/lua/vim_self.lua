@@ -5,13 +5,14 @@ local vim = vim
 
 -- Enable line number
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- Use the line number columns to display signs
 vim.opt.signcolumn = "number"
 
 -- Coc recommend setting this shorter
 -- I presume it will make CursorHold better which I think applies to Neovim lsp too
-vim.opt.updatetime = 300
+vim.opt.updatetime = 100
 
 -- Enable mouse support
 vim.opt.mouse = "a"

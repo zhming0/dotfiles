@@ -1,7 +1,5 @@
 local vim = vim
 
-local rubyTweak = require("lsp_tweaks.ruby")
-
 require("mason").setup()
 require("mason-lspconfig").setup{
   -- To find available names: https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
@@ -16,6 +14,7 @@ require("mason-lspconfig").setup{
     "gopls",
     "golangci_lint_ls",
     "dockerls",
+    "ruby_lsp",
   },
 }
 
@@ -132,10 +131,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     if client.name == "clojure_lsp" then
       disable_lsp_semantic_highlight(ev.buf)
-    end
-
-    if client.name == "ruby_ls" then
-      rubyTweak.setup_diagnostics(client, ev.buf)
     end
 
     -- Buffer local mappings.
