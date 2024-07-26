@@ -19,12 +19,17 @@ return {
           "--with-filename",
           "--line-number",
           "--column",
-          "--smart-case"
+          "--smart-case",
+          "--trim", -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#ripgrep-remove-indentation
         },
       },
     }
 
-    u.nmap("<c-p>", "<cmd>Telescope find_files hidden=true follow=true<cr>")
+    -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#falling-back-to-find_files-if-git_files-cant-find-a-git-directory
+    -- It still has a problem, untracked file can't be found in git repo.
+    u.nmap("<c-p>", "<cmd>lua require'telescope_config'.project_files()<cr>")
+    -- https://github.com/nvim-telescope/telescope.nvim/pull/1051
+    u.nmap("<leader>p", "<cmd>lua require('telescope.builtin').resume()<cr>")
     u.nmap("<leader>f", "<cmd>Telescope live_grep<cr>")
     u.nmap("<leader>F", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>")
     u.nmap("<leader>b", "<cmd>Telescope buffers<cr>")
