@@ -1,9 +1,9 @@
 local vim = vim
 
 local send_txt = function(context)
-  local text = require("codecompanion.helpers.code").get_code(context.start_line, context.end_line)
+  local text = require("codecompanion.helpers.actions").get_code(context.start_line, context.end_line)
 
-  return "I have the following text or code:\n\n```" .. context.filetype .. "\n" .. text .. "\n```\n\n"
+  return "I have the following text/code:\n\n```" .. context.filetype .. "\n" .. text .. "\n```\n\n"
 end
 
 local generate_action_item = function(name, prompt)
@@ -13,7 +13,6 @@ local generate_action_item = function(name, prompt)
     description = name,
     opts = {
       modes = { "v" },
-      placement = "after", -- cursor|before|after|replace|new
     },
     prompts = {
       {
@@ -58,23 +57,33 @@ return {
           env = {
             api_key = "OPENAI_API_KEY",
           },
-        }),
-        strategies = {
-          chat = "openai",
-          inline = "openai"
+        })
+      },
+
+      strategies = {
+        chat = {
+          adapter = "openai",
         },
+        inline = {
+          adapter = "openai",
+        },
+      },
+
+      -- This doesn't work yet.
+      prompts = {
+        ["Whaaaat"] = {
+        }
       },
 
       actions = {
         {
-          name = "Inline Generic",
+          name = "Ming Writing",
           strategy = "inline",
           description = "Help writing and coding in general, Ming's custom actions.",
           picker = {
             items = {
               generate_action_item("Improve writing", "Please improve writing for me while respecting the existing format and meaning."),
               generate_action_item("Grammar", "Please fix grammar and spelling for me."),
-              generate_action_item("Complete", "Please complete this bit for me.")
             },
           },
         },
