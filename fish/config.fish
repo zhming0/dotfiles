@@ -91,3 +91,6 @@ fish_add_path $HOME/bin
 atuin init fish | source
 
 set -U fish_greeting
+function fish_greeting
+  echo "(ง •̀_•́)ง  ==>  (ง •̀_•́)ง  ==>  ¯\_(ツ)_/¯  ==>  _(:3」∠)_" | lolcat
+end

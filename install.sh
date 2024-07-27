@@ -72,6 +72,7 @@ brew install \
   difftastic \
   stats \
   int128/kubelogin/kubelogin \
+  lolcat \
   atuin
 
 # This is one-off, permanent setup is in fish config.
