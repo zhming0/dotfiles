@@ -8,19 +8,19 @@ require("mason-lspconfig").setup{
     -- These 4 are all managed by https://github.com/hrsh7th/vscode-langservers-extracted
     "cssls" , "jsonls", "html", "eslint",
     "yamlls", "bashls",
-    "lua_ls", -- Only need this for init.lua for now..
+    "lua_ls", -- Only need this for `init.lua` for now..
     "jdtls",
-    "vale_ls",
     "gopls",
     "golangci_lint_ls",
     "dockerls",
     "ruby_lsp",
+    "harper_ls",
   },
 }
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- Used by neovim ufo
+-- Used by `nvim-ufo`
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true
@@ -41,7 +41,7 @@ local function handle_document_highlight(buffer)
   })
 end
 
--- I learnt it from https://gist.github.com/swarn/fb37d9eefe1bc616c2a7e476c0bc0316#controlling-when-highlights-are-applied
+-- I learned it from https://gist.github.com/swarn/fb37d9eefe1bc616c2a7e476c0bc0316#controlling-when-highlights-are-applied
 local function disable_lsp_semantic_highlight(buf)
   vim.api.nvim_create_autocmd({"LspTokenUpdate"}, {
     buffer = buf,
@@ -102,6 +102,30 @@ require("mason-lspconfig").setup_handlers {
     -- Skip because we use nvim-jdtls to manage jdtls
     -- But we still use mason to install the jdt.ls for easiness
   end,
+
+  ["harper_ls"] = function ()
+    require('lspconfig').harper_ls.setup {
+      settings = {
+        ["harper-ls"] = {
+          linters = {
+            spell_check = false,
+            spelled_numbers = false,
+            an_a = true,
+            sentence_capitalization = false,
+            unclosed_quotes = true,
+            wrong_quotes = false,
+            long_sentences = true,
+            repeated_words = true,
+            spaces = true,
+            matcher = true,
+            correct_number_suffix = true,
+            number_suffix_capitalization = true,
+            multiple_sequential_pronouns = true,
+          }
+        }
+      },
+    }
+  end
 }
 
 -- language servers

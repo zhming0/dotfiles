@@ -67,7 +67,6 @@ brew install \
   ariga/tap/atlas \
   mike-engel/jwt-cli/jwt-cli \
   chatblade \
-  vale \
   podman \
   difftastic \
   stats \
@@ -101,7 +100,6 @@ asdf global direnv 2.34.0
 ./tmux/setup.sh
 ./go/setup.sh
 ./ruby/setup.sh
-./vale/setup.sh
 
 # Some helm related setup
 helm plugin install https://github.com/databus23/helm-diff
