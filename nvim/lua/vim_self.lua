@@ -76,3 +76,6 @@ vim.api.nvim_create_autocmd(
     desc = 'Automatically resize windows when the host window size changes.'
   }
 )
+
+-- Exit terminal insert mode easily..
+vim.api.nvim_set_keymap('t', '<leader><Esc>', '<C-\\><C-n>', { noremap = true, silent = true })

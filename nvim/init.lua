@@ -27,6 +27,29 @@ require("lazy").setup({
   },
   "shaunsingh/moonlight.nvim",
 
+  -- Automatic session management
+  {
+    "olimorris/persisted.nvim",
+    lazy = false, -- make sure the plugin is always loaded at startup
+    config = true,
+    opts = {
+      use_git_branch = true,
+      autoload = false, -- auto load session.
+      on_autoload_no_session = function()
+        vim.notify("No existing session to load.")
+      end,
+      -- This is not working as expected yet: https://github.com/olimorris/persisted.nvim/discussions/153
+      ---@return boolean
+      should_save = function()
+        if vim.bo.buftype ~= "" or vim.bo.modifiable == false or vim.bo.filetype == "" then
+          -- we don't want things like Clojure nrepl, quickfix etc to be saved
+          return false
+        end
+        return true
+      end,
+    }
+  },
+
   -- Treesitter!
   require('treesitter_setup'),
 
