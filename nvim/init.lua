@@ -167,6 +167,11 @@ require("lazy").setup({
     event = "VeryLazy",
   },
 
+  {
+    "ruifm/gitlinker.nvim",
+    config = true,
+    event = "VeryLazy",
+  },
   -- This seems useful but I have no use case just yet, enable me when timing is right!
   -- {'TreyBastian/nvim-jack-in', config = true},
 }, {
