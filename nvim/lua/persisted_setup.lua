@@ -8,9 +8,18 @@ return {
     require('persisted').setup({
       use_git_branch = true,
       autoload = true, -- auto load session.
+
       on_autoload_no_session = function()
         vim.notify("No existing session to load.")
       end,
+
+      should_save = function ()
+        -- Only save session when the current cwd is git root
+        local uv = vim.loop
+        local cwd = uv.cwd()
+        local git_dir = uv.fs_stat(cwd .. "/.git")
+        return git_dir ~= nil
+      end
     })
 
     -- This is to ensure we don't persist things like terminal, clojure nrepl to the session
