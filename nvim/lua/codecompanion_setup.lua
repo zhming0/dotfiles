@@ -15,16 +15,18 @@ return {
       },
     },
   },
-  version = "v1.8.0",
+  version = "*",
   event = "VeryLazy",
   config = function ()
     require("codecompanion").setup({
       adapters = {
-        anthropic = require("codecompanion.adapters").extend("anthropic", {
-          env = {
-            api_key = "CLAUDE_API_KEY",
-          },
-        })
+        anthropic = function ()
+          return require("codecompanion.adapters").extend("anthropic", {
+            env = {
+              api_key = "ANTHROPIC_API_KEY",
+            },
+          })
+        end
       },
 
       strategies = {

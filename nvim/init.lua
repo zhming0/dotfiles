@@ -17,6 +17,7 @@ require("lazy").setup({
   -- Color schemes
   {
     "folke/tokyonight.nvim",
+    version = "*",
     lazy = false, -- make sure we load this during startup as it is my main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
