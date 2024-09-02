@@ -13,12 +13,18 @@ return {
         vim.notify("No existing session to load.")
       end,
 
-      should_save = function ()
-        -- Only save session when the current cwd is git root
+      should_save = function()
+        -- Do not save session when the current cwd is git root
         local uv = vim.loop
         local cwd = uv.cwd()
         local git_dir = uv.fs_stat(cwd .. "/.git")
-        return git_dir ~= nil
+
+        -- Check if the current buffer is a GIT COMMIT message buffer
+        local current_buf = vim.api.nvim_get_current_buf()
+        local buf_name = vim.api.nvim_buf_get_name(current_buf)
+        local is_git_commit = buf_name:match("COMMIT_EDITMSG$") ~= nil
+
+        return git_dir ~= nil and not is_git_commit
       end
     })
 
