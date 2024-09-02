@@ -15,24 +15,24 @@ return {
       },
     },
   },
-  version = "*",
+  version = "v1.8.0",
   event = "VeryLazy",
   config = function ()
     require("codecompanion").setup({
       adapters = {
-        openai = require("codecompanion.adapters").extend("openai", {
+        anthropic = require("codecompanion.adapters").extend("anthropic", {
           env = {
-            api_key = "OPENAI_API_KEY",
+            api_key = "CLAUDE_API_KEY",
           },
         })
       },
 
       strategies = {
         chat = {
-          adapter = "openai",
+          adapter = "anthropic",
         },
         inline = {
-          adapter = "openai",
+          adapter = "anthropic",
         },
       },
     })
