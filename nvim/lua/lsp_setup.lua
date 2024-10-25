@@ -4,7 +4,8 @@ require("mason").setup()
 require("mason-lspconfig").setup{
   -- To find available names: https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
   ensure_installed = {
-    "tsserver", "pyright",
+    "ts_ls",
+    "pyright",
     -- These 4 are all managed by https://github.com/hrsh7th/vscode-langservers-extracted
     "cssls" , "jsonls", "html", "eslint",
     "yamlls", "bashls",
