@@ -25,3 +25,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Brewfile.lock.json is only for debugging purpose
+Brewfile.lock.json

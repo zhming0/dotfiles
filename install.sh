@@ -20,59 +20,7 @@ else
     eval "$(/opt/homebrew/bin/brew shellenv)" # One-off setup, permanent setup is in fish config.
 fi
 
-brew install \
-  neovim \
-  git \
-  cmake \
-  lima \
-  bison \
-  tmux \
-  jq \
-  ansible \
-  awscli \
-  telnet \
-  ripgrep \
-  coreutils \
-  bat \
-  fish \
-  yarn \
-  libpq \
-  kubernetes-cli \
-  kops \
-  watchman \
-  httpie \
-  fzf \
-  fd \
-  ctop \
-  mkcert \
-  clojure/tools/clojure \
-  borkdude/brew/clj-kondo \
-  gnupg \
-  asdf \
-  shellcheck \
-  maven \
-  helm \
-  bash-language-server \
-  clojure-lsp/brew/clojure-lsp-native \
-  terminal-notifier \
-  sops \
-  hashicorp/tap/terraform-ls \
-  derailed/k9s/k9s \
-  bash \
-  helmfile \
-  age \
-  babashka/brew/neil \
-  fairwindsops/tap/nova \
-  pnpm \
-  ariga/tap/atlas \
-  mike-engel/jwt-cli/jwt-cli \
-  chatblade \
-  podman \
-  difftastic \
-  stats \
-  int128/kubelogin/kubelogin \
-  lolcat \
-  atuin
+brew bundle
 
 # This is one-off, permanent setup is in fish config.
 source "$(brew --prefix asdf)/libexec/asdf.sh"
