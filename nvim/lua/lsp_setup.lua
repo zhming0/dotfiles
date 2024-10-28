@@ -16,6 +16,7 @@ require("mason-lspconfig").setup{
     "dockerls",
     "ruby_lsp",
     "harper_ls",
+    "terraformls",
   },
 }
 
