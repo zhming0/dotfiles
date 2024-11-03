@@ -20,13 +20,23 @@ require("mason-lspconfig").setup{
   },
 }
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local base_capabilities = vim.lsp.protocol.make_client_capabilities()
+local cmp_nvim_capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = vim.tbl_deep_extend(
+  "force",
+  base_capabilities,
+  cmp_nvim_capabilities
+)
 
 -- Used by `nvim-ufo`
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true
 }
+
+-- This is to cater for a bug in Clojure-lsp.
+-- See my PR: https://github.com/clojure-lsp/clojure-lsp/pull/1907
+capabilities.workspace.workspaceEdit.documentChanges = true
 
 local function handle_document_highlight(buffer)
   vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
