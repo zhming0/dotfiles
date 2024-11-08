@@ -90,6 +90,8 @@ fish_add_path $HOME/bin
 # This is shell history + sqlite
 atuin init fish | source
 
+git-town completions fish | source
+
 set -U fish_greeting
 function fish_greeting
   echo "(ง •̀_•́)ง  ==>  (ง •̀_•́)ง  ==>  ¯\_(ツ)_/¯  ==>  _(:3」∠)_" | lolcat

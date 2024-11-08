@@ -45,7 +45,6 @@ require("lazy").setup({
   require('nvim_jdtls_setup'),
 
   -- Improved UI, replacing vim defaults
-  'MunifTanjim/nui.nvim',
   'rcarriga/nvim-notify',
   {'folke/noice.nvim', version ="*"},
   'kevinhwang91/nvim-bqf', -- Better looking quickfix list
