@@ -42,7 +42,8 @@ u.nmap("<C-k>", "<C-w>k")
 u.nmap("<C-l>", "<C-w>l")
 
 -- Quick save!
-u.nmap("<leader><leader>", ":update<CR>")
+-- This ++p thing will ensure to create missing folders. Like mkdir -p
+u.nmap("<leader><leader>", ":update ++p<CR>")
 
 -- Clipboard things
 vim.opt.clipboard:append("unnamedplus")
