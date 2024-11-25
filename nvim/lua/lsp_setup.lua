@@ -17,6 +17,7 @@ require("mason-lspconfig").setup{
     "ruby_lsp",
     "harper_ls",
     "terraformls",
+    "tflint",
   },
 }
 
