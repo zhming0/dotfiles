@@ -35,10 +35,6 @@ capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true
 }
 
--- This is to cater for a bug in Clojure-lsp.
--- See my PR: https://github.com/clojure-lsp/clojure-lsp/pull/1907
-capabilities.workspace.workspaceEdit.documentChanges = true
-
 local function handle_document_highlight(buffer)
   vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
     buffer = buffer,

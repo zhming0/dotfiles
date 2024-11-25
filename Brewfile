@@ -41,6 +41,7 @@ brew "terminal-notifier"
 brew "tmux"
 brew "watchman"
 brew "yarn"
+brew "git-town"
 
 brew "clojure/tools/clojure"
 brew "borkdude/brew/clj-kondo"
