@@ -42,6 +42,7 @@ brew "tmux"
 brew "watchman"
 brew "yarn"
 brew "git-town"
+brew "operator-sdk"
 
 brew "clojure/tools/clojure"
 brew "borkdude/brew/clj-kondo"

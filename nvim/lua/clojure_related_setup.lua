@@ -1,6 +1,7 @@
 local vim = vim
 
 vim.g["conjure#log#hud#height"] = 1
+vim.g["conjure#log#hud#width"] = 1
 vim.g["conjure#log#log#wrap"] = "true"
 -- Disable Conjure's K shortcut in favor of LSP's support
 -- TODO need test
