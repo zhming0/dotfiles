@@ -43,6 +43,7 @@ brew "watchman"
 brew "yarn"
 brew "git-town"
 brew "operator-sdk"
+brew "jj"
 
 brew "clojure/tools/clojure"
 brew "borkdude/brew/clj-kondo"
