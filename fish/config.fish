@@ -68,7 +68,8 @@ set -xg ASDF_GEM_DEFAULT_PACKAGES_FILE "$HOME/.config/default-gems"
 
 # Git Abbrs
 abbr --add gaa "git add -A"
-abbr --add gs "git status -u"
+abbr --add gs "git switch"
+abbr --add gst "git status -u"
 abbr --add gp "git pull"
 abbr --add gco "git checkout"
 abbr --add gm "git commit"
@@ -91,6 +92,8 @@ fish_add_path $HOME/bin
 atuin init fish | source
 
 git-town completions fish | source
+
+jj util completion fish | source
 
 set -U fish_greeting
 function fish_greeting
