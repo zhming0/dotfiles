@@ -81,6 +81,12 @@ abbr --add kctx "kubectl config use-context"
 abbr --add kns "kubectl config set-context --current --namespace"
 abbr --add k "kubectl"
 
+# JJ abbrs
+abbr --add jjn "jj git fetch && jj new main" # JJ new
+abbr --add jjsync "jj git fetch && jj rebase -b @ -d main" # JJ sync/rebase the whole branch
+abbr --add jjgp "jj git push"
+abbr --add jjbc "jj b c"
+
 
 export CONTAINERS_MACHINE_PROVIDER=applehv
 
