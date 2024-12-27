@@ -39,13 +39,13 @@ local function handle_document_highlight(buffer)
   vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
     buffer = buffer,
     callback = function(_)
-      vim.lsp.buf.document_highlight()
+      pcall(vim.lsp.buf.document_highlight)
     end
   })
   vim.api.nvim_create_autocmd({"CursorMoved"}, {
     buffer = buffer,
     callback = function(_)
-      vim.lsp.buf.clear_references()
+      pcall(vim.lsp.buf.clear_references)
     end
   })
 end
