@@ -22,11 +22,12 @@ require("mason-lspconfig").setup{
 }
 
 local base_capabilities = vim.lsp.protocol.make_client_capabilities()
-local cmp_nvim_capabilities = require("cmp_nvim_lsp").default_capabilities()
+local blink_cmp_capabilities = require('blink.cmp').get_lsp_capabilities()
 local capabilities = vim.tbl_deep_extend(
   "force",
   base_capabilities,
-  cmp_nvim_capabilities
+  -- cmp_nvim_capabilities,
+  blink_cmp_capabilities
 )
 
 -- Used by `nvim-ufo`

@@ -80,3 +80,5 @@ vim.api.nvim_create_autocmd(
 
 -- Exit terminal insert mode easily..
 vim.api.nvim_set_keymap('t', '<leader><Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+
+vim.api.nvim_set_hl(0, 'BlinkCmpGhostText', { fg = '#AAAAAA' })

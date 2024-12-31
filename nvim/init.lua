@@ -46,7 +46,13 @@ require("lazy").setup({
 
   -- Improved UI, replacing vim defaults
   'rcarriga/nvim-notify',
-  {'folke/noice.nvim', version ="*"},
+  {
+    'folke/noice.nvim',
+    -- version = "*",
+    -- https://github.com/Saghen/blink.cmp/issues/618
+    -- revert this when https://github.com/folke/noice.nvim/pull/1015 is merged.
+    commit = "eaed6cc9c06aa2013b5255349e4f26a6b17ab70f",
+  },
   'kevinhwang91/nvim-bqf', -- Better looking quickfix list
 
   -- init.lua Lsp experience
@@ -63,9 +69,7 @@ require("lazy").setup({
   -- Iconed Buffer bar (replace tab bar)
   require('barbar_setup'),
 
-  -- Autocomplete
-  { "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" }, lazy=true, },
-  require('nvim_cmp_setup'),
+  require('blink_cmp_setup'),
 
   -- Smooth scroll and everything!!
   {
@@ -227,7 +231,6 @@ require("noice").setup({
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
       ["vim.lsp.util.stylize_markdown"] = true,
-      ["cmp.entry.get_documentation"] = true,
     },
   },
   -- you can enable a preset for easier configuration
