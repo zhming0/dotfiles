@@ -149,7 +149,7 @@ require("lazy").setup({
     version = "*",
   },
 
-  require('codecompanion_setup'),
+  require('avante_setup'),
 
   -- This is really handly tool, use <leader>R allows me to send any command to a tmux panel (once selected).
   {
@@ -165,8 +165,6 @@ require("lazy").setup({
       },
     }
   },
-
-  require('nvim_focus_setup'),
 
   {
     "folke/ts-comments.nvim",

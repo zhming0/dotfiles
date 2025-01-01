@@ -82,3 +82,6 @@ vim.api.nvim_create_autocmd(
 vim.api.nvim_set_keymap('t', '<leader><Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 
 vim.api.nvim_set_hl(0, 'BlinkCmpGhostText', { fg = '#AAAAAA' })
+
+-- Recommended by avante
+vim.opt.laststatus = 3
