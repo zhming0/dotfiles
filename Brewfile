@@ -1,4 +1,5 @@
 cask "stats"
+cast "ghostty"
 
 brew "age"
 brew "ansible"
@@ -44,7 +45,6 @@ brew "yarn"
 brew "git-town"
 brew "operator-sdk"
 brew "jj"
-brew "ghostty"
 brew "websocat"
 
 brew "clojure/tools/clojure"
