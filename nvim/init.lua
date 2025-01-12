@@ -177,6 +177,10 @@ require("lazy").setup({
     config = true,
     event = "VeryLazy",
   },
+
+  -- auto formatter
+  require('conform_nvim_setup'),
+
   -- This seems useful but I have no use case just yet, enable me when timing is right!
   -- {'TreyBastian/nvim-jack-in', config = true},
 }, {
