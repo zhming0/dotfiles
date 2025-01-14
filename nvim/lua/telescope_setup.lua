@@ -3,13 +3,16 @@ local u = require('util')
 return {
   "nvim-telescope/telescope.nvim",
   version = "*",
-  dependencies = {"nvim-lua/plenary.nvim"},
+  dependencies = { "nvim-lua/plenary.nvim" },
   event = "VeryLazy",
-  config = function ()
-    require('telescope').setup{
+  config = function()
+    require('telescope').setup {
       defaults = {
-        path_display = {"smart"},
+        path_display = { "smart" },
         layout_strategy = "flex",
+        cache_picker = {
+          num_pickers = 10,
+        },
         -- Otherwise by default it would ignore all dotfiles
         vimgrep_arguments = {
           "rg",
@@ -29,7 +32,7 @@ return {
     -- It still has a problem, untracked file can't be found in git repo.
     u.nmap("<c-p>", "<cmd>lua require'telescope_config'.project_files()<cr>")
     -- https://github.com/nvim-telescope/telescope.nvim/pull/1051
-    u.nmap("<leader>p", "<cmd>lua require('telescope.builtin').resume()<cr>")
+    u.nmap("<leader>p", "<cmd>lua require('telescope.builtin').pickers()<cr>")
     u.nmap("<leader>f", "<cmd>Telescope live_grep<cr>")
     u.nmap("<leader>F", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>")
     u.nmap("<leader>b", "<cmd>Telescope buffers<cr>")
