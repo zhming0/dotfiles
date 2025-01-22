@@ -46,6 +46,7 @@ brew "git-town"
 brew "operator-sdk"
 brew "jj"
 brew "websocat"
+brew "direnv"
 
 brew "clojure/tools/clojure"
 brew "borkdude/brew/clj-kondo"

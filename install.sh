@@ -39,10 +39,6 @@ asdf global java openjdk-21
 asdf install terraform latest
 asdf global terraform latest
 
-asdf plugin-add direnv
-asdf direnv setup --shell fish --version latest # This may not work on the first try
-asdf global direnv 2.34.0
-
 ./fish/setup.sh
 ./nvim/setup.sh
 ./rust/setup.sh
