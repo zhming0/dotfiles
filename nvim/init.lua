@@ -18,7 +18,7 @@ require("lazy").setup({
   {
     "folke/tokyonight.nvim",
     version = "*",
-    lazy = false, -- make sure we load this during startup as it is my main colorscheme
+    lazy = false,    -- make sure we load this during startup as it is my main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
@@ -38,7 +38,7 @@ require("lazy").setup({
   require('nvim_tree_setup'),
 
   -- LSP
-  'williamboman/mason.nvim', -- This one is like ASDF for language servers for neovim
+  'williamboman/mason.nvim',           -- This one is like ASDF for language servers for neovim
   'williamboman/mason-lspconfig.nvim', -- This one bridges the above with lspconfig
   'neovim/nvim-lspconfig',
   'b0o/schemastore.nvim',
@@ -56,7 +56,7 @@ require("lazy").setup({
   'kevinhwang91/nvim-bqf', -- Better looking quickfix list
 
   -- init.lua Lsp experience
-  { 'folke/neodev.nvim', ft = "lua", config = true },
+  { 'folke/neodev.nvim',         ft = "lua",    config = true },
 
   -- Git related
   -- TODO: consider replacing with https://github.com/lewis6991/gitsigns.nvim because_it has wider adoption
@@ -75,13 +75,13 @@ require("lazy").setup({
   {
     'echasnovski/mini.nvim',
     version = '*',
-    config=function ()
+    config = function()
       require('mini.animate').setup()
     end
   },
 
   -- Fancy modern scroll bar
-  {'petertriho/nvim-scrollbar', config=true, event="VeryLazy"},
+  { 'petertriho/nvim-scrollbar', config = true, event = "VeryLazy" },
 
   {
     "kylechui/nvim-surround",
@@ -97,7 +97,7 @@ require("lazy").setup({
   -- Clojure
   {
     "Olical/conjure",
-    ft = {"clojure"},
+    ft = { "clojure" },
     version = "*",
   },
   'gpanders/nvim-parinfer',
@@ -105,11 +105,11 @@ require("lazy").setup({
     "m00qek/baleia.nvim",
     tag = "v1.3.0",
     event = "BufEnter conjure-log-*",
-    config = function ()
+    config = function()
       local baleia = require('baleia').setup()
       vim.api.nvim_create_autocmd("BufEnter", {
-        pattern = {"conjure-log-*"},
-        callback = function (ev)
+        pattern = { "conjure-log-*" },
+        callback = function(ev)
           baleia.automatically(ev.buf)
         end
       })
@@ -127,8 +127,8 @@ require("lazy").setup({
       require("go").setup()
       require('golang_related_setup')
     end,
-    event = {"CmdlineEnter"},
-    ft = {"go", 'gomod'},
+    event = { "CmdlineEnter" },
+    ft = { "go", 'gomod' },
     -- build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
   },
 
@@ -136,7 +136,18 @@ require("lazy").setup({
   require('telescope_setup'),
 
   'ggandor/leap.nvim',
-  {'klen/nvim-config-local', config=true, lazy=false},
+  {
+    'klen/nvim-config-local',
+    config = function()
+      require('config-local').setup {
+        -- nvim.local.lua is tracked in global gitignore, useful when I want to put a local config in a repo without being
+        -- tracked by VCS
+        config_files = { ".nvim.lua", ".nvimrc", ".nvim.local.lua" },
+        silent = false,
+      }
+    end,
+    lazy = false
+  },
 
   -- Fancy indentation tool
   require('nvim_ufo_setup'),
@@ -202,7 +213,7 @@ require('lualine').setup({
     lualine_x = {
       {
         require("noice").api.statusline.mode.get,
-        cond = function ()
+        cond = function()
           local mode = require("noice").api.statusline.mode.get()
           return not not (mode and string.find(mode, "recording"))
         end,
@@ -237,11 +248,11 @@ require("noice").setup({
   },
   -- you can enable a preset for easier configuration
   presets = {
-    bottom_search = true, -- use a classic bottom cmdline for search
-    command_palette = true, -- position the cmdline and popupmenu together
+    bottom_search = true,         -- use a classic bottom cmdline for search
+    command_palette = true,       -- position the cmdline and popupmenu together
     long_message_to_split = true, -- long messages will be sent to a split
-    inc_rename = false, -- enables an input dialog for inc-rename.nvim
-    lsp_doc_border = false, -- add a border to hover docs and signature help
+    inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+    lsp_doc_border = false,       -- add a border to hover docs and signature help
   },
 })
 
