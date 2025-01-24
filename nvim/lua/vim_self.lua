@@ -22,15 +22,15 @@ vim.opt.termguicolors = true
 local cursorLineAuGroup = vim.api.nvim_create_augroup("CursorLine", {
   clear = true
 })
-vim.api.nvim_create_autocmd({"VimEnter", "WinEnter", "BufWinEnter"}, {
+vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
   group = cursorLineAuGroup,
-  callback = function ()
+  callback = function()
     vim.opt_local.cursorline = true
   end
 })
-vim.api.nvim_create_autocmd({"WinLeave"}, {
+vim.api.nvim_create_autocmd({ "WinLeave" }, {
   group = cursorLineAuGroup,
-  callback = function ()
+  callback = function()
     vim.opt_local.cursorline = false
   end
 })
@@ -83,5 +83,6 @@ vim.api.nvim_set_keymap('t', '<leader><Esc>', '<C-\\><C-n>', { noremap = true, s
 
 vim.api.nvim_set_hl(0, 'BlinkCmpGhostText', { fg = '#AAAAAA' })
 
--- Recommended by avante
-vim.opt.laststatus = 3
+-- Recommended by avante, but I don't feel it make sense
+-- Too much sacriface for normal use as well
+-- vim.opt.laststatus = 3
