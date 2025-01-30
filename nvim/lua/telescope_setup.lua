@@ -8,7 +8,8 @@ return {
   config = function()
     require('telescope').setup {
       defaults = {
-        path_display = { "smart" },
+        -- This seems nice on the surface, but doesn't seem to improve my experience.
+        -- path_display = { "smart" },
         layout_strategy = "flex",
         cache_picker = {
           num_pickers = 10,

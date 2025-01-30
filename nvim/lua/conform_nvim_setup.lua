@@ -10,7 +10,7 @@ return {
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
       end
-      return { timeout_ms = 2000, lsp_format = "fallback" }
+      return { timeout_ms = 5000, lsp_format = "fallback" }
     end,
     default_format_opts = {
       lsp_format = "fallback",
