@@ -18,6 +18,8 @@ return {
     u.nmap("<leader>[", ":BufferPrevious<CR>")
     u.nmap("<leader>]", ":BufferNext<CR>")
     u.nmap("<leader>x", ":BufferClose<CR>")
+    u.nmap("<leader>X", ":BufferCloseAllButCurrentOrPinned<CR>")
+    u.nmap("<leader>B", ":BufferPin<CR>")
     u.nmap("<leader>1", ":BufferGoto 1<CR>")
     u.nmap("<leader>2", ":BufferGoto 2<CR>")
     u.nmap("<leader>3", ":BufferGoto 3<CR>")
