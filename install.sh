@@ -22,8 +22,9 @@ fi
 
 brew bundle
 
-# This is one-off, permanent setup is in fish config.
-source "$(brew --prefix asdf)/libexec/asdf.sh"
+asdf completion fish > ~/.config/fish/completions/asdf.fish
+
+# At this point, probably restarting shell will be ideal.
 
 asdf plugin add nodejs || true
 asdf plugin add java || true
