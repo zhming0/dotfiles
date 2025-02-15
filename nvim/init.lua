@@ -56,10 +56,7 @@ require("lazy").setup({
   },
   {
     'folke/noice.nvim',
-    -- version = "*",
-    -- https://github.com/Saghen/blink.cmp/issues/618
-    -- revert this when https://github.com/folke/noice.nvim/pull/1015 is merged.
-    commit = "eaed6cc9c06aa2013b5255349e4f26a6b17ab70f",
+    version = "*",
   },
   'kevinhwang91/nvim-bqf', -- Better looking quickfix list
 
