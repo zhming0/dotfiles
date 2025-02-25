@@ -113,3 +113,10 @@ set --erase _asdf_shims
 
 # Golang
 . ~/.asdf/plugins/golang/set-env.fish
+
+# pnpm
+set -gx PNPM_HOME "/Users/ming/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
