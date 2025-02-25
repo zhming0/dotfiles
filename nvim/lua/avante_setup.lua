@@ -6,6 +6,9 @@ return {
   build = "make",
   opts = {
     provider = "claude",
+    claude = {
+      model = "claude-3-7-sonnet-latest"
+    },
     auto_suggestions_provider = "groq",
     behaviour = {
       -- It's important to note that this will effectively upload to cloud.
