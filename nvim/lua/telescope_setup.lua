@@ -11,6 +11,12 @@ return {
         -- This seems nice on the surface, but doesn't seem to improve my experience.
         -- path_display = { "smart" },
         layout_strategy = "flex",
+        layout_config = {
+          flex = {
+            -- Try to use vertical view for narrow screen
+            flip_columns = 180
+          }
+        },
         cache_picker = {
           num_pickers = 10,
         },
