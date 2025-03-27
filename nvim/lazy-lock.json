@@ -1,6 +1,6 @@
 {
   "auto-pairs": { "branch": "master", "commit": "39f06b873a8449af8ff6a3eee716d3da14d63a76" },
-  "avante.nvim": { "branch": "main", "commit": "2adf33534485318804e760b7512d484f2e5eb34b" },
+  "avante.nvim": { "branch": "main", "commit": "868c13657442b799a5c161940602f99623a08197" },
   "baleia.nvim": { "branch": "main", "commit": "fb3aff021b2b64ef820d0230d2c22ebfaf71bb6a" },
   "barbar.nvim": { "branch": "master", "commit": "53b5a2f34b68875898f0531032fbf090e3952ad7" },
   "blink.cmp": { "branch": "main", "commit": "b6f11a0aa33e601c469a126e3ed6e35208fe3ea3" },

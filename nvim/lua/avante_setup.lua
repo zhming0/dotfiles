@@ -6,15 +6,12 @@ return {
   build = "make",
   opts = {
     provider = "claude",
+    cursor_applying_provider = 'groq',
     claude = {
       model = "claude-3-7-sonnet-latest"
     },
-    auto_suggestions_provider = "groq",
     behaviour = {
-      -- It's important to note that this will effectively upload to cloud.
-      -- We need to keep updated to see if there is a way to disable this automatically in certain cases.
-      -- It's disabled as I find it quickily hit limit. somehow...
-      auto_suggestions = false, -- Experimental stage
+      enable_cursor_planning_mode = true
     },
 
     vendors = {
@@ -23,6 +20,7 @@ return {
         api_key_name = "GROQ_API_KEY",
         endpoint = "https://api.groq.com/openai/v1/",
         model = "llama-3.3-70b-versatile",
+        max_tokens = 32768, -- People say: remember to increase this value, otherwise it will stop generating halfway
       },
     },
   },
