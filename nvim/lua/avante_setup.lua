@@ -23,6 +23,10 @@ return {
         max_tokens = 32768, -- People say: remember to increase this value, otherwise it will stop generating halfway
       },
     },
+
+    windows = {
+      width = 40 -- default 30%
+    },
   },
   dependencies = {
     "stevearc/dressing.nvim",
