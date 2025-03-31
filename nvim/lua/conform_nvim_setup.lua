@@ -3,7 +3,6 @@ return {
   'stevearc/conform.nvim',
   version = "*",
   event = { "BufWritePre" }, -- Lazy load
-  cmd = "FormatDisable",
   opts = {
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable
