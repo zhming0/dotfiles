@@ -54,6 +54,9 @@ set -xg JDTLS_JVM_ARGS "-javaagent:$HOME/.local/java/lombok/lombok.jar"
 # Checkout https://github.com/asdf-vm/asdf-ruby#default-gems
 set -xg ASDF_GEM_DEFAULT_PACKAGES_FILE "$HOME/.config/default-gems"
 
+# Checkout https://github.com/asdf-community/asdf-python
+set -xg ASDF_GEM_DEFAULT_PACKAGES_FILE "$HOME/.config/default-python-packages"
+
 # Git Abbrs
 abbr --add gaa "git add -A"
 abbr --add gs "git switch"
@@ -120,3 +123,6 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+# uv
+fish_add_path "/Users/ming/.local/bin"

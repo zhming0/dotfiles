@@ -28,3 +28,8 @@ Temporary Items
 
 # Brewfile.lock.json is only for debugging purpose
 Brewfile.lock.json
+
+.clj-kondo
+.lsp
+.nrepl-port
+
