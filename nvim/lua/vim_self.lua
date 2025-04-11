@@ -19,6 +19,11 @@ vim.opt.mouse = "a"
 
 vim.opt.termguicolors = true
 
+-- By default ignore case when using native search
+vim.opt.ignorecase = true
+-- If at least one upper case is used, don't ignore case
+vim.opt.smartcase = true
+
 local cursorLineAuGroup = vim.api.nvim_create_augroup("CursorLine", {
   clear = true
 })
