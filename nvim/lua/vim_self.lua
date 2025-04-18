@@ -24,6 +24,24 @@ vim.opt.ignorecase = true
 -- If at least one upper case is used, don't ignore case
 vim.opt.smartcase = true
 
+-- Automatically reload files when they are changed outside of Neovim
+vim.opt.autoread = true
+
+-- Check for file changes when user returns to Neovim or when buffer gets focus
+local autoread_group = vim.api.nvim_create_augroup("AutoRead", {
+  clear = true
+})
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  group = autoread_group,
+  pattern = "*",
+  callback = function()
+    if vim.fn.getcmdwintype() == "" then
+      vim.cmd("checktime")
+    end
+  end,
+  desc = "Check for file changes when Neovim regains focus or buffer is entered"
+})
+
 local cursorLineAuGroup = vim.api.nvim_create_augroup("CursorLine", {
   clear = true
 })
