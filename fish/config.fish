@@ -76,6 +76,7 @@ abbr --add k "kubectl"
 abbr --add jjn "jj git fetch && jj new main" # JJ new
 abbr --add jjsync "jj git fetch && jj rebase -b @ -d main" # JJ sync/rebase the whole branch
 abbr --add jjgp "jj git push --allow-new"
+abbr --add jjgpa "jj git push --all"
 abbr --add jjbc "jj b c"
 
 
