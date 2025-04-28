@@ -1,7 +1,12 @@
 return {
   'saghen/blink.cmp',
   -- optional: provides snippets for the snippet source
-  dependencies = 'rafamadriz/friendly-snippets',
+  dependencies = {
+    'rafamadriz/friendly-snippets',
+    -- extra providers
+    'mikavilpas/blink-ripgrep.nvim',
+    'moyiz/blink-emoji.nvim',
+  },
 
   version = '*',
 
@@ -45,7 +50,19 @@ return {
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'ripgrep' },
+      providers = {
+        ripgrep = {
+          name = "Ripgrep",
+          module = "blink-ripgrep",
+        },
+        emoji = {
+          module = "blink-emoji",
+          name = "Emoji",
+          score_offset = 15,        -- Tune by preference
+          opts = { insert = true }, -- Insert emoji (default) or complete its name
+        },
+      },
     },
   },
   opts_extend = { "sources.default" }
