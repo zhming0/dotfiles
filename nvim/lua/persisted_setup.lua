@@ -3,8 +3,7 @@ local vim = vim
 return {
   "olimorris/persisted.nvim",
   lazy = false, -- make sure the plugin is always loaded at startup
-  config = function ()
-
+  config = function()
     require('persisted').setup({
       use_git_branch = true,
       autoload = true, -- auto load session.
@@ -56,6 +55,5 @@ return {
         end
       end,
     })
-
   end,
 }
