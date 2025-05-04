@@ -64,8 +64,18 @@ require("lazy").setup({
   { 'folke/neodev.nvim',         ft = "lua",    config = true },
 
   -- Git related
-  -- TODO: consider replacing with https://github.com/lewis6991/gitsigns.nvim because_it has wider adoption
-  'mhinz/vim-signify',
+  {
+    'lewis6991/gitsigns.nvim',
+    version = '*',
+    event = "VeryLazy",
+    config = function()
+      require('gitsigns').setup({
+        on_attach = function()
+          require('gitsigns_setup')
+        end
+      })
+    end
+  },
   'f-person/git-blame.nvim',
 
   -- Status bar
@@ -206,7 +216,6 @@ require("lazy").setup({
 
 require('vim_self')
 require('lsp_setup')
-require('signify_setup')
 require('clojure_related_setup')
 
 require('leap').set_default_keymaps()
