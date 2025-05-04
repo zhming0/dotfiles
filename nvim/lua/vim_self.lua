@@ -5,7 +5,7 @@ local vim = vim
 
 -- Enable line number
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- Use the line number columns to display signs
 vim.opt.signcolumn = "number"
