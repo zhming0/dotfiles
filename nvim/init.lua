@@ -146,7 +146,6 @@ require("lazy").setup({
       })
       require('golang_related_setup')
     end,
-    event = { "CmdlineEnter" },
     ft = { "go", 'gomod' },
   },
 
