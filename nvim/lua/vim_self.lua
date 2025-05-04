@@ -7,9 +7,6 @@ local vim = vim
 vim.opt.number = true
 vim.opt.relativenumber = false
 
--- Use the line number columns to display signs
-vim.opt.signcolumn = "number"
-
 -- Coc recommend setting this shorter
 -- I presume it will make CursorHold better which I think applies to Neovim lsp too
 vim.opt.updatetime = 100
@@ -109,3 +106,20 @@ vim.api.nvim_set_hl(0, 'BlinkCmpGhostText', { fg = '#AAAAAA' })
 -- Recommended by avante, but I don't feel it make sense
 -- Too much sacriface for normal use as well
 -- vim.opt.laststatus = 3
+
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.INFO] = "󰋼 ",
+      [vim.diagnostic.severity.HINT] = "󰌵 ",
+    },
+  },
+  -- Only show virtual text if the severity is error
+  virtual_text = {
+    severity = vim.diagnostic.severity.ERROR,
+    severity_sort = true,
+    source = true
+  }
+})

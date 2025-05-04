@@ -139,7 +139,11 @@ require("lazy").setup({
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
-      require("go").setup()
+      require("go").setup({
+        -- Setting this to true would override our vim.diagnostic setup.
+        -- It's a bizarre feature: https://github.com/ray-x/go.nvim/blob/37ec4d9be3edef64b725bfe29684e1fe019873bc/lua/go.lua#L315 🤷‍♂️
+        diagnostic = false
+      })
       require('golang_related_setup')
     end,
     event = { "CmdlineEnter" },
