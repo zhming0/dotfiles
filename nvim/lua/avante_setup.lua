@@ -8,7 +8,9 @@ return {
     provider = "claude",
     cursor_applying_provider = 'groq',
     claude = {
-      model = "claude-3-7-sonnet-latest"
+      model = "claude-sonnet-4-20250514",
+      disable_tools = true,
+      temperature = 0,
     },
     behaviour = {
       enable_cursor_planning_mode = true

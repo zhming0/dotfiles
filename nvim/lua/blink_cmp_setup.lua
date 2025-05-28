@@ -52,14 +52,24 @@ return {
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer', 'emoji', 'ripgrep' },
       providers = {
+        lsp = {
+          score_offset = 10,
+        },
+        buffer = {
+          score_offset = 5,
+        },
+        snippets = {
+          score_offset = 2,
+        },
         ripgrep = {
           name = "Ripgrep",
           module = "blink-ripgrep",
+          score_offset = -1,
         },
         emoji = {
           module = "blink-emoji",
           name = "Emoji",
-          score_offset = 15,        -- Tune by preference
+          score_offset = 1,         -- Tune by preference
           opts = { insert = true }, -- Insert emoji (default) or complete its name
         },
       },
