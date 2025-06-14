@@ -22,23 +22,6 @@ fi
 
 brew bundle
 
-asdf completion fish > ~/.config/fish/completions/asdf.fish
-
-# At this point, probably restarting shell will be ideal.
-
-asdf plugin add nodejs || true
-asdf plugin add java || true
-asdf plugin add terraform || true
-
-asdf install nodejs 20.11.1
-asdf global nodejs 20.11.1
-
-asdf install java openjdk-21
-asdf global java openjdk-21
-
-asdf install terraform latest
-asdf global terraform latest
-
 ./fish/setup.sh
 ./nvim/setup.sh
 ./rust/setup.sh

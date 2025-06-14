@@ -3,7 +3,6 @@ cast "ghostty"
 
 brew "age"
 brew "ansible"
-brew "asdf"
 brew "atuin"
 brew "awscli"
 brew "bash"

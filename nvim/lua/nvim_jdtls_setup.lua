@@ -41,9 +41,9 @@ return {
   "mfussenegger/nvim-jdtls",
   ft = "java",
   config = function()
-    vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-      pattern = {"*.java"},
-      callback = function ()
+    vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+      pattern = { "*.java" },
+      callback = function()
         -- There is a possibility that if I open two java files from two different workspace, it will cause conflict.
         -- So I think that I need to do is to get the root_dir detection to happen for each BufEnter
         -- But I never truly tested it.
@@ -51,7 +51,7 @@ return {
         local project_name = vim.fn.fnamemodify(root_dir, ':p:h:t')
         local config = {
           cmd = {
-            vim.fn.stdpath("data").."/mason/bin/jdtls",
+            vim.fn.stdpath("data") .. "/mason/bin/jdtls",
             '-configuration', get_jdtls_config_dir(),
             '-data', get_jdtls_workspace_dir(project_name),
             get_jdtls_jvm_args()
@@ -60,11 +60,13 @@ return {
 
           settings = {
             java = {
-              home = path_join(env.HOME, ".asdf/installs/java/openjdk-21")
+              -- Do I need to do the same for mise?
+              -- home = path_join(env.HOME, ".asdf/installs/java/openjdk-21")
             }
           }
         }
-        vim.fn.setenv("JAVA_HOME", path_join(env.HOME, ".asdf/installs/java/openjdk-21"))
+        -- Do I need to do the same for mise?
+        -- vim.fn.setenv("JAVA_HOME", path_join(env.HOME, ".asdf/installs/java/openjdk-21"))
         require('jdtls').start_or_attach(config)
       end
     })

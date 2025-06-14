@@ -51,12 +51,6 @@ abbr --add px pnpx
 # This envvar is used by my jdt.ls neovim setup
 set -xg JDTLS_JVM_ARGS "-javaagent:$HOME/.local/java/lombok/lombok.jar"
 
-# Checkout https://github.com/asdf-vm/asdf-ruby#default-gems
-# set -xg ASDF_GEM_DEFAULT_PACKAGES_FILE "$HOME/.config/default-gems"
-
-# Checkout https://github.com/asdf-community/asdf-python
-# set -xg ASDF_GEM_DEFAULT_PACKAGES_FILE "$HOME/.config/default-python-packages"
-
 # Git Abbrs
 abbr --add gaa "git add -A"
 abbr --add gs "git switch"
@@ -99,24 +93,6 @@ set -U fish_greeting
 function fish_greeting
   echo "(ง •̀_•́)ง  ==>  (ง •̀_•́)ง  ==>  ¯\_(ツ)_/¯  ==>  _(:3」∠)_" | lolcat
 end
-
-# The following are copied from https://asdf-vm.com/guide/getting-started.html
-#if test -z $ASDF_DATA_DIR
-#    set _asdf_shims "$HOME/.asdf/shims"
-#else
-#    set _asdf_shims "$ASDF_DATA_DIR/shims"
-#end
-
-# Do not use fish_add_path (added in Fish 3.2) because it
-# potentially changes the order of items in PATH
-#set -gx --prepend PATH $_asdf_shims
-#set --erase _asdf_shims
-
-# Java per https://github.com/halcyon/asdf-java#java_home
-#. ~/.asdf/plugins/java/set-java-home.fish
-
-# Golang
-#. ~/.asdf/plugins/golang/set-env.fish
 
 # pnpm
 set -gx PNPM_HOME "/Users/ming/Library/pnpm"
