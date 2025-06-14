@@ -30,11 +30,6 @@ set -xg EDITOR nvim
 # run: fzf_configure_bindings --help to learn more
 fzf_configure_bindings --directory=\cf
 
-# Colors
-set fish_color_command brwhite --bold
-set fish_color_cwd green
-set fish_color_match brmagenta
-
 # Ripgrep
 set -xg RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgrep.conf
 
