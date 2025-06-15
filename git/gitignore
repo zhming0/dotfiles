@@ -25,4 +25,4 @@ tags.files
 .nvim.local.lua
 
 # Aider history etc
-.aider*
+/.aider*

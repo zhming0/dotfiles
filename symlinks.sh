@@ -30,3 +30,6 @@ ln -sfv $BASEDIR/git/gitconfig ~/.gitconfig
 
 # Jujutsu
 ln -sfv $BASEDIR/bin/jjpr.clj ~/bin/jjpr
+
+# Aider
+ln -sfv $BASEDIR/aider/.aider.conf.yml ~/.aider.conf.yml
