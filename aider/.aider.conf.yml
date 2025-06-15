@@ -3,4 +3,4 @@ auto-commits: false
 model: gemini/gemini-2.5-pro-preview-06-05
 notifications: true
 
-read: [CONVENTIONS.md, AGENT.md]
+read: [CONVENTIONS.md, AGENT.md, ~/.config/AGENT.md]
