@@ -8,8 +8,12 @@ eval ($brew_path shellenv)
 
 # PG's CLI tools
 # https://stackoverflow.com/a/49689589
-set LIBPQ_PATH (fd -t d --full-path . (brew --prefix)"/Cellar/libpq" | grep bin)
-set -xg PATH $LIBPQ_PATH $PATH
+# Only add libpq tools to PATH if pg_dump is not already available
+# When pg_dump is installed, it's likely that the system already have pg cli tools installed in some other way
+if not command -q pg_dump
+  set LIBPQ_PATH (fd -t d --full-path . (brew --prefix)"/Cellar/libpq" | grep bin)
+  set -xg PATH $LIBPQ_PATH $PATH
+end
 
 # Rust tools
 fish_add_path $HOME/.cargo/bin
