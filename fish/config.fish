@@ -102,3 +102,6 @@ end
 
 # uv
 fish_add_path "/Users/ming/.local/bin"
+
+# zoxide
+zoxide init fish | source
