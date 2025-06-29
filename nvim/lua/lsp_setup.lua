@@ -30,12 +30,6 @@ local capabilities = vim.tbl_deep_extend(
   blink_cmp_capabilities
 )
 
--- Used by `nvim-ufo`
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true
-}
-
 local function handle_document_highlight(buffer)
   vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
     buffer = buffer,

@@ -166,9 +166,6 @@ require("lazy").setup({
     lazy = false
   },
 
-  -- Fancy indentation tool
-  require('nvim_ufo_setup'),
-
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
