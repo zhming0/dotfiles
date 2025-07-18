@@ -52,6 +52,7 @@ brew "nss" # Used by caddy so caddy trust works on firefox
 brew "xwmx/taps/hosts"
 brew "mise"
 brew "zoxide"
+brew "gh"
 
 brew "clojure/tools/clojure"
 brew "borkdude/brew/clj-kondo"
