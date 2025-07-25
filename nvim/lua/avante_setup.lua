@@ -6,24 +6,17 @@ return {
   build = "make",
   opts = {
     provider = "claude",
-    cursor_applying_provider = 'groq',
-    claude = {
-      model = "claude-sonnet-4-20250514",
-      disable_tools = true,
-      temperature = 0,
+    providers = {
+      claude = {
+        model = "claude-sonnet-4-20250514",
+        disable_tools = true,
+        extra_request_body = {
+          temperature = 0,
+        }
+      }
     },
     behaviour = {
       enable_cursor_planning_mode = true
-    },
-
-    vendors = {
-      groq = {
-        __inherited_from = "openai",
-        api_key_name = "GROQ_API_KEY",
-        endpoint = "https://api.groq.com/openai/v1/",
-        model = "llama-3.3-70b-versatile",
-        max_tokens = 32768, -- People say: remember to increase this value, otherwise it will stop generating halfway
-      },
     },
 
     windows = {

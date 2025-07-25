@@ -1,5 +1,56 @@
 local vim = vim
 
+local base_capabilities = vim.lsp.protocol.make_client_capabilities()
+local blink_cmp_capabilities = require('blink.cmp').get_lsp_capabilities()
+local capabilities = vim.tbl_deep_extend(
+  "force",
+  base_capabilities,
+  -- cmp_nvim_capabilities,
+  blink_cmp_capabilities
+)
+
+vim.lsp.config('*', {
+  capabilities = capabilities,
+})
+
+vim.lsp.config('jsonls', {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+      validate = { enable = true },
+    },
+  },
+})
+
+vim.lsp.config('harper_ls', {
+  settings = {
+    ["harper-ls"] = {
+      -- https://writewithharper.com/docs/rules
+      linters = {
+        SpellCheck = false, -- This is very annoying
+        SpelledNumbers = false,
+        AnA = true,
+        SentenceCapitalization = false,
+        UnclosedQuotes = true,
+        WrongQuotes = false,
+        LongSentences = true,
+        RepeatedWords = true,
+        Spaces = true,
+        Matcher = true,
+        CorrectNumberSuffix = true,
+      }
+    },
+  },
+})
+
+vim.lsp.config('gopls', {
+  settings = {
+    ["gopls"] = {
+      buildFlags = { "-tags=test" }
+    },
+  },
+})
+
 require("mason").setup()
 require("mason-lspconfig").setup {
   -- To find available names: https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
@@ -19,16 +70,16 @@ require("mason-lspconfig").setup {
     "terraformls",
     "tflint",
   },
-}
 
-local base_capabilities = vim.lsp.protocol.make_client_capabilities()
-local blink_cmp_capabilities = require('blink.cmp').get_lsp_capabilities()
-local capabilities = vim.tbl_deep_extend(
-  "force",
-  base_capabilities,
-  -- cmp_nvim_capabilities,
-  blink_cmp_capabilities
-)
+  acutomatic_enable = {
+    exclude = {
+      -- Skip because we use nvim-jdtls to manage jdtls
+      -- But we still use mason to install the jdt.ls for easiness
+      -- 2025: I am not so sure about this anymore because I code less java lately.
+      "jdtls"
+    }
+  }
+}
 
 local function handle_document_highlight(buffer)
   vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -61,75 +112,10 @@ local function disable_lsp_for_conjure_log_buffer()
   vim.api.nvim_create_autocmd("BufNewFile", {
     group = vim.api.nvim_create_augroup("conjure_log_disable_lsp", { clear = true }),
     pattern = { "conjure-log-*" },
-    callback = function() vim.diagnostic.disable(0) end,
+    callback = function() vim.diagnostic.enable(false) end,
     desc = "Conjure Log disable LSP diagnostics",
   })
 end
-
-
--- This is automatic lsp server setup for all servers in mason
-require("mason-lspconfig").setup_handlers {
-  -- The first entry (without a key) will be the default handler
-  -- and will be called for each installed server that doesn't have
-  -- a dedicated handler.
-  function(server_name) -- default handler (optional)
-    require("lspconfig")[server_name].setup {
-      capabilities = capabilities,
-    }
-  end,
-
-  -- Next, you can provide a dedicated handler for specific servers.
-  ["jsonls"] = function()
-    require('lspconfig').jsonls.setup {
-      capabilities = capabilities,
-      settings = {
-        json = {
-          schemas = require('schemastore').json.schemas(),
-          validate = { enable = true },
-        },
-      },
-    }
-  end,
-
-  ["gopls"] = function()
-    require('lspconfig').gopls.setup {
-      capabilities = capabilities,
-      settings = {
-        gopls = {
-          buildFlags = { "-tags=test" }
-        },
-      },
-    }
-  end,
-
-  ["jdtls"] = function()
-    -- Skip because we use nvim-jdtls to manage jdtls
-    -- But we still use mason to install the jdt.ls for easiness
-  end,
-
-  ["harper_ls"] = function()
-    require('lspconfig').harper_ls.setup {
-      settings = {
-        ["harper-ls"] = {
-          -- https://writewithharper.com/docs/rules
-          linters = {
-            SpellCheck = false, -- This is very annoying
-            SpelledNumbers = false,
-            AnA = true,
-            SentenceCapitalization = false,
-            UnclosedQuotes = true,
-            WrongQuotes = false,
-            LongSentences = true,
-            RepeatedWords = true,
-            Spaces = true,
-            Matcher = true,
-            CorrectNumberSuffix = true,
-          }
-        }
-      },
-    }
-  end
-}
 
 -- language servers
 local lspconfig = require('lspconfig')
