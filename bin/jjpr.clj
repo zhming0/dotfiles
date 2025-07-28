@@ -37,9 +37,11 @@
 
 (defn- get-branch-prefix []
   (->
-   (shell {:out :string} "jj config get git.push-bookmark-prefix")
+   (shell {:out :string} "jj config get operation.username")
    :out
-   string/trim))
+   string/trim
+   ; append /
+   (str "/")))
 
 (defn- scan-until-colon [s]
   (->> s
