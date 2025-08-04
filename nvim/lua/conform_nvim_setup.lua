@@ -20,7 +20,11 @@ return {
       lsp_format = "fallback",
     },
     formatters_by_ft = {
-      prisma = { "prisma_fmt" }
+      prisma = { "prisma_fmt" },
+      typescript = { "biome" },
+      typescriptreact = { "biome" },
+      json = { "biome", lsp_format = "never" },
+      jsonc = { "biome", lsp_format = "never" }
     },
     formatters = {
       prisma_fmt = {
