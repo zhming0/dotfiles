@@ -158,6 +158,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gr', function()
       require("telescope.builtin").lsp_references({
         include_current_line = true, -- somehow this means exclude, which is what I want
+        show_line = false,
       })
     end, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
