@@ -34,3 +34,6 @@ ln -sfv $BASEDIR/bin/jjpr.clj ~/bin/jjpr
 # Aider
 ln -sfv $BASEDIR/aider/.aider.conf.yml ~/.aider.conf.yml
 ln -sfv $BASEDIR/aider/AGENT.md ~/.config/AGENT.md
+
+# sst opencode
+ln -sfv $BASEDIR/aider/AGENT.md ~/.config/opencode/AGENT.md
