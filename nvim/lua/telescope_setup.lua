@@ -8,8 +8,8 @@ return {
   config = function()
     require('telescope').setup {
       defaults = {
-        -- This seems nice on the surface, but doesn't seem to improve my experience.
-        -- path_display = { "smart" },
+        path_display = { "truncate" },
+        dynamic_preview_title = true,
         layout_strategy = "flex",
         layout_config = {
           flex = {
