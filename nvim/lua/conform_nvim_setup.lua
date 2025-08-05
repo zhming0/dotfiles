@@ -23,8 +23,11 @@ return {
       prisma = { "prisma_fmt" },
       typescript = { "biome" },
       typescriptreact = { "biome" },
+      -- JsonLS's formating is not great
       json = { "biome", lsp_format = "never" },
-      jsonc = { "biome", lsp_format = "never" }
+      jsonc = { "biome", lsp_format = "never" },
+      -- jdtls's formatting is pretty odd
+      java = { lsp_format = "never" },
     },
     formatters = {
       prisma_fmt = {
