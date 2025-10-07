@@ -6,3 +6,4 @@ When writing code, you MUST follow these principles:
 - Only use comments when necessary, as they can become outdated. Instead, strive to make the code self-explanatory.
 - When comments are used, they should add useful information that is not readily apparent from the code itself.
 - I prefer immutable, declarative, functional code over imperative code.
+- Avoid unnecessary deep nesting, I believe the happy path is left-aligned.
