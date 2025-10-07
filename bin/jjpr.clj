@@ -19,6 +19,7 @@
    (shell {:out :string} "jj" "log" "--no-graph" "-r" (str default-branch "-..@--") "-T" "local_bookmarks ++ \"\n\"")
    :out
    string/split-lines
+   (->> (filter not-empty))
    first))
 
 (defn find-current-branch []
