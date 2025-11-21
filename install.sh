@@ -31,7 +31,7 @@ brew bundle
 
 # Some helm related setup
 helm plugin install https://github.com/databus23/helm-diff
-helm plugin install https://github.com/jkroepke/helm-secrets --version v4.1.1
+helm plugin install https://github.com/jkroepke/helm-secrets --version v4.6.5
 helm plugin install https://github.com/helm/helm-mapkubeapis
 
 exec -l $SHELL
