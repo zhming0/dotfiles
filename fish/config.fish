@@ -105,3 +105,6 @@ fish_add_path "/Users/ming/.local/bin"
 
 # zoxide
 zoxide init fish | source
+
+# DuckDB
+fish_add_path "/Users/ming/.duckdb/cli/latest"
