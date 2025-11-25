@@ -108,3 +108,7 @@ zoxide init fish | source
 
 # DuckDB
 fish_add_path "/Users/ming/.duckdb/cli/latest"
+
+
+# Despite the fact that mise claim it's automatic, I find it flaky
+mise activate fish | source
