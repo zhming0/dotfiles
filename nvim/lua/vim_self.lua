@@ -123,3 +123,6 @@ vim.diagnostic.config({
     source = true
   }
 })
+
+-- Turn me to debug when I need to debug things
+vim.lsp.set_log_level("off")

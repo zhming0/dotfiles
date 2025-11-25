@@ -68,16 +68,18 @@ require("mason-lspconfig").setup {
     "dockerls",
     "ruby_lsp",
     "harper_ls",
+    "typos_lsp",
+    "harper_ls", -- it slow things down?
     "terraformls",
     "tflint",
   },
 
-  acutomatic_enable = {
+  automatic_enable = {
     exclude = {
       -- Skip because we use nvim-jdtls to manage jdtls
       -- But we still use mason to install the jdt.ls for easiness
       -- 2025: I am not so sure about this anymore because I code less java lately.
-      "jdtls"
+      "jdtls",
     }
   }
 }
