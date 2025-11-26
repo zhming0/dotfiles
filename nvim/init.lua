@@ -218,7 +218,9 @@ require('vim_self')
 require('lsp_setup')
 require('clojure_related_setup')
 
-require('leap').set_default_keymaps()
+vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap)')
+vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
+
 -- require('config-local').setup() -- klen/nvim-config-local
 require('lualine').setup({
   -- https://github.com/folke/noice.nvim/wiki/Configuration-Recipes#show-recording-messages

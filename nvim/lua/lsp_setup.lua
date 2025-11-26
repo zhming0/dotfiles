@@ -57,6 +57,7 @@ require("mason-lspconfig").setup {
   ensure_installed = {
     "ts_ls",
     "pyright",
+    "clojure_lsp",
     -- These 4 are all managed by https://github.com/hrsh7th/vscode-langservers-extracted
     "cssls", "jsonls", "html", "eslint",
     "yamlls", "bashls",
@@ -116,13 +117,6 @@ local function disable_lsp_for_conjure_log_buffer()
     desc = "Conjure Log disable LSP diagnostics",
   })
 end
-
--- language servers
-local lspconfig = require('lspconfig')
--- LSP is managed by me manually.
-lspconfig.clojure_lsp.setup {
-  capabilities = capabilities,
-}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
