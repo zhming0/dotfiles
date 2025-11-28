@@ -121,7 +121,11 @@ vim.diagnostic.config({
     severity = vim.diagnostic.severity.ERROR,
     severity_sort = true,
     source = true
-  }
+  },
+  virtual_lines = {
+    source = true,
+    current_line = true
+  },
 })
 
 -- Turn me to debug when I need to debug things
