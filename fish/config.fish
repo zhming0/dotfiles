@@ -1,3 +1,5 @@
+set -Ux MISE_FISH_AUTO_ACTIVATE 0 # I like deterministic behavior.
+
 # Ensure Brew and binaries that it's managing in the $PATH
 if test (arch) = "arm64"
   set brew_path "/opt/homebrew/bin/brew"
