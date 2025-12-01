@@ -42,6 +42,7 @@ brew "tmux"
 brew "watchman"
 brew "yarn"
 brew "git-town"
+brew "oha" # HTTP Benchmark
 brew "operator-sdk"
 brew "jj"
 brew "websocat"
