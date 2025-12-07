@@ -31,9 +31,6 @@ ln -sfv $BASEDIR/git/gitconfig ~/.gitconfig
 # Jujutsu
 ln -sfv $BASEDIR/bin/jjpr.clj ~/bin/jjpr
 
-# Aider
-ln -sfv $BASEDIR/aider/.aider.conf.yml ~/.aider.conf.yml
-ln -sfv $BASEDIR/aider/AGENT.md ~/.config/AGENT.md
-
 # sst opencode
-ln -sfv $BASEDIR/aider/AGENT.md ~/.config/opencode/AGENT.md
+ln -sfv $BASEDIR/opencode/AGENTS.md ~/.config/opencode/AGENTS.md
+ln -sfv $BASEDIR/opencode/plugin ~/.config/opencode/plugin

@@ -1,6 +1,0 @@
-dark-mode: true
-auto-commits: false
-model: gemini/gemini-2.5-pro
-notifications: true
-
-read: [CONVENTIONS.md, AGENT.md, ~/.config/AGENT.md]
