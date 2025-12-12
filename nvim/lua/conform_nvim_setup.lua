@@ -28,6 +28,19 @@ return {
       -- jdtls's formatting is pretty odd
       java = { lsp_format = "never" },
       clojure = { "cljstyle" },
+      yaml = { lsp_format = "never" },
+     },
+     formatters = {
+       prisma_fmt = {
+         command = "pnpx",
+         args = {
+           "prisma",
+           "format",
+           "--schema",
+           "$FILENAME"
+         },
+         stdin = false -- Prisma formatter doesn't accept stdin
+       }
     },
   },
 

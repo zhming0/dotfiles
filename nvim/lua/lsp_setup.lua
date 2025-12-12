@@ -46,7 +46,7 @@ vim.lsp.config('harper_ls', {
 vim.lsp.config('gopls', {
   settings = {
     ["gopls"] = {
-      buildFlags = { "-tags=test" }
+      buildFlags = { "-tags=test,e2e" }
     },
   },
 })
