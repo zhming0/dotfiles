@@ -7,3 +7,6 @@ When writing code, you MUST follow these principles:
 - When comments are used, they should add useful information that is not readily apparent from the code itself.
 - I prefer immutable, declarative, functional code over imperative code.
 - Avoid unnecessary deep nesting, I believe the happy path is left-aligned.
+
+**React/JSX**:
+- If a JSX block requires parsing rather than scanning — dense `className`, multiple props, event handlers, coordinated values — extract it. Use a variable for simple cases, a component when it needs encapsulation.
