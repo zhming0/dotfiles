@@ -26,3 +26,6 @@ tags.files
 
 # Aider history etc
 /.aider*
+
+# My desinated tmp folder for every repo.
+/.tmp
