@@ -33,4 +33,9 @@ ln -sfv $BASEDIR/bin/jjpr.clj ~/bin/jjpr
 
 # sst opencode
 ln -sfv $BASEDIR/opencode/AGENTS.md ~/.config/opencode/AGENTS.md
-ln -sfv $BASEDIR/opencode/plugin ~/.config/opencode/plugin
+ln -sfnv $BASEDIR/opencode/plugin ~/.config/opencode/plugin
+
+# Claude Code
+mkdir -p ~/.claude
+ln -sfv $BASEDIR/claude/settings.json ~/.claude/settings.json
+ln -sfv $BASEDIR/opencode/AGENTS.md ~/.claude/CLAUDE.md
