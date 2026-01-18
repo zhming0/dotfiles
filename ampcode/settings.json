@@ -1,0 +1,46 @@
+{
+  "amp.visibility": "private",
+  "amp.permissions": [
+    {
+      "tool": "Bash",
+      "action": "allow"
+    },
+    {
+      "tool": "Read",
+      "action": "allow"
+    },
+    {
+      "tool": "Write",
+      "action": "allow"
+    },
+    {
+      "tool": "Edit",
+      "action": "allow"
+    },
+    {
+      "tool": "Glob",
+      "action": "allow"
+    },
+    {
+      "tool": "Grep",
+      "action": "allow"
+    },
+    {
+      "tool": "WebFetch",
+      "action": "allow"
+    },
+    {
+      "tool": "WebSearch",
+      "action": "allow"
+    },
+    {
+      "tool": "NotebookEdit",
+      "action": "allow"
+    },
+    {
+      "tool": "mcp__*",
+      "action": "allow"
+    }
+  ],
+  "amp.notifications.enabled": true
+}

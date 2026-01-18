@@ -41,5 +41,10 @@ mkdir -p ~/.claude
 ln -sfv $BASEDIR/claude/settings.json ~/.claude/settings.json
 ln -sfv $BASEDIR/opencode/AGENTS.md ~/.claude/CLAUDE.md
 
+# Amp Code
+mkdir -p ~/.config/amp
+ln -sfv $BASEDIR/ampcode/settings.json ~/.config/amp/settings.json
+ln -sfv $BASEDIR/opencode/AGENTS.md ~/.config/amp/AGENTS.md
+
 # add-skill CLI
 ln -sfv $BASEDIR/bin/add-skill.clj ~/bin/add-skill
