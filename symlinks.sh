@@ -39,3 +39,6 @@ ln -sfnv $BASEDIR/opencode/plugin ~/.config/opencode/plugin
 mkdir -p ~/.claude
 ln -sfv $BASEDIR/claude/settings.json ~/.claude/settings.json
 ln -sfv $BASEDIR/opencode/AGENTS.md ~/.claude/CLAUDE.md
+
+# add-skill CLI
+ln -sfv $BASEDIR/bin/add-skill.clj ~/bin/add-skill

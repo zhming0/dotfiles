@@ -14,7 +14,7 @@
     "deny": []
   },
   "sandbox": {
-    "enabled": true,
+    "enabled": false,
     "autoAllowBashIfSandboxed": true
   },
   "hooks": {
