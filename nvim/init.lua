@@ -208,6 +208,15 @@ require("lazy").setup({
 
   -- This seems useful but I have no use case just yet, enable me when timing is right!
   -- {'TreyBastian/nvim-jack-in', config = true},
+
+  {
+    "sindrets/diffview.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>dv", "<cmd>DiffviewOpen<CR>", desc = "Open diffview" },
+      { "<leader>dq", "<cmd>DiffviewClose<CR>", desc = "Close diffview" },
+    },
+  },
 }, {
   defaults = {
     lazy = false
