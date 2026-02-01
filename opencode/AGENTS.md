@@ -5,6 +5,7 @@ When writing code, you MUST follow these principles:
 - Functions should be small, ideally doing one thing. They should not exceed a few dozens of lines.
 - Only use comments when necessary, as they can become outdated. Instead, strive to make the code self-explanatory.
 - When comments are used, they should add useful information that is not readily apparent from the code itself.
+- When you are editing existing code, unless necessary, do preserve existing comments.
 - I prefer immutable, declarative, functional code over imperative code.
 - Avoid unnecessary deep nesting, I believe the happy path is left-aligned.
 
