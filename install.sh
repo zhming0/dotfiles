@@ -28,13 +28,12 @@ brew bundle
 ./tmux/setup.sh
 ./go/setup.sh
 ./ruby/setup.sh
+./clojure/setup.sh
 
 # Some helm related setup
 helm plugin install https://github.com/databus23/helm-diff
 helm plugin install https://github.com/jkroepke/helm-secrets --version v4.6.5
 helm plugin install https://github.com/helm/helm-mapkubeapis
-
-bbin install https://github.com/bhauman/clojure-mcp-light.git --tag v0.2.1 --as clj-nrepl-eval --main-opts '["-m" "clojure-mcp-light.nrepl-eval"]'
 
 ./agent-skills/setup.clj
 

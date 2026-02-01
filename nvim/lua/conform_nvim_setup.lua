@@ -14,13 +14,12 @@ return {
       if ft == "go" then
         return
       end
-      return { timeout_ms = 5000, lsp_format = "fallback" }
+      return { timeout_ms = 5000 }
     end,
     default_format_opts = {
       lsp_format = "fallback",
     },
     formatters_by_ft = {
-      prisma = { "prisma_fmt" },
       typescript = { "biome" },
       typescriptreact = { "biome" },
       -- JsonLS's formating is not great
@@ -28,18 +27,7 @@ return {
       jsonc = { "biome", lsp_format = "never" },
       -- jdtls's formatting is pretty odd
       java = { lsp_format = "never" },
-    },
-    formatters = {
-      prisma_fmt = {
-        command = "pnpx",
-        args = {
-          "prisma",
-          "format",
-          "--schema",
-          "$FILENAME"
-        },
-        stdin = false -- Prisma formatter doesn't accept stdin
-      }
+      clojure = { "cljstyle" },
     },
   },
 

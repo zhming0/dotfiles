@@ -4,5 +4,11 @@
     "external_directory": {
       "/tmp/**": "allow"
     }
+  },
+  "formatter": {
+    "prettier": {
+      "command": [ "cljstyle", "fix", "$FILE" ],
+      "extensions": [ ".clj", ".cljc", ".edn" ]
+    },
   }
 }
