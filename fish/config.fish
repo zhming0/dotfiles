@@ -70,9 +70,10 @@ abbr --add k "kubectl"
 # JJ abbrs
 abbr --add jjn "jj git fetch && jj new main" # JJ new
 abbr --add jjsync "jj git fetch && jj rebase -b @ -d main" # JJ sync/rebase the whole branch
+abbr --add jjc "jj commit -m"
 abbr --add jjgp "jj git push --allow-new"
 abbr --add jjgpa "jj git push --all"
-abbr --add jjbc "jj b c"
+abbr --add jjpm "jj b set main -r @- && jj git push" # This is only useful for single user repo.
 
 
 export CONTAINERS_MACHINE_PROVIDER=applehv
