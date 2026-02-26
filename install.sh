@@ -32,7 +32,11 @@ brew bundle
 
 # Some helm related setup
 helm plugin install https://github.com/databus23/helm-diff
-helm plugin install https://github.com/jkroepke/helm-secrets --version v4.6.5
+
+helm plugin install https://github.com/jkroepke/helm-secrets/releases/download/v4.7.4/secrets-4.7.4.tgz --verify=false
+helm plugin install https://github.com/jkroepke/helm-secrets/releases/download/v4.7.4/secrets-getter-4.7.4.tgz --verify=false
+helm plugin install https://github.com/jkroepke/helm-secrets/releases/download/v4.7.4/secrets-post-renderer-4.7.4.tgz --verify=false
+
 helm plugin install https://github.com/helm/helm-mapkubeapis
 
 ./agent-skills/setup.clj
