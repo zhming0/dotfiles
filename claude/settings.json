@@ -13,10 +13,6 @@
     ],
     "deny": []
   },
-  "sandbox": {
-    "enabled": false,
-    "autoAllowBashIfSandboxed": true
-  },
   "hooks": {
     "Stop": [
       {
@@ -28,5 +24,9 @@
         ]
       }
     ]
+  },
+  "sandbox": {
+    "enabled": false,
+    "autoAllowBashIfSandboxed": true
   }
 }

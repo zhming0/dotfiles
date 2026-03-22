@@ -6,9 +6,12 @@
     }
   },
   "formatter": {
-    "prettier": {
-      "command": [ "cljstyle", "fix", "$FILE" ],
-      "extensions": [ ".clj", ".cljc", ".edn" ]
+    "cljfmt": {
+      "disabled": true
     },
+    "cljstyle": {
+      "command": ["cljstyle", "fix", "$FILE"],
+      "extensions": [".clj", ".cljs", ".cljc", ".edn"]
+    }
   }
 }
