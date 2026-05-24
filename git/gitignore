@@ -29,3 +29,4 @@ tags.files
 
 # My desinated tmp folder for every repo.
 /.tmp
+/.cache

@@ -5,13 +5,5 @@
       "/tmp/**": "allow"
     }
   },
-  "formatter": {
-    "cljfmt": {
-      "disabled": true
-    },
-    "cljstyle": {
-      "command": ["cljstyle", "fix", "$FILE"],
-      "extensions": [".clj", ".cljs", ".cljc", ".edn"]
-    }
-  }
+  "formatter": false
 }
