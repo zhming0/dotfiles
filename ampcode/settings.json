@@ -42,5 +42,6 @@
       "action": "allow"
     }
   ],
-  "amp.notifications.enabled": true
+  "amp.notifications.enabled": true,
+  "amp.gauge": "cost"
 }

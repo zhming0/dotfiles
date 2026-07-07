@@ -22,27 +22,6 @@ vim.lsp.config('jsonls', {
   },
 })
 
-vim.lsp.config('harper_ls', {
-  settings = {
-    ["harper-ls"] = {
-      -- https://writewithharper.com/docs/rules
-      linters = {
-        SpellCheck = false, -- This is very annoying
-        SpelledNumbers = false,
-        AnA = true,
-        SentenceCapitalization = false,
-        UnclosedQuotes = true,
-        WrongQuotes = false,
-        LongSentences = true,
-        RepeatedWords = true,
-        Spaces = true,
-        Matcher = true,
-        CorrectNumberSuffix = true,
-      }
-    },
-  },
-})
-
 vim.lsp.config('gopls', {
   settings = {
     ["gopls"] = {
@@ -67,9 +46,7 @@ require("mason-lspconfig").setup {
     "golangci_lint_ls",
     "dockerls",
     "ruby_lsp",
-    "harper_ls",
     "typos_lsp",
-    "harper_ls", -- it slow things down?
     "terraformls",
     "tflint",
   },
