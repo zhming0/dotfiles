@@ -5,25 +5,28 @@
 ;; Usage:
 ;;   setup.clj
 ;;
-;; Add or remove repos from the `repos` vector to manage your skills.
+;; Add or remove entries from the `skills` vector to manage your skills.
 
 (require '[babashka.process :refer [shell]])
 
-(def repos
+(def skills
   ;; This allows Agent to know to use Clojure REPL!
-  ["bhauman/clojure-mcp-light"
+  [{:repo "bhauman/clojure-mcp-light"}
 
-   ;; A generic playwright browser test skill
-   ;; Note this one needs npm setup to function.
-   "lackeyjb/playwright-skill"])
+   ;; Official Playwright browser automation skill (Microsoft)
+   {:repo "microsoft/playwright-cli"
+    :skill "playwright-cli"}])
 
-(defn install-repo! [repo]
+(defn install-skill! [{:keys [repo skill]}]
   (println (str "\n=== " repo " ==="))
-  (shell {:out :inherit :err :inherit} "add-skill" repo))
+  (apply shell {:out :inherit :err :inherit}
+         (concat ["npx" "-y" "skills" "add" repo
+                  "--global" "--copy" "--yes"]
+                 (when skill ["--skill" skill]))))
 
 (defn -main [& _]
-  (doseq [repo repos]
-    (install-repo! repo)))
+  (doseq [s skills]
+    (install-skill! s)))
 
 ;; TODO: we will do some symlinks using my own skills later
 

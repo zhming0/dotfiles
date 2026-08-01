@@ -29,6 +29,7 @@ brew bundle
 ./go/setup.sh
 ./ruby/setup.sh
 ./clojure/setup.sh
+./mise/setup.sh
 
 # Some helm related setup
 helm plugin install https://github.com/databus23/helm-diff
